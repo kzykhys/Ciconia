@@ -175,7 +175,7 @@ Testing
 Install or update `dev` dependencies.
 
 ```
-php composer.phar updated --dev
+php composer.phar update --dev
 ```
 
 and run `phpunit`
