@@ -81,6 +81,7 @@ class MarkdownTest extends \PHPUnit_Framework_TestCase
     {
         $md = new \Ciconia\Ciconia();
         $md->addExtension(new \Ciconia\Extension\Gfm\InlineStyleExtension());
+        $md->addExtension(new \Ciconia\Extension\Gfm\WhiteSpaceExtension());
 
         $raw = 'foo_bar_baz';
         $out = $md->render($raw);

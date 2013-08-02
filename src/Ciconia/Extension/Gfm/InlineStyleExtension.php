@@ -27,7 +27,7 @@ class InlineStyleExtension implements ExtensionInterface
      */
     public function register(Markdown $markdown)
     {
-        $markdown->on('inline', array($this, 'processMultipleUnderScore'), 0);
+        $markdown->on('inline', array($this, 'processMultipleUnderScore'), 10);
     }
 
     /**
