@@ -33,7 +33,7 @@ create a `composer.json`
 ``` json
 {
     "require": {
-        "kzykhys/ciconia": "0.1.*"
+        "kzykhys/ciconia": "dev-master"
     }
 }
 ```
