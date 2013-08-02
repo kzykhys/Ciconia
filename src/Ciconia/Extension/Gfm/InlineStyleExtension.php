@@ -20,14 +20,14 @@ class InlineStyleExtension implements ExtensionInterface
     /**
      * @var array
      */
-    private $hashes;
+    private $hashes = array();
 
     /**
      * {@inheritdoc}
      */
     public function register(Markdown $markdown)
     {
-        $markdown->on('inline', array($this, 'processMultipleUnderScore'), 10);
+        $markdown->on('inline', array($this, 'processMultipleUnderScore'), 0);
     }
 
     /**
