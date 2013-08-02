@@ -10,14 +10,14 @@ Ciconia is the collection of extension, so you can replace, add or remove each p
 
 *   Based on John Gruber's Markdown.pl
 
-*   [Github flavored markdown](https://help.github.com/articles/github-flavored-markdown) support (disabled by default)
+*   [Github Flavored Markdown](https://help.github.com/articles/github-flavored-markdown) support (disabled by default)
 
     * Multiple underscores in words
     * New lines
     * Fenced code blocks
     * Task lists
 
-*   Tested with karlcow/markdown-testsuite
+*   Tested with [karlcow/markdown-testsuite](https://github.com/karlcow/markdown-testsuite)
 
 Requirements
 ------------
