@@ -1,0 +1,25 @@
+{
+    "name": "kzykhys/ciconia",
+    "description": "The Markdown parser for PHP5.4",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kazuyuki Hayashi",
+            "email": "hayashi@valnur.net"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    },
+    "require": {
+        "php": ">5.4.0",
+        "symfony/options-resolver": "2.3.x",
+        "symfony/console":"2.3.x"
+    },
+    "require-dev": {
+        "symfony/finder": "2.3.x"
+    }
+}

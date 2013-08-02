@@ -1,0 +1,1 @@
+This is an automatic email link <foolspam@example.org>
