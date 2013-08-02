@@ -1,6 +1,10 @@
 Ciconia - A New Markdown Parser for PHP
 =======================================
 
+[![Latest Stable Version](https://poser.pugx.org/kzykhys/ciconia/v/stable.png)](https://packagist.org/packages/kzykhys/ciconia)
+[![Build Status](https://travis-ci.org/kzykhys/Ciconia.png?branch=master)](https://travis-ci.org/kzykhys/Ciconia)
+[![Coverage Status](https://coveralls.io/repos/kzykhys/Ciconia/badge.png?branch=master)](https://coveralls.io/r/kzykhys/Ciconia?branch=master)
+
 The Markdown parser for PHP5.4, it is fully extensible.
 Ciconia is the collection of extension, so you can replace, add or remove each parsing mechanism.
 
