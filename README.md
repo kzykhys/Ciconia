@@ -10,14 +10,14 @@ Ciconia is the collection of extension, so you can replace, add or remove each p
 
 *   Based on John Gruber's Markdown.pl
 
-*   Github flavored markdown support. (disabled by default)
+*   [Github flavored markdown](https://help.github.com/articles/github-flavored-markdown) support (disabled by default)
 
     * Multiple underscores in words
     * New lines
     * Fenced code blocks
     * Task lists
 
-*   Tested with markdown-testsuite.
+*   Tested with karlcow/markdown-testsuite
 
 Requirements
 ------------
@@ -77,8 +77,7 @@ $html = $ciconia->render('Markdown is **awesome**');
 // <p>Markdown is <em>awesome</em></p>
 ```
 
-Options
--------
+### Options
 
 Option         | Type    | Default | Description                   |
 ---------------|---------|---------|-------------------------------|
@@ -90,6 +89,21 @@ use Ciconia\Ciconia;
 
 $ciconia = new Ciconia();
 $html = $ciconia->render('Markdown is **awesome**', array('tabWidth' => 8, 'nestedTagLevel' => 5));
+```
+
+Rendering HTML or XHTML
+-----------------------
+
+Ciconia renders HTML by default. If you prefer XHTML:
+
+``` php
+use Ciconia\Ciconia;
+use Ciconia\Renderer\XhtmlRenderer;
+
+$ciconia = new Ciconia(new XhtmlRenderer());
+$html = $ciconia->render('Markdown is **awesome**');
+
+// <p>Markdown is <em>awesome</em></p>
 ```
 
 Extend Ciconia
@@ -168,6 +182,14 @@ Possible events are:
 | finalize   | Called after `block`                                                                      |
 
 [See the source code of Extensions](src/Ciconia/Extension)
+
+### Create your own Renderer
+
+Ciconia supports HTML/XHTML output. but if you prefer customizing the output,
+just create a class that implements `Ciconia\Renderer\RendererInterface`.
+
+See [Ciconia\Renderer\RendererInterface](src/Ciconia/Renderer/RendererInterface)
+
 
 Testing
 -------
