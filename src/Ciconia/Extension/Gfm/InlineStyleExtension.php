@@ -53,7 +53,8 @@ class InlineStyleExtension implements ExtensionInterface
             });
 
             if (count($underscores) >= 2) {
-                $w->replace('/_/', '\\_');
+                //$w->replace('/_/', '\\_');
+                $w->replaceString('_', '\\_');
             }
 
             return $w;
