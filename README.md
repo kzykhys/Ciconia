@@ -188,7 +188,7 @@ Possible events are:
 Ciconia supports HTML/XHTML output. but if you prefer customizing the output,
 just create a class that implements `Ciconia\Renderer\RendererInterface`.
 
-See [Ciconia\Renderer\RendererInterface](src/Ciconia/Renderer/RendererInterface)
+See [Ciconia\Renderer\RendererInterface](src/Ciconia/Renderer/RendererInterface.php)
 
 
 Testing
