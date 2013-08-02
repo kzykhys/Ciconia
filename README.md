@@ -97,7 +97,7 @@ Extend Ciconia
 
 ### How to Extend
 
-Creating extension is easy, just implement `ExtensionInterface`.
+Creating extension is easy, just implement `Ciconia\Extension\ExtensionInterface`.
 
 Your class must implement 2 methods.
 
@@ -131,6 +131,7 @@ class YourExtension implements ExtensionInterface
         // Necessary if your extension calls another event
         $this->markdown = $markdown;
 
+        // Register a callback
         $markdown->on('block', array($this, 'processBlock'));
     }
 
@@ -171,7 +172,7 @@ Possible events are:
 Testing
 -------
 
-Install of update `dev` dependencies.
+Install or update `dev` dependencies.
 
 ```
 php composer.phar updated --dev
@@ -188,5 +189,3 @@ Author
 ------
 
 Kazuyuki Hayashi (@kzykhys)
-github.com/kzykhys
-twitter.com/kzykhys
