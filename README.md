@@ -158,7 +158,7 @@ class YourExtension implements ExtensionInterface
     public function processBlock(Text $text)
     {
         // Do regexp's
-        $text->replace('/foo(bar)(baz)/', function (Text $whole, Text $bar, $text $baz) {
+        $text->replace('/foo(bar)(baz)/', function (Text $whole, Text $bar, Text $baz) {
             // You can call other events registered by other extension
             $this->markdown->emit('inline', $bar);
 
