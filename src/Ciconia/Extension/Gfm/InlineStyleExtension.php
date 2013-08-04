@@ -2,9 +2,12 @@
 
 namespace Ciconia\Extension\Gfm;
 
+use Ciconia\Common\Tag;
 use Ciconia\Common\Text;
 use Ciconia\Extension\ExtensionInterface;
 use Ciconia\Markdown;
+use Ciconia\Renderer\RendererAwareInterface;
+use Ciconia\Renderer\RendererAwareTrait;
 
 /**
  * Original source code from GitHub Flavored Markdown
@@ -14,8 +17,10 @@ use Ciconia\Markdown;
  *
  * @author Kazuyuki Hayashi <hayashi@valnur.net>
  */
-class InlineStyleExtension implements ExtensionInterface
+class InlineStyleExtension implements ExtensionInterface, RendererAwareInterface
 {
+
+    use RendererAwareTrait;
 
     /**
      * @var array
@@ -28,6 +33,7 @@ class InlineStyleExtension implements ExtensionInterface
     public function register(Markdown $markdown)
     {
         $markdown->on('inline', array($this, 'processMultipleUnderScore'), 10);
+        $markdown->on('inline', array($this, 'processStrikeThrough'), 70);
     }
 
     /**
@@ -53,7 +59,6 @@ class InlineStyleExtension implements ExtensionInterface
             });
 
             if (count($underscores) >= 2) {
-                //$w->replace('/_/', '\\_');
                 $w->replaceString('_', '\\_');
             }
 
@@ -63,6 +68,19 @@ class InlineStyleExtension implements ExtensionInterface
         /** @noinspection PhpUnusedParameterInspection */
         $text->replace('/\{gfm-extraction-([0-9a-f]{32})\}/m', function (Text $w, Text $md5) {
             return "\n\n" . $this->hashes[(string)$md5];
+        });
+    }
+
+    /**
+     * Strike-through `~~word~~` to `<del>word</del>`
+     *
+     * @param Text $text
+     */
+    public function processStrikeThrough(Text $text)
+    {
+        /** @noinspection PhpUnusedParameterInspection */
+        $text->replace('{ (~~) (?=\S) (.+?) (?<=\S) \1 }sx', function (Text $w, Text $a, Text $target) {
+            return $this->getRenderer()->renderTag('del', $target, Tag::TYPE_INLINE);
         });
     }
 

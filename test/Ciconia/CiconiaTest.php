@@ -89,6 +89,17 @@ class MarkdownTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('<p>foo_bar_baz</p>', $out);
     }
 
+    public function testGfmStrikeThrough()
+    {
+        $md = new \Ciconia\Ciconia();
+        $md->addExtension(new \Ciconia\Extension\Gfm\InlineStyleExtension());
+
+        $raw = '~~strike~~';
+        $out = $md->render($raw);
+
+        $this->assertEquals('<p><del>strike</del></p>', $out);
+    }
+
     public function testGfmLineBreaks()
     {
         $md = new \Ciconia\Ciconia();
@@ -99,6 +110,9 @@ class MarkdownTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("<p>apple<br>\npear<br>\norange</p>\n\n<p>ruby<br>\npython<br>\nerlang</p>", $md->render("apple\npear\norange\n\nruby\npython\nerlang"));
     }
 
+    /**
+     * Disable this test because Github's gfm sample page seems to be broken
+     */
     public function XtestGfm()
     {
         $this->markTestSkipped();
