@@ -147,8 +147,10 @@ class HtmlRenderer implements RendererInterface
     /**
      * {@inheritdoc}
      */
-    public function renderTag($tagName, $content, $tagType = Tag::TYPE_BLOCK,array $options = array())
+    public function renderTag($tagName, $content, $tagType = Tag::TYPE_BLOCK, array $options = array())
     {
+        $options = $this->createResolver()->resolve($options);
+
         $tag = new Tag($tagName);
         $tag->setType($tagType);
         $tag->setText($content);
