@@ -5,6 +5,8 @@ Ciconia - A New Markdown Parser for PHP
 [![Build Status](https://travis-ci.org/kzykhys/Ciconia.png?branch=master)](https://travis-ci.org/kzykhys/Ciconia)
 [![Coverage Status](https://coveralls.io/repos/kzykhys/Ciconia/badge.png?branch=master)](https://coveralls.io/r/kzykhys/Ciconia?branch=master)
 
+**This project is _unstable_** until 1.0.0 (see [milestones](https://github.com/kzykhys/Ciconia/issues/milestones))
+
 The Markdown parser for PHP5.4, it is fully extensible.
 Ciconia is the collection of extension, so you can replace, add or remove each parsing mechanism.
 
@@ -190,6 +192,38 @@ just create a class that implements `Ciconia\Renderer\RendererInterface`.
 
 See [Ciconia\Renderer\RendererInterface](src/Ciconia/Renderer/RendererInterface.php)
 
+Command Line Interface
+----------------------
+
+Basic Usage: (Outputs result to STDOUT)
+
+    ciconia /path/to/file.md
+
+Following command saves result to file:
+
+    ciconia /path/to/file.md > /path/to/file.html
+
+Or using pipe (On Windows in does't work):
+
+    echo "Markdown is **awesome**" | ciconia
+
+### Command Line Options
+
+```
+ --gfm                 Activate Gfm extensions
+ --compress (-c)       Remove whitespace between HTML tags
+ --format (-f)         Output format (html|xhtml) (default: "html")
+```
+
+CLI script will be installed in `vendor/bin/ciconia` by default.
+To change the location:
+
+> Yes, there are two ways an alternate vendor binary location can be specified:
+>
+> 1. Setting the bin-dir configuration setting in composer.json
+> 2. Setting the environment variable COMPOSER_BIN_DIR
+
+[http://getcomposer.org/doc/articles/vendor-binaries.md](http://getcomposer.org/doc/articles/vendor-binaries.md)
 
 Testing
 -------
