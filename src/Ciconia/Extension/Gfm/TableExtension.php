@@ -68,8 +68,6 @@ class TableExtension implements ExtensionInterface, RendererAwareInterface
                 (?:.*\n?)*
             )\n\n
         /mx', function (Text $w, Text $header, Text $rule, Text $body) use ($options) {
-            //var_dump($header, $rule, $body);
-
             // Escape pipe to hash, so you can include pipe in cells by escaping it like this: `\\|`
             $this->escapePipes($header);
             $this->escapePipes($rule);
