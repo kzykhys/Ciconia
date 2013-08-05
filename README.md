@@ -237,7 +237,7 @@ You can also use [single phar file](https://github.com/kzykhys/Ciconia/releases/
 ciconia.phar /path/to/file.md
 ```
 
-If you prefer access this command globally.
+If you prefer access this command globally, download [ciconia.phar](https://github.com/kzykhys/Ciconia/releases/download/v0.1.2/ciconia.phar) and move it into your `PATH`.
 
 ```
 mv ciconia.phar /usr/local/bin/ciconia
