@@ -123,7 +123,10 @@ class TableExtension implements ExtensionInterface, RendererAwareInterface
             $table = new Tag('table');
             $table->setText("\n" . $tHead . "\n" . $tBody . "\n");
 
-            return $table->render() . "\n\n";
+            $html = new Text($table->render());
+            $this->unescapePipes($html);
+
+            return $html . "\n\n";
         });
     }
 
@@ -159,6 +162,14 @@ class TableExtension implements ExtensionInterface, RendererAwareInterface
     protected function escapePipes(Text $text)
     {
         $text->replaceString('\\|', $this->hash);
+    }
+
+    /**
+     * @param Text $text
+     */
+    protected function unescapePipes(Text $text)
+    {
+        $text->replaceString($this->hash, '|');
     }
 
     /**
