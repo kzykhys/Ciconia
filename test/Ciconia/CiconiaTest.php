@@ -1,7 +1,7 @@
 <?php
 
 
-class MarkdownTest extends \PHPUnit_Framework_TestCase
+class CiconiaTest extends \PHPUnit_Framework_TestCase
 {
 
     public function testTemp()
@@ -151,6 +151,20 @@ class MarkdownTest extends \PHPUnit_Framework_TestCase
 
         $out = $md->render("\n\n- [ ] Task 1\n- [x] Completed task\n- [x] Task 2\n\n");
         $this->assertEquals("<ul>\n<li><input type=\"checkbox\"> Task 1</li>\n<li><input type=\"checkbox\" checked=\"checked\"> Completed task</li>\n<li><input type=\"checkbox\" checked=\"checked\"> Task 2</li>\n</ul>", $out);
+    }
+
+    public function testManipulateExtensions()
+    {
+        $md = new \Ciconia\Ciconia();
+        $this->assertTrue($md->hasExtension(new \Ciconia\Extension\Core\EscaperExtension()));
+        $this->assertFalse($md->removeExtension(new \Ciconia\Extension\Core\EscaperExtension())->hasExtension('escaper'));
+        $this->assertTrue($md->addExtension(new \Ciconia\Extension\Gfm\InlineStyleExtension())->hasExtension('gfmInlineStyle'));
+    }
+
+    public function testRenderer()
+    {
+        $md = new \Ciconia\Ciconia(new \Ciconia\Renderer\XhtmlRenderer());
+        $this->assertInstanceOf('Ciconia\\Renderer\\XhtmlRenderer', $md->getRenderer());
     }
 
 }

@@ -1,0 +1,13 @@
+#!/usr/bin/env php
+<?php
+
+use Ciconia\Console\Application;
+
+if (PHP_SAPI !== 'cli') {
+    echo 'Ciconia command should be run on the CLI environment.' . PHP_EOL;
+}
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$app = new Application('Ciconia', \Ciconia\Ciconia::VERSION);
+$app->run();

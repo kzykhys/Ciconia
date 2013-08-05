@@ -24,7 +24,7 @@ use Ciconia\Renderer\RendererInterface;
 class Ciconia
 {
 
-    const VERSION = '0.0.1';
+    const VERSION = '0.1.1';
 
     /**
      * @var RendererInterface
@@ -131,6 +131,20 @@ class Ciconia
         $this->extensions->remove($extension);
 
         return $this;
+    }
+
+    /**
+     * @param string|object $extension
+     *
+     * @return boolean
+     */
+    public function hasExtension($extension)
+    {
+        if ($extension instanceof ExtensionInterface) {
+            $extension = $extension->getName();
+        }
+
+        return $this->extensions->exists($extension);
     }
 
     /**
