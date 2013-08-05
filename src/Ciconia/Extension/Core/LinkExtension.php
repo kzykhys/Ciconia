@@ -4,6 +4,7 @@ namespace Ciconia\Extension\Core;
 
 use Ciconia\Common\Collection;
 use Ciconia\Common\Text;
+use Ciconia\Exception\SyntaxError;
 use Ciconia\Extension\ExtensionInterface;
 use Ciconia\Renderer\RendererAwareInterface;
 use Ciconia\Renderer\RendererAwareTrait;
@@ -81,9 +82,10 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
     /**
      * Handle reference-style links: [link text] [id]
      *
-     * @param Text $text
+     * @param Text  $text
+     * @param array $options
      */
-    public function processReferencedLink(Text $text)
+    public function processReferencedLink(Text $text, array $options = array())
     {
         /** @noinspection PhpUnusedParameterInspection */
         $text->replace('{
@@ -99,7 +101,7 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
                 (.*?)       # id = $3
               \]
             )
-        }xs', function (Text $w, Text $whole, Text $linkText, Text $id = null) {
+        }xs', function (Text $w, Text $whole, Text $linkText, Text $id = null) use ($options) {
             if (is_null($id) || (string) $id == '') {
                 $id = new Text($linkText);
                 $id->lower();
@@ -116,6 +118,10 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
                 }
                 return $result->append(">$linkText</a>");
             } else {
+                if ($options['strict']) {
+                    throw new SyntaxError(sprintf('Unable to find id "%s" in Reference-style link', $id));
+                }
+
                 return $whole;
             }
         });

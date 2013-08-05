@@ -185,4 +185,29 @@ class CiconiaTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $md->render($markdown), $name);
     }
 
+    public function testStrictModeDisabled()
+    {
+        $md = new \Ciconia\Ciconia();
+
+        $expected = file_get_contents(__DIR__ . '/Resources/core/link-ref-not-exists.out');
+        $expected = str_replace("\r\n", "\n", $expected);
+        $expected = str_replace("\r", "\n", $expected);
+
+        $out = $md->render(file_get_contents(__DIR__ . '/Resources/core/link-ref-not-exists.md'));
+
+        $this->assertEquals($expected, $out);
+    }
+
+    /**
+     * @expectedException Ciconia\Exception\SyntaxError
+     */
+    public function testReferenceLinkHasInvalidIdOnStrictMode()
+    {
+        $md = new \Ciconia\Ciconia();
+        $md->render(
+            file_get_contents(__DIR__ . '/Resources/core/link-ref-not-exists.md'),
+            array('strict' => true)
+        );
+    }
+
 }
