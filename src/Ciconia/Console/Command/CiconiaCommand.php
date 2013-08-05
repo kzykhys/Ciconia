@@ -18,6 +18,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Command-line interface
  *
+ * ### Tips: Add ciconia command inside your Symfony bundle
+ *
+ * 1. Add a dependency to your composer.json `"kzykhys/ciconia":"dev-master"`
+ * 2. Just create a command that extends `Ciconia\Console\Command\CiconiaCommand` into bundle's `Command` directory.
+ *
  * @author Kazuyuki Hayashi <hayashi@valnur.net>
  */
 class CiconiaCommand extends Command
@@ -80,6 +85,16 @@ class CiconiaCommand extends Command
         return 0;
     }
 
+    /**
+     * Get markdown content from input
+     *
+     * Warning: Reading from STDIN always fails on Windows
+     *
+     * @param InputInterface $input
+     *
+     * @return string
+     * @throws \InvalidArgumentException
+     */
     protected function handleInput(InputInterface $input)
     {
         if ($file = $input->getArgument('file')) {
@@ -125,6 +140,8 @@ class CiconiaCommand extends Command
     }
 
     /**
+     * --help
+     *
      * @return string
      */
     protected function getHelpContent()
