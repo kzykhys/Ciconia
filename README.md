@@ -195,6 +195,8 @@ See [Ciconia\Renderer\RendererInterface](src/Ciconia/Renderer/RendererInterface.
 Command Line Interface
 ----------------------
 
+### Usage
+
 Basic Usage: (Outputs result to STDOUT)
 
     ciconia /path/to/file.md
@@ -215,6 +217,8 @@ Or using pipe (On Windows in does't work):
  --format (-f)         Output format (html|xhtml) (default: "html")
 ```
 
+### Where is the script?
+
 CLI script will be installed in `vendor/bin/ciconia` by default.
 To change the location:
 
@@ -224,6 +228,20 @@ To change the location:
 > 2. Setting the environment variable COMPOSER_BIN_DIR
 
 [http://getcomposer.org/doc/articles/vendor-binaries.md](http://getcomposer.org/doc/articles/vendor-binaries.md)
+
+### Using PHAR version
+
+You can also use [single phar file](https://github.com/kzykhys/Ciconia/releases/download/v0.1.2/ciconia.phar)
+
+```
+ciconia.phar /path/to/file.md
+```
+
+If you prefer access this command globally.
+
+```
+mv ciconia.phar /usr/local/bin/ciconia
+```
 
 Testing
 -------
