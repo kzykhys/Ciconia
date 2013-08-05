@@ -82,6 +82,14 @@ class Markdown implements EmitterInterface
     }
 
     /**
+     * @return array
+     */
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
+    /**
      * @param OptionsResolverInterface $resolver
      */
     protected function setDefaultOptions(OptionsResolverInterface $resolver)
@@ -89,12 +97,13 @@ class Markdown implements EmitterInterface
         $resolver->setDefaults(array(
             'tabWidth' => 4,
             'nestedTagLevel' => 3,
-            //'emptyTagSuffix' => '>'
+            'strict' => false
         ));
 
         $resolver->setAllowedTypes(array(
             'tabWidth' => 'integer',
-            'nestedTagLevel' => 'integer'
+            'nestedTagLevel' => 'integer',
+            'strict' => 'bool'
         ));
     }
 
