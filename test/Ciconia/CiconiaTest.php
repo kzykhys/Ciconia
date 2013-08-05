@@ -4,24 +4,6 @@
 class CiconiaTest extends \PHPUnit_Framework_TestCase
 {
 
-    public function testTemp()
-    {
-        $md = new \Ciconia\Ciconia(new \Ciconia\Renderer\XhtmlRenderer());
-
-        $finder = new \Symfony\Component\Finder\Finder();
-        $finder->in(__DIR__.'/Resources/markdown')->files()->name('blockquote*.md');
-
-        /* @var \Symfony\Component\Finder\SplFileInfo $file */
-        foreach ($finder as $file) {
-            $name = preg_replace('/\.(md|out)$/', '', $file->getFilename());
-
-            $expected = trim(preg_replace('/\r\n/', "\n", file_get_contents(preg_replace('/\.md$/', '.out', $file->getPathname()))));
-            $result = $md->render($file->getContents());
-
-            $this->assertEquals($expected, $result, $name);
-        }
-    }
-
     /**
      * @return array
      */
@@ -44,7 +26,6 @@ class CiconiaTest extends \PHPUnit_Framework_TestCase
 
         return $patterns;
     }
-
 
     /**
      * @param $name
@@ -165,6 +146,43 @@ class CiconiaTest extends \PHPUnit_Framework_TestCase
     {
         $md = new \Ciconia\Ciconia(new \Ciconia\Renderer\XhtmlRenderer());
         $this->assertInstanceOf('Ciconia\\Renderer\\XhtmlRenderer', $md->getRenderer());
+    }
+
+    /**
+     * @return array
+     */
+    public function tableProvider()
+    {
+        $patterns = array();
+
+        $finder = new \Symfony\Component\Finder\Finder();
+        $finder->in(__DIR__.'/Resources/gfm')->files()->name('table-*.md');
+
+        /* @var \Symfony\Component\Finder\SplFileInfo $file */
+        foreach ($finder as $file) {
+            $name = preg_replace('/\.(md|out)$/', '', $file->getFilename());
+            $patterns[] = array(
+                $name,
+                $file->getContents(),
+                trim(file_get_contents(preg_replace('/\.md$/', '.out', $file->getPathname())))
+            );
+        }
+
+        return $patterns;
+    }
+
+    /**
+     * @dataProvider tableProvider
+     */
+    public function testGfmTable($name, $markdown, $expected)
+    {
+        $md = new \Ciconia\Ciconia();
+        $md->addExtension(new \Ciconia\Extension\Gfm\TableExtension());
+
+        $expected = str_replace("\r\n", "\n", $expected);
+        $expected = str_replace("\r", "\n", $expected);
+
+        $this->assertEquals($expected, $md->render($markdown), $name);
     }
 
 }
