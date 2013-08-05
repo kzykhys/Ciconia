@@ -30,4 +30,13 @@ class TagTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('<p></p>', $tag);
     }
 
+    public function testAttributes()
+    {
+        $tag = new \Ciconia\Common\Tag('p');
+        $tag->setAttribute('class', 'attr-class');
+        $tag->setAttribute('id', 'attr-id');
+
+        $this->assertEquals(array('class' => 'attr-class', 'id' => 'attr-id'), iterator_to_array($tag->getAttributes()));
+    }
+
 }

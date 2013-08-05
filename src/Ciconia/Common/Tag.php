@@ -157,6 +157,14 @@ class Tag
     }
 
     /**
+     * @return Collection
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
      * @return string
      */
     public function render()
