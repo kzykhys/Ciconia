@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+
+use Ciconia\Console\Command\CompileCommand;
+use Symfony\Component\Console\Application;
+
+if (PHP_SAPI !== 'cli') {
+    die('Compile command must be run on the CLI environment.');
+}
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$app = new Application('Ciconia Compiler', \Ciconia\Ciconia::VERSION);
+$app->add(new CompileCommand());
+$app->run();
