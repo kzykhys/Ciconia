@@ -1,6 +1,7 @@
 {
     "name": "kzykhys/ciconia",
     "description": "The Markdown parser for PHP5.4",
+    "keywords": ["markdown", "parser", "cli"],
     "license": "MIT",
     "authors": [
         {
