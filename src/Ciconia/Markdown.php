@@ -3,6 +3,7 @@
 namespace Ciconia;
 
 use Ciconia\Common\Collection;
+use Ciconia\Common\Text;
 use Ciconia\Event\EmitterInterface;
 use Ciconia\Event\EmitterTrait;
 use Ciconia\Renderer\RendererInterface;
@@ -45,16 +46,23 @@ class Markdown implements EmitterInterface
     private $titleRegistry;
 
     /**
+     * @var Text
+     */
+    private $rawContent;
+
+    /**
      * @param Renderer\RendererInterface $renderer
+     * @param Common\Text                $rawContent
      * @param array                      $options
      */
-    public function __construct(RendererInterface $renderer, array $options = array())
+    public function __construct(RendererInterface $renderer, Text $rawContent = null, array $options = array())
     {
         $this->renderer = $renderer;
         $this->options = $this->parseOptions($options);
         $this->hashRegistry = new HashRegistry();
         $this->urlRegistry = new Collection();
         $this->titleRegistry = new Collection();
+        $this->rawContent = $rawContent;
     }
 
     /**
@@ -87,6 +95,14 @@ class Markdown implements EmitterInterface
     public function getOptions()
     {
         return $this->options;
+    }
+
+    /**
+     * @return Text
+     */
+    public function getRawContent()
+    {
+        return $this->rawContent;
     }
 
     /**

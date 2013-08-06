@@ -89,7 +89,10 @@ class ImageExtension implements ExtensionInterface, RendererAwareInterface
                     return $this->getRenderer()->renderImage($url, array('attr' => $attr));
                 } else {
                     if ($options['strict']) {
-                        throw new SyntaxError(sprintf('Unable to find id "%s" in Reference-style image', $id));
+                        throw new SyntaxError(
+                            sprintf('Unable to find id "%s" in Reference-style image', $id),
+                            $this, $w, $this->markdown
+                        );
                     }
 
                     return $whole;

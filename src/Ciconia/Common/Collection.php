@@ -139,7 +139,9 @@ class Collection implements \IteratorAggregate, \Countable
     public function each(callable $callable)
     {
         foreach ($this->objects as $key => $value) {
-            call_user_func_array($callable, array($value, $key));
+            if (false === call_user_func_array($callable, array($value, $key))) {
+                break;
+            }
         }
 
         return $this;

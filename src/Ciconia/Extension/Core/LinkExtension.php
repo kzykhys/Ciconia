@@ -119,7 +119,10 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
                 return $result->append(">$linkText</a>");
             } else {
                 if ($options['strict']) {
-                    throw new SyntaxError(sprintf('Unable to find id "%s" in Reference-style link', $id));
+                    throw new SyntaxError(
+                        sprintf('Unable to find id "%s" in Reference-style link', $id),
+                        $this, $w, $this->markdown
+                    );
                 }
 
                 return $whole;
