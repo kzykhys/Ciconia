@@ -185,29 +185,51 @@ class CiconiaTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $md->render($markdown), $name);
     }
 
-    public function testStrictModeDisabled()
+    /**
+     * @return array
+     */
+    public function strictModeProvider()
     {
-        $md = new \Ciconia\Ciconia();
+        $patterns = array();
 
-        $expected = file_get_contents(__DIR__ . '/Resources/core/link-ref-not-exists.out');
-        $expected = str_replace("\r\n", "\n", $expected);
-        $expected = str_replace("\r", "\n", $expected);
+        $finder = new \Symfony\Component\Finder\Finder();
+        $finder->in(__DIR__.'/Resources/core/strict')->files()->name('*.md');
 
-        $out = $md->render(file_get_contents(__DIR__ . '/Resources/core/link-ref-not-exists.md'));
+        /* @var \Symfony\Component\Finder\SplFileInfo $file */
+        foreach ($finder as $file) {
+            $name = preg_replace('/\.(md|out)$/', '', $file->getFilename());
+            $patterns[] = array(
+                $name,
+                $file->getContents(),
+                trim(file_get_contents(preg_replace('/\.md$/', '.out', $file->getPathname())))
+            );
+        }
 
-        $this->assertEquals($expected, $out);
+        return $patterns;
     }
 
     /**
-     * @expectedException Ciconia\Exception\SyntaxError
+     * @dataProvider strictModeProvider
      */
-    public function testReferenceLinkHasInvalidIdOnStrictMode()
+    public function testStrictModeDisabled($name, $markdown, $expected)
     {
         $md = new \Ciconia\Ciconia();
-        $md->render(
-            file_get_contents(__DIR__ . '/Resources/core/link-ref-not-exists.md'),
-            array('strict' => true)
-        );
+
+        $expected = str_replace("\r\n", "\n", $expected);
+        $expected = str_replace("\r", "\n", $expected);
+
+        $this->assertEquals($expected, $md->render($markdown), $name);
+    }
+
+    /**
+     * @dataProvider strictModeProvider
+     * @expectedException Ciconia\Exception\SyntaxError
+     */
+    public function testReferenceLinkHasInvalidIdOnStrictMode($name, $markdown, $expected)
+    {
+        $md = new \Ciconia\Ciconia();
+
+        $md->render($markdown, array('strict' => true));
     }
 
 }

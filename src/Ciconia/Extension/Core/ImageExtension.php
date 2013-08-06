@@ -3,6 +3,7 @@
 namespace Ciconia\Extension\Core;
 
 use Ciconia\Common\Text;
+use Ciconia\Exception\SyntaxError;
 use Ciconia\Extension\ExtensionInterface;
 use Ciconia\Renderer\RendererAwareInterface;
 use Ciconia\Renderer\RendererAwareTrait;
@@ -87,6 +88,10 @@ class ImageExtension implements ExtensionInterface, RendererAwareInterface
 
                     return $this->getRenderer()->renderImage($url, array('attr' => $attr));
                 } else {
+                    if ($options['strict']) {
+                        throw new SyntaxError(sprintf('Unable to find id "%s" in Reference-style image', $id));
+                    }
+
                     return $whole;
                 }
             }
@@ -103,7 +108,7 @@ class ImageExtension implements ExtensionInterface, RendererAwareInterface
      */
     public function processInlineImage(Text $text, array $options = array())
     {
-        /** @noinspection PhpUnusedParameterInspection */
+        /** @xnoinspection PhpUnusedParameterInspection */
         $text->replace(
             '{
                 (               # wrap whole match in $1
