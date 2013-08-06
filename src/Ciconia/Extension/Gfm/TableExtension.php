@@ -46,6 +46,14 @@ class TableExtension implements ExtensionInterface, RendererAwareInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'table'; // Not gfmTable
+    }
+
+    /**
      * Gfm tables
      *
      * @param Text  $text
@@ -53,18 +61,20 @@ class TableExtension implements ExtensionInterface, RendererAwareInterface
      */
     public function processTable(Text $text, array $options = array())
     {
+        $lessThanTab = $options['tabWidth'] - 1;
+
         $text->replace('/^
-            (?:[ ]{0,3}      #  table header
-                (?:\|?)      #  optional outer pipe
-                (.*?)        #1 table header
-                (?:\|?)      #  optional outer pipe
+            (?:[ ]{0,' . $lessThanTab . '}      #  table header
+                (?:\|?)                         #  optional outer pipe
+                (.*?)                           #1 table header
+                (?:\|?)                         #  optional outer pipe
             )\n
-            (?:[ ]{0,3}      #  second line
-                (?:\|?)      #  optional outer pipe
-                ([-:| ]+?)   #2 dashes and pipes
-                (?:\|?)      #  optional outer pipe
+            (?:[ ]{0,' . $lessThanTab . '}      #  second line
+                (?:\|?)                         #  optional outer pipe
+                ([-:| ]+?)                      #2 dashes and pipes
+                (?:\|?)                         #  optional outer pipe
             )\n
-            [ ]{0,3}(        #3 table body
+            [ ]{0,' . $lessThanTab . '}(        #3 table body
                 (?:.*\n?)*
             )\n\n
         /mx', function (Text $w, Text $header, Text $rule, Text $body) use ($options) {
@@ -103,31 +113,43 @@ class TableExtension implements ExtensionInterface, RendererAwareInterface
                 $bodyRows->add($cells);
             });
 
-            $tHeadRow = new Tag('tr');
-            $tHeadRow->setText("\n" . $headerCells->join("\n") . "\n");
+            $html = $this->createView($headerCells, $bodyRows);
 
-            $tHead = new Tag('thead');
-            $tHead->setText("\n" . $tHeadRow . "\n");
-
-            $tBody = new Tag('tbody');
-
-            $bodyRows->apply(function (Collection $row) use (&$options) {
-                $tr = new Tag('tr');
-                $tr->setText("\n" . $row->join("\n") . "\n");
-
-                return $tr;
-            });
-
-            $tBody->setText("\n" .$bodyRows->join("\n") . "\n");
-
-            $table = new Tag('table');
-            $table->setText("\n" . $tHead . "\n" . $tBody . "\n");
-
-            $html = new Text($table->render());
             $this->unescapePipes($html);
 
             return $html . "\n\n";
         });
+    }
+
+    /**
+     * @param Collection $headerCells
+     * @param Collection $bodyRows
+     *
+     * @return Text
+     */
+    protected function createView(Collection $headerCells, Collection $bodyRows)
+    {
+        $tHeadRow = new Tag('tr');
+        $tHeadRow->setText("\n" . $headerCells->join("\n") . "\n");
+
+        $tHead = new Tag('thead');
+        $tHead->setText("\n" . $tHeadRow . "\n");
+
+        $tBody = new Tag('tbody');
+
+        $bodyRows->apply(function (Collection $row) use (&$options) {
+            $tr = new Tag('tr');
+            $tr->setText("\n" . $row->join("\n") . "\n");
+
+            return $tr;
+        });
+
+        $tBody->setText("\n" .$bodyRows->join("\n") . "\n");
+
+        $table = new Tag('table');
+        $table->setText("\n" . $tHead . "\n" . $tBody . "\n");
+
+        return new Text($table->render());
     }
 
     /**
@@ -170,14 +192,6 @@ class TableExtension implements ExtensionInterface, RendererAwareInterface
     protected function unescapePipes(Text $text)
     {
         $text->replaceString($this->hash, '|');
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getName()
-    {
-        return 'table'; // Not gfmTable
     }
 
 }
