@@ -214,6 +214,7 @@ class CiconiaTest extends \PHPUnit_Framework_TestCase
     public function testStrictModeDisabled($name, $markdown, $expected)
     {
         $md = new \Ciconia\Ciconia();
+        $md->addExtension(new \Ciconia\Extension\Gfm\TableExtension());
 
         $expected = str_replace("\r\n", "\n", $expected);
         $expected = str_replace("\r", "\n", $expected);
@@ -228,6 +229,7 @@ class CiconiaTest extends \PHPUnit_Framework_TestCase
     public function testReferenceLinkHasInvalidIdOnStrictMode($name, $markdown, $expected)
     {
         $md = new \Ciconia\Ciconia();
+        $md->addExtension(new \Ciconia\Extension\Gfm\TableExtension());
 
         $md->render($markdown, array('strict' => true));
     }

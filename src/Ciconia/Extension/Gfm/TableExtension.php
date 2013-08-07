@@ -5,6 +5,7 @@ namespace Ciconia\Extension\Gfm;
 use Ciconia\Common\Collection;
 use Ciconia\Common\Tag;
 use Ciconia\Common\Text;
+use Ciconia\Exception\SyntaxError;
 use Ciconia\Extension\ExtensionInterface;
 use Ciconia\Markdown;
 use Ciconia\Renderer\HtmlRenderer;
@@ -83,38 +84,19 @@ class TableExtension implements ExtensionInterface, RendererAwareInterface
             $this->escapePipes($rule);
             $this->escapePipes($body);
 
-            $baseTags = $this->createBaseTags($rule->split('/\|/'));
+            try {
+                $baseTags    = $this->createBaseTags($rule->split('/\|/'));
+                $headerCells = $this->parseHeader($header, $baseTags);
+                $bodyRows    = $this->parseBody($body, $baseTags);
+            } catch (SyntaxError $e) {
+                if ($options['strict']) {
+                    throw $e;
+                }
 
-            $headerCells = new Collection();
-            $bodyRows = new Collection();
-
-            $header->split('/\|/')->each(function (Text $cell, $index) use ($baseTags, &$headerCells) {
-                /* @var Tag $tag */
-                $tag = clone $baseTags->get($index);
-                $tag->setName('th');
-                $this->markdown->emit('inline', array($cell));
-                $tag->setText($cell->trim());
-
-                $headerCells->add($tag);
-            });
-
-            $body->split('/\n/')->each(function (Text $row) use ($baseTags, &$bodyRows) {
-                $row->trim()->trim('|');
-                $cells = new Collection();
-                $row->split('/\|/')->each(function (Text $cell, $index) use (&$baseTags, &$cells) {
-                    /* @var Tag $tag */
-                    $tag = clone $baseTags->get($index);
-                    $this->markdown->emit('inline', array($cell));
-                    $tag->setText($cell->trim());
-
-                    $cells->add($tag);
-                });
-
-                $bodyRows->add($cells);
-            });
+                return $w;
+            }
 
             $html = $this->createView($headerCells, $bodyRows);
-
             $this->unescapePipes($html);
 
             return $html . "\n\n";
@@ -176,6 +158,74 @@ class TableExtension implements ExtensionInterface, RendererAwareInterface
         });
 
         return $baseTags;
+    }
+
+    /**
+     * @param Text       $header
+     * @param Collection $baseTags
+     *
+     * @throws \Ciconia\Exception\SyntaxError
+     *
+     * @return Collection
+     */
+    protected function parseHeader(Text $header, Collection $baseTags)
+    {
+        $cells = new Collection();
+
+        $header->split('/\|/')->each(function (Text $cell, $index) use ($baseTags, &$cells) {
+            /* @var Tag $tag */
+            $tag = clone $baseTags->get($index);
+            $tag->setName('th');
+            $this->markdown->emit('inline', array($cell));
+            $tag->setText($cell->trim());
+
+            $cells->add($tag);
+        });
+
+        if ($baseTags->count() != $cells->count()) {
+            throw new SyntaxError(
+                'Unexpected number of table cells in header.',
+                $this, $header, $this->markdown
+            );
+        }
+
+        return $cells;
+    }
+
+    /**
+     * @param Text       $body
+     * @param Collection $baseTags
+     *
+     * @return Collection
+     */
+    protected function parseBody(Text $body, Collection $baseTags)
+    {
+        $rows = new Collection();
+
+        $body->split('/\n/')->each(function (Text $row) use ($baseTags, &$rows) {
+            $row->trim()->trim('|');
+
+            $cells = new Collection();
+            $row->split('/\|/')->each(function (Text $cell, $index) use (&$baseTags, &$cells) {
+                /* @var Tag $tag */
+                $tag = clone $baseTags->get($index);
+                $this->markdown->emit('inline', array($cell));
+                $tag->setText($cell->trim());
+
+                $cells->add($tag);
+            });
+
+            if ($baseTags->count() != $cells->count()) {
+                throw new SyntaxError(
+                    'Unexpected number of table cells in body.',
+                    $this, $row, $this->markdown
+                );
+            }
+
+            $rows->add($cells);
+        });
+
+        return $rows;
     }
 
     /**
