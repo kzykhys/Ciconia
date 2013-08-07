@@ -1,12 +1,11 @@
 <?php
 
-
 use Ciconia\Console\Application;
 use Ciconia\Console\Command\CiconiaCommand;
 use Symfony\Component\Console\Tester\CommandTester;
 
 /**
- * @author Kazuyuki Hayashi <>
+ * @author Kazuyuki Hayashi <hayashi@valnur.net>
  */
 class CiconiaCommandTest extends \PHPUnit_Framework_TestCase
 {
@@ -87,6 +86,22 @@ class CiconiaCommandTest extends \PHPUnit_Framework_TestCase
         $tester->execute(array('file' => $file, '--compress' => true));
 
         $this->assertEquals($expected, $tester->getDisplay(true));
+    }
+
+    /**
+     *
+     */
+    public function testCommandWithLintOption()
+    {
+        $file   = __DIR__ . '/../../Resources/core/strict/table-invalid-body.md';
+        $tester = $this->createCommandTester();
+        $return = $tester->execute(array('file' => $file, '--lint' => true, '--gfm' => true));
+        $this->assertEquals(1, $return);
+
+        $file   = __DIR__ . '/../../Resources/gfm/table-simple.md';
+        $tester = $this->createCommandTester();
+        $return = $tester->execute(array('file' => $file, '--lint' => true, '--gfm' => true));
+        $this->assertEquals(0, $return);
     }
 
     /**

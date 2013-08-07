@@ -215,6 +215,7 @@ Or using pipe (On Windows in does't work):
  --gfm                 Activate Gfm extensions
  --compress (-c)       Remove whitespace between HTML tags
  --format (-f)         Output format (html|xhtml) (default: "html")
+ --lint (-l)           Syntax check only (lint)
 ```
 
 ### Where is the script?

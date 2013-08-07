@@ -3,8 +3,10 @@
 namespace Ciconia\Console\Command;
 
 use Ciconia\Ciconia;
+use Ciconia\Exception\SyntaxError;
 use Ciconia\Extension\Gfm\FencedCodeBlockExtension;
 use Ciconia\Extension\Gfm\InlineStyleExtension;
+use Ciconia\Extension\Gfm\TableExtension;
 use Ciconia\Extension\Gfm\TaskListExtension;
 use Ciconia\Extension\Gfm\WhiteSpaceExtension;
 use Ciconia\Renderer\XhtmlRenderer;
@@ -41,6 +43,7 @@ class CiconiaCommand extends Command
             ->addOption('compress', 'c', InputOption::VALUE_NONE, 'Remove whitespace between HTML tags')
             //->addOption('profile', null, InputOption::VALUE_NONE, 'Display events and extensions information')
             ->addOption('format', 'f', InputOption::VALUE_OPTIONAL, 'Output format (html|xhtml)', 'html')
+            ->addOption('lint', 'l', InputOption::VALUE_NONE, 'Syntax check only (lint)')
             ->setHelp($this->getHelpContent())
         ;
     }
@@ -70,8 +73,13 @@ class CiconiaCommand extends Command
                 new FencedCodeBlockExtension(),
                 new InlineStyleExtension(),
                 new TaskListExtension(),
-                new WhiteSpaceExtension()
+                new WhiteSpaceExtension(),
+                new TableExtension()
             ));
+        }
+
+        if ($input->getOption('lint')) {
+            return $this->lint($output, $ciconia, $content);
         }
 
         $html = $ciconia->render($content);
@@ -92,8 +100,9 @@ class CiconiaCommand extends Command
      *
      * @param InputInterface $input
      *
-     * @return string
      * @throws \InvalidArgumentException
+     *
+     * @return string
      */
     protected function handleInput(InputInterface $input)
     {
@@ -138,6 +147,30 @@ class CiconiaCommand extends Command
         $help->setCommand($this);
         $help->run($input, $output);
     }
+
+    /**
+     * Lints the content
+     *
+     * @param OutputInterface $output
+     * @param Ciconia         $ciconia
+     * @param                 $content
+     *
+     * @return int
+     */
+    protected function lint(OutputInterface $output, Ciconia $ciconia, $content)
+    {
+        try {
+            $ciconia->render($content, array('strict' => true));
+            $output->writeln('No syntax errors detected.');
+
+            return 0;
+        } catch (SyntaxError $e) {
+            $output->writeln('<error>' . $e->getMessage() . '</error>');
+
+            return 1;
+        }
+    }
+
 
     /**
      * --help
