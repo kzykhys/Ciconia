@@ -64,21 +64,20 @@ class TableExtension implements ExtensionInterface, RendererAwareInterface
     {
         $lessThanTab = $options['tabWidth'] - 1;
 
-        $text->replace('/^
+        $text->replace('/
+            (?:\n\n|\A)
             (?:[ ]{0,' . $lessThanTab . '}      #  table header
                 (?:\|?)                         #  optional outer pipe
-                (.*?)                           #1 table header
+                ([^\n]*?\|[^\n]*?)              #1 table header
                 (?:\|?)                         #  optional outer pipe
             )\n
             (?:[ ]{0,' . $lessThanTab . '}      #  second line
                 (?:\|?)                         #  optional outer pipe
-                ([-:| ]+?)                      #2 dashes and pipes
+                ([-:\| ]+?\|[-:\| ]+?)          #2 dashes and pipes
                 (?:\|?)                         #  optional outer pipe
             )\n
-            [ ]{0,' . $lessThanTab . '}(        #3 table body
-                (?:.*\n?)*
-            )\n\n
-        /mx', function (Text $w, Text $header, Text $rule, Text $body) use ($options) {
+            (.*?)\n{2,}                         #3 table body
+        /smx', function (Text $w, Text $header, Text $rule, Text $body) use ($options) {
             // Escape pipe to hash, so you can include pipe in cells by escaping it like this: `\\|`
             $this->escapePipes($header);
             $this->escapePipes($rule);
