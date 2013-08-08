@@ -171,15 +171,22 @@ class TableExtension implements ExtensionInterface, RendererAwareInterface
     {
         $cells = new Collection();
 
-        $header->split('/\|/')->each(function (Text $cell, $index) use ($baseTags, &$cells) {
-            /* @var Tag $tag */
-            $tag = clone $baseTags->get($index);
-            $tag->setName('th');
-            $this->markdown->emit('inline', array($cell));
-            $tag->setText($cell->trim());
+        try {
+            $header->split('/\|/')->each(function (Text $cell, $index) use ($baseTags, &$cells) {
+                /* @var Tag $tag */
+                $tag = clone $baseTags->get($index);
+                $tag->setName('th');
+                $this->markdown->emit('inline', array($cell));
+                $tag->setText($cell->trim());
 
-            $cells->add($tag);
-        });
+                $cells->add($tag);
+            });
+        } catch (\OutOfBoundsException $e) {
+            throw new SyntaxError(
+                'Too much cells on table header.',
+                $this, $header, $this->markdown, $e
+            );
+        }
 
         if ($baseTags->count() != $cells->count()) {
             throw new SyntaxError(
@@ -201,18 +208,26 @@ class TableExtension implements ExtensionInterface, RendererAwareInterface
     {
         $rows = new Collection();
 
-        $body->split('/\n/')->each(function (Text $row) use ($baseTags, &$rows) {
+        $body->split('/\n/')->each(function (Text $row, $index) use ($baseTags, &$rows) {
             $row->trim()->trim('|');
 
             $cells = new Collection();
-            $row->split('/\|/')->each(function (Text $cell, $index) use (&$baseTags, &$cells) {
-                /* @var Tag $tag */
-                $tag = clone $baseTags->get($index);
-                $this->markdown->emit('inline', array($cell));
-                $tag->setText($cell->trim());
 
-                $cells->add($tag);
-            });
+            try {
+                $row->split('/\|/')->each(function (Text $cell, $index) use (&$baseTags, &$cells) {
+                    /* @var Tag $tag */
+                    $tag = clone $baseTags->get($index);
+                    $this->markdown->emit('inline', array($cell));
+                    $tag->setText($cell->trim());
+
+                    $cells->add($tag);
+                });
+            } catch (\OutOfBoundsException $e) {
+                throw new SyntaxError(
+                    sprintf('Too much cells on table body (row #%d).', $index),
+                    $this, $row, $this->markdown, $e
+                );
+            }
 
             if ($baseTags->count() != $cells->count()) {
                 throw new SyntaxError(

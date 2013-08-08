@@ -55,10 +55,16 @@ class Collection implements \IteratorAggregate, \Countable
      *
      * @param string $name
      *
+     * @throws \OutOfBoundsException
+     *
      * @return mixed
      */
     public function get($name)
     {
+        if (!$this->exists($name)) {
+            throw new \OutOfBoundsException(sprintf('Undefined offset "%s"', $name));
+        }
+
         return $this->objects[(string)$name];
     }
 
