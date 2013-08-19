@@ -9,7 +9,7 @@ use Ciconia\Extension\Core\ListExtension;
 /**
  * Further, lists can be turned into Task Lists by prefacing list items with [ ] or [x] (incomplete or complete, respectively).
  *
- * This extension replace Core\ListExtension
+ * This extension replaces Core\ListExtension
  *
  * @author Kazuyuki Hayashi <hayashi@valnur.net>
  */
