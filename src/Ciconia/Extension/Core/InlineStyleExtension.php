@@ -27,7 +27,7 @@ class InlineStyleExtension implements ExtensionInterface, RendererAwareInterface
     public function register(Markdown $markdown)
     {
         $markdown->on('inline', array($this, 'processBold'), 70);
-        $markdown->on('inline', array($this, 'processItalic'), 70);
+        $markdown->on('inline', array($this, 'processItalic'), 71);
     }
 
     /**
