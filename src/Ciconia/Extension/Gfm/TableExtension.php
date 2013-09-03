@@ -98,7 +98,7 @@ class TableExtension implements ExtensionInterface, RendererAwareInterface
             $html = $this->createView($headerCells, $bodyRows);
             $this->unescapePipes($html);
 
-            return $html . "\n\n";
+            return "\n\n" . $html . "\n\n";
         });
     }
 
