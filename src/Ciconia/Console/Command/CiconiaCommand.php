@@ -186,7 +186,7 @@ Translates markdown into html and displays to STDOUT
 Following command saves result to file
   <info>%command.name% /path/to/file.md > /path/to/file.html</info>
 
-Or using pipe (On Windows in does't work)
+Or using pipe (On Windows it does't work)
   <info>echo "Markdown is **awesome**" | %command.name%</info>
 EOT;
     }
