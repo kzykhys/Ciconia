@@ -138,8 +138,12 @@ use Ciconia\Markdown;
 
 class YourExtension implements ExtensionInterface
 {
-    // Necessary if your extension calls other events
-    $this->markdown;
+
+    /**
+     * Necessary if your extension calls other events
+     * $this->markdown;
+     *
+     */
 
     //@implement
     public function register(Markdown $markdown)
