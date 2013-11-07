@@ -5,6 +5,11 @@ namespace Ciconia;
 use Ciconia\Common\Collection;
 use Ciconia\Common\Text;
 
+/**
+ * Manages hash and raw text
+ *
+ * @author Kazuyuki Hayashi <hayashi@valnur.net>
+ */
 class HashRegistry extends Collection
 {
 

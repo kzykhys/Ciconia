@@ -24,7 +24,7 @@ use Ciconia\Renderer\RendererInterface;
 class Ciconia
 {
 
-    const VERSION = '0.1.1';
+    const VERSION = '0.1.4';
 
     /**
      * @var RendererInterface

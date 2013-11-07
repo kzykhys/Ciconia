@@ -8,7 +8,7 @@ namespace Ciconia\Common;
 class Tag
 {
 
-    const TYPE_BLOCK = 'block';
+    const TYPE_BLOCK  = 'block';
     const TYPE_INLINE = 'inline';
 
     /**

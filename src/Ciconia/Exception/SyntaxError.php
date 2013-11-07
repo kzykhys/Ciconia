@@ -40,11 +40,11 @@ class SyntaxError extends MarkdownException
     private $rawMessage = '';
 
     /**
-     * @param string             $message
-     * @param ExtensionInterface $extension
-     * @param Text               $text
-     * @param Markdown           $markdown
-     * @param \Exception         $previous
+     * @param string             $message   [optional] The Exception message to throw.
+     * @param ExtensionInterface $extension [optional] The extension that triggers this error
+     * @param Text               $text      [optional] The text contains syntax error
+     * @param Markdown           $markdown  [optional]
+     * @param \Exception         $previous  [optional] The previous exception used for the exception chaining
      */
     public function __construct(
         $message = '',

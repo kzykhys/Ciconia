@@ -5,7 +5,6 @@ namespace Ciconia\Console;
 use Ciconia\Console\Command\CiconiaCommand;
 use Symfony\Component\Console\Application as BaseApplication;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Run Ciconia as a single command application.

@@ -2,8 +2,6 @@
 
 namespace Ciconia\Event;
 
-use Ciconia\Event\EmitterInterface;
-
 /**
  * Implementation of EmitterAwareInterface
  *

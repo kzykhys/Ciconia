@@ -51,18 +51,20 @@ class Markdown implements EmitterInterface
     private $rawContent;
 
     /**
+     * Constructor
+     *
      * @param Renderer\RendererInterface $renderer
-     * @param Common\Text                $rawContent
-     * @param array                      $options
+     * @param Common\Text                $rawContent [optional] The whole content
+     * @param array                      $options    [optional] An array of options
      */
     public function __construct(RendererInterface $renderer, Text $rawContent = null, array $options = array())
     {
-        $this->renderer = $renderer;
-        $this->options = $this->parseOptions($options);
-        $this->hashRegistry = new HashRegistry();
-        $this->urlRegistry = new Collection();
+        $this->renderer      = $renderer;
+        $this->options       = $this->parseOptions($options);
+        $this->hashRegistry  = new HashRegistry();
+        $this->urlRegistry   = new Collection();
         $this->titleRegistry = new Collection();
-        $this->rawContent = $rawContent;
+        $this->rawContent    = $rawContent;
     }
 
     /**
@@ -74,7 +76,7 @@ class Markdown implements EmitterInterface
     }
 
     /**
-     * @return \Ciconia\Common\Collection
+     * @return Collection
      */
     public function getTitleRegistry()
     {
@@ -82,7 +84,7 @@ class Markdown implements EmitterInterface
     }
 
     /**
-     * @return \Ciconia\Common\Collection
+     * @return Collection
      */
     public function getUrlRegistry()
     {
