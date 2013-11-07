@@ -5,7 +5,7 @@ Ciconia - A New Markdown Parser for PHP
 [![Build Status](https://travis-ci.org/kzykhys/Ciconia.png?branch=master)](https://travis-ci.org/kzykhys/Ciconia)
 [![Coverage Status](https://coveralls.io/repos/kzykhys/Ciconia/badge.png?branch=master)](https://coveralls.io/r/kzykhys/Ciconia?branch=master)
 
-**This project is _unstable_** until 1.0.0 (see [milestones](https://github.com/kzykhys/Ciconia/issues/milestones))
+**This project is _unstable_** until 1.0.0 (see [milestones][milestones])
 
 The Markdown parser for PHP5.4, it is fully extensible.
 Ciconia is the collection of extension, so you can replace, add or remove each parsing mechanism.
@@ -232,13 +232,13 @@ To change the location:
 
 ### Using PHAR version
 
-You can also use [single phar file](https://github.com/kzykhys/Ciconia/releases/download/v0.1.2/ciconia.phar)
+You can also use [single phar file][phar]
 
 ```
 ciconia.phar /path/to/file.md
 ```
 
-If you prefer access this command globally, download [ciconia.phar](https://github.com/kzykhys/Ciconia/releases/download/v0.1.2/ciconia.phar) and move it into your `PATH`.
+If you prefer access this command globally, download [ciconia.phar][phar] and move it into your `PATH`.
 
 ```
 mv ciconia.phar /usr/local/bin/ciconia
@@ -260,7 +260,17 @@ License
 
 The MIT License
 
+Contributing
+------------
+
+Feel free to folk this repository and send a pull request. ([A list of contributor][contributors])
+
 Author
 ------
 
 Kazuyuki Hayashi (@kzykhys)
+
+
+[milestones]: https://github.com/kzykhys/Ciconia/issues/milestones
+[phar]: https://github.com/kzykhys/Ciconia/releases/download/v0.1.4/ciconia.phar
+[contributors]: https://github.com/kzykhys/Ciconia/graphs/contributors
