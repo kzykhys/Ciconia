@@ -7,7 +7,20 @@ if (PHP_SAPI !== 'cli') {
     echo 'Ciconia command should be run on the CLI environment.' . PHP_EOL;
 }
 
-require __DIR__ . '/../vendor/autoload.php';
+$paths = [
+    // Top-level package.
+    __DIR__ . '/../vendor/autoload.php',
+
+    // Included as a dependency.
+    __DIR__ . '/../../../autoload.php',
+];
+
+foreach($paths as $path) {
+    if (file_exists($path)) {
+        require $path;
+        break;
+    }
+}
 
 $app = new Application('Ciconia', \Ciconia\Ciconia::VERSION);
 $app->run();
