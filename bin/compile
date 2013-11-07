@@ -8,7 +8,20 @@ if (PHP_SAPI !== 'cli') {
     die('Compile command must be run on the CLI environment.');
 }
 
-require __DIR__ . '/../vendor/autoload.php';
+$paths = [
+    // Top-level package.
+    __DIR__ . '/../vendor/autoload.php',
+
+    // Included as a dependency.
+    __DIR__ . '/../../../autoload.php',
+];
+
+foreach($paths as $path) {
+    if (file_exists($path)) {
+        require $path;
+        break;
+    }
+}
 
 $app = new Application('Ciconia Compiler', \Ciconia\Ciconia::VERSION);
 $app->add(new CompileCommand());
