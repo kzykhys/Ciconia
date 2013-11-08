@@ -173,7 +173,7 @@ class YourExtension implements ExtensionInterface
 }
 ```
 
-Each extensions handle string as a `Text` object. See [API section of kzykhys/Text][textapi].
+Each extension handles string as a `Text` object. See [API section of kzykhys/Text][textapi].
 
 ### Events
 
