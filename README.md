@@ -18,6 +18,7 @@ Ciconia is the collection of extension, so you can replace, add or remove each p
     * New lines
     * Fenced code blocks
     * Task lists
+    * Table
 
 *   Tested with [karlcow/markdown-testsuite](https://github.com/karlcow/markdown-testsuite)
 
