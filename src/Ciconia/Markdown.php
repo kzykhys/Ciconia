@@ -53,7 +53,7 @@ class Markdown implements EmitterInterface
     /**
      * Constructor
      *
-     * @param Renderer\RendererInterface $renderer
+     * @param Renderer\RendererInterface $renderer   A RendererInterface instance
      * @param Common\Text                $rawContent [optional] The whole content
      * @param array                      $options    [optional] An array of options
      */
@@ -113,15 +113,15 @@ class Markdown implements EmitterInterface
     protected function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'tabWidth' => 4,
+            'tabWidth'       => 4,
             'nestedTagLevel' => 3,
-            'strict' => false
+            'strict'         => false
         ));
 
         $resolver->setAllowedTypes(array(
-            'tabWidth' => 'integer',
+            'tabWidth'       => 'integer',
             'nestedTagLevel' => 'integer',
-            'strict' => 'bool'
+            'strict'         => 'bool'
         ));
     }
 

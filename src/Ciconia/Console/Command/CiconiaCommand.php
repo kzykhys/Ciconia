@@ -124,9 +124,11 @@ class CiconiaCommand extends Command
                 fclose($stdin);
             }
 
+            // @codeCoverageIgnoreStart
             if ($contents) {
                 return $contents;
             }
+            // @codeCoverageIgnoreEnd
         }
 
         throw new \InvalidArgumentException('No input file');

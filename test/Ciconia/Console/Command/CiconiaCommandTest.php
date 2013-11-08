@@ -33,12 +33,12 @@ class CiconiaCommandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * %command.name% test/Ciconia/Resources/markdown/2-paragraphs-hard-return.md
+     * %command.name% test/Ciconia/Resources/core/markdown-testsuite/2-paragraphs-hard-return.md
      */
     public function testCommandWithNoOption()
     {
-        $file = __DIR__ . '/../../Resources/markdown/2-paragraphs-hard-return.md';
-        $expected = preg_replace('/\r?\n/', "\n", file_get_contents(__DIR__ . '/../../Resources/markdown/2-paragraphs-hard-return.out'));
+        $file = __DIR__ . '/../../Resources/core/markdown-testsuite/2-paragraphs-hard-return.md';
+        $expected = preg_replace('/\r?\n/', "\n", file_get_contents(__DIR__ . '/../../Resources/core/markdown-testsuite/2-paragraphs-hard-return.out'));
 
         $tester = $this->createCommandTester();
         $tester->execute(array('file' => $file));
@@ -47,12 +47,12 @@ class CiconiaCommandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * %command.name% --gfm test/Ciconia/Resources/markdown//2-paragraphs-line.md
+     * %command.name% --gfm test/Ciconia/Resources/core/markdown-testsuite/2-paragraphs-line.md
      */
     public function testCommandWithGfmOption()
     {
-        $file = __DIR__ . '/../../Resources/markdown/2-paragraphs-line.md';
-        $expected = preg_replace('/\r?\n/', "\n", file_get_contents(__DIR__ . '/../../Resources/markdown/2-paragraphs-line.out'));
+        $file = __DIR__ . '/../../Resources/core/markdown-testsuite/2-paragraphs-line.md';
+        $expected = preg_replace('/\r?\n/', "\n", file_get_contents(__DIR__ . '/../../Resources/core/markdown-testsuite/2-paragraphs-line.out'));
 
         $tester = $this->createCommandTester();
         $tester->execute(array('file' => $file, '--gfm' => true));
@@ -61,12 +61,12 @@ class CiconiaCommandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * %command.name% --format=xhtml test/Ciconia/Resources/markdown//2-paragraphs-line.md
+     * %command.name% --format=xhtml test/Ciconia/Resources/core/markdown-testsuite/2-paragraphs-line.md
      */
     public function testCommandWithFormatOption()
     {
-        $file = __DIR__ . '/../../Resources/markdown/2-paragraphs-line.md';
-        $expected = preg_replace('/\r?\n/', "\n", file_get_contents(__DIR__ . '/../../Resources/markdown/2-paragraphs-line.out'));
+        $file = __DIR__ . '/../../Resources/core/markdown-testsuite/2-paragraphs-line.md';
+        $expected = preg_replace('/\r?\n/', "\n", file_get_contents(__DIR__ . '/../../Resources/core/markdown-testsuite/2-paragraphs-line.out'));
 
         $tester = $this->createCommandTester();
         $tester->execute(array('file' => $file, '--format' => 'xhtml'));
@@ -75,12 +75,12 @@ class CiconiaCommandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * %command.name% --compress test/Ciconia/Resources/markdown//2-paragraphs-line.md
+     * %command.name% --compress test/Ciconia/Resources/core/markdown-testsuite/2-paragraphs-line.md
      */
     public function testCommandWithCompressOption()
     {
-        $file = __DIR__ . '/../../Resources/markdown/2-paragraphs-line-returns.md';
-        $expected = preg_replace('/\r?\n/', '', file_get_contents(__DIR__ . '/../../Resources/markdown/2-paragraphs-line-returns.out'));
+        $file = __DIR__ . '/../../Resources/core/markdown-testsuite/2-paragraphs-line-returns.md';
+        $expected = preg_replace('/\r?\n/', '', file_get_contents(__DIR__ . '/../../Resources/core/markdown-testsuite/2-paragraphs-line-returns.out'));
 
         $tester = $this->createCommandTester();
         $tester->execute(array('file' => $file, '--compress' => true));
@@ -93,7 +93,7 @@ class CiconiaCommandTest extends \PHPUnit_Framework_TestCase
      */
     public function testCommandWithLintOption()
     {
-        $file   = __DIR__ . '/../../Resources/core/strict/table-invalid-body.md';
+        $file   = __DIR__ . '/../../Resources/options/strict/gfm/table-invalid-body.md';
         $tester = $this->createCommandTester();
         $return = $tester->execute(array('file' => $file, '--lint' => true, '--gfm' => true));
         $this->assertEquals(1, $return);
@@ -115,5 +115,5 @@ class CiconiaCommandTest extends \PHPUnit_Framework_TestCase
 
         return new CommandTester($command);
     }
-
+    
 }

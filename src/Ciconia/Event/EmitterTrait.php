@@ -22,7 +22,7 @@ trait EmitterTrait
      * @param callable $callback
      * @param int      $priority
      *
-     * @return mixed
+     * @return $this
      */
     public function on($event, callable $callback, $priority = 10)
     {
@@ -31,6 +31,8 @@ trait EmitterTrait
         }
 
         $this->callbacks[$event][] = array($priority, $callback);
+
+        return $this;
     }
 
     /**

@@ -1,0 +1,6 @@
+<ul>
+<li><p><input type="checkbox"> Task 1<br>
+  Task 1</p></li>
+<li><p><input type="checkbox" checked="checked"> Completed task</p></li>
+<li><p><input type="checkbox" checked="checked"> Task 2</p></li>
+</ul>

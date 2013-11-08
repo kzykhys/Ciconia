@@ -2,6 +2,11 @@
 
 use Ciconia\Common\Collection;
 
+/**
+ * Tests Ciconia\Common\Collection
+ *
+ * @author Kazuyuki Hayashi <hayashi@siance.co.jp>
+ */
 class CollectionTest extends \PHPUnit_Framework_TestCase
 {
 
@@ -14,6 +19,19 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(1, $array[0]);
         $this->assertEquals(2, $array[1]);
+    }
+
+    /**
+     * @expectedException OutOfBoundsException
+     */
+    public function testGet()
+    {
+        $collection = new Collection();
+        $collection->set('foo', 'bar');
+
+        $this->assertEquals('bar', $collection->get('foo'));
+
+        $collection->get('baz');
     }
 
     public function testContains()
