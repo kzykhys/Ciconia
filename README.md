@@ -173,6 +173,8 @@ class YourExtension implements ExtensionInterface
 }
 ```
 
+Each extensions handle string as a `Text` object. See [API section of kzykhys/Text][textapi].
+
 ### Events
 
 Possible events are:
@@ -277,3 +279,4 @@ Kazuyuki Hayashi (@kzykhys)
 [milestones]: https://github.com/kzykhys/Ciconia/issues/milestones
 [phar]: https://github.com/kzykhys/Ciconia/releases/download/v0.1.4/ciconia.phar
 [contributors]: https://github.com/kzykhys/Ciconia/graphs/contributors
+[textapi]: https://github.com/kzykhys/Text#api
