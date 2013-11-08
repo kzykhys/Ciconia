@@ -82,10 +82,11 @@ $html = $ciconia->render('Markdown is **awesome**');
 
 ### Options
 
-Option         | Type    | Default | Description                   |
----------------|---------|---------|-------------------------------|
+Option             | Type    | Default | Description                   |
+-------------------|---------|---------|-------------------------------|
 **tabWidth**       | integer | 4       | Number of spaces              |
 **nestedTagLevel** | integer | 3       | Max depth of nested HTML tags |
+**strict**         | boolean | false   | Throws exception if markdown contains syntax error |
 
 ``` php
 use Ciconia\Ciconia;
