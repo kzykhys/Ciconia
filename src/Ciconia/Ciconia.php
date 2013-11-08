@@ -60,7 +60,7 @@ class Ciconia
     public function render($text, array $options = array())
     {
         $text = new Text($text);
-        $markdown = new Markdown($this->renderer, new Text($text), $options);
+        $markdown = new Markdown($this->renderer, $text, $options);
 
         $this->registerExtensions($markdown);
 
