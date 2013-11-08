@@ -73,6 +73,7 @@ $ciconia->addExtension(new Gfm\FencedCodeBlockExtension());
 $ciconia->addExtension(new Gfm\TaskListExtension());
 $ciconia->addExtension(new Gfm\InlineStyleExtension());
 $ciconia->addExtension(new Gfm\WhiteSpaceExtension());
+$ciconia->addExtension(new Gfm\TableExtension());
 
 $html = $ciconia->render('Markdown is **awesome**');
 
