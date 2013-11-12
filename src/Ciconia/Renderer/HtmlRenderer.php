@@ -3,6 +3,7 @@
 namespace Ciconia\Renderer;
 
 use Ciconia\Common\Tag;
+use Ciconia\Common\Text;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -59,6 +60,31 @@ class HtmlRenderer implements RendererInterface
     public function renderCodeSpan($content, array $options = array())
     {
         return "<code>$content</code>";
+    }
+
+    /**
+     * @param string|Text $content
+     * @param array       $options
+     *
+     * @return string
+     */
+    public function renderLink($content, array $options = array())
+    {
+        $options = $this->createResolver()
+            ->setRequired(array('href'))
+            ->setDefaults(array('href' => '#', 'title' => ''))
+            ->setAllowedTypes(array('href' => 'string', 'title' => 'string'))
+            ->resolve($options);
+
+        $tag = new Tag('a');
+        $tag->setText($content);
+        $tag->setAttribute('href', $options['href']);
+
+        if ($options['title']) {
+            $tag->setAttribute('title', $options['title']);
+        }
+
+        return $tag->render();
     }
 
     /**

@@ -110,13 +110,25 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
             if ($this->markdown->getUrlRegistry()->exists($id)) {
                 $url = new Text($this->markdown->getUrlRegistry()->get($id));
                 $url->escapeHtml();
-                $result = new Text("<a href=\"$url\"");
+
+                $linkOptions = [
+                    'href' => $url->getString(),
+                ];
+
                 if ($this->markdown->getTitleRegistry()->exists($id)) {
                     $title = new Text($this->markdown->getTitleRegistry()->get($id));
-                    $title->escapeHtml();
-                    $result->append(" title=\"$title\"");
+                    $linkOptions['title'] = $title->escapeHtml()->getString();
                 }
-                return $result->append(">$linkText</a>");
+
+                return $this->getRenderer()->renderLink($linkText->getString(), $linkOptions);
+
+//                $result = new Text("<a href=\"$url\"");
+//                if ($this->markdown->getTitleRegistry()->exists($id)) {
+//                    $title = new Text($this->markdown->getTitleRegistry()->get($id));
+//                    $title->escapeHtml();
+//                    $result->append(" title=\"$title\"");
+//                }
+//                return $result->append(">$linkText</a>");
             } else {
                 if ($options['strict']) {
                     throw new SyntaxError(
@@ -156,13 +168,24 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
             )
         }xs', function (Text $w, Text $whole, Text $linkText, Text $url, Text $a = null, Text $q = null, Text $title = null) {
             $url->escapeHtml();
-            $result = new Text("<a href=\"$url\"");
+
+            $linkOptions = [
+                'href' => $url->getString(),
+            ];
+
             if ($title) {
-                $title->replace('/"/', '&quot;')->escapeHtml();
-                $result->append(" title=\"$title\"");
+                $linkOptions['title'] = $title->replace('/"/', '&quot;')->escapeHtml()->getString();
             }
 
-            return $result->append(">$linkText</a>");
+            return $this->getRenderer()->renderLink($linkText, $linkOptions);
+
+//            $result = new Text("<a href=\"$url\"");
+//            if ($title) {
+//                $title->replace('/"/', '&quot;')->escapeHtml();
+//                $result->append(" title=\"$title\"");
+//            }
+//
+//            return $result->append(">$linkText</a>");
         });
     }
 
@@ -173,7 +196,11 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
      */
     public function processAutoLink(Text $text)
     {
-        $text->replace('{<((https?|ftp):[^\'">\s]+)>}', '<a '.'href="$1">$1</a>');
+        //$text->replace('{<((https?|ftp):[^\'">\s]+)>}', '<a '.'href="$1">$1</a>');
+
+        $text->replace('{<((https?|ftp):[^\'">\s]+)>}', function (Text $w, Text $url) {
+            return $this->getRenderer()->renderLink($url, ['href' => $url->getString()]);
+        });
 
         /** @noinspection PhpUnusedParameterInspection */
         $text->replace('{
@@ -212,7 +239,8 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
             $address = $chars->join();
             $text = $chars->slice(7)->join();
 
-            return "<a"." href=\"$address\">$text</a>";
+            return $this->getRenderer()->renderLink($text, ['href' => $address]);
+            //return "<a"." href=\"$address\">$text</a>";
         });
     }
 

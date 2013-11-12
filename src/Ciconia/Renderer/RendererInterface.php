@@ -51,6 +51,14 @@ interface RendererInterface
      *
      * @return string
      */
+    public function renderLink($content, array $options = array());
+
+    /**
+     * @param string|Text $content
+     * @param array       $options
+     *
+     * @return string
+     */
     public function renderBlockQuote($content, array $options = array());
 
     /**
