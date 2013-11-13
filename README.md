@@ -192,6 +192,7 @@ Possible events are:
 | finalize   | Called after `block`                                                                      |
 
 [See the source code of Extensions](src/Ciconia/Extension)
+[See events and timing information](https://gist.github.com/kzykhys/7443440)
 
 ### Create your own Renderer
 
