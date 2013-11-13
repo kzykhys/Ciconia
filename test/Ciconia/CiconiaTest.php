@@ -20,4 +20,12 @@ class CiconiaTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Ciconia\\Renderer\\XhtmlRenderer', $md->getRenderer());
     }
 
+    public function testRunTwice()
+    {
+        $ciconia = new \Ciconia\Ciconia();
+        $markdown = file_get_contents(__DIR__.'/Resources/core/markdown-testsuite/link-idref.md');
+
+        $this->assertEquals($ciconia->render($markdown), $ciconia->render($markdown));
+    }
+
 }
