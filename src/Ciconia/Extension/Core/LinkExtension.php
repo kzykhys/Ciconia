@@ -89,7 +89,7 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
     {
         /** @noinspection PhpUnusedParameterInspection */
         $text->replace('{
-            (                   # wrap whole match in $1
+            #(                   # wrap whole match in $1
               \[
                 (' . $this->getNestedBrackets() . ')    # link text = $2
               \]
@@ -100,8 +100,8 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
               \[
                 (.*?)       # id = $3
               \]
-            )
-        }xs', function (Text $w, Text $whole, Text $linkText, Text $id = null) use ($options) {
+            #)
+        }xs', function (Text $whole, Text $linkText, Text $id = null) use ($options) {
             if (is_null($id) || (string) $id == '') {
                 $id = new Text($linkText);
                 $id->lower();
@@ -121,19 +121,11 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
                 }
 
                 return $this->getRenderer()->renderLink($linkText->getString(), $linkOptions);
-
-//                $result = new Text("<a href=\"$url\"");
-//                if ($this->markdown->getTitleRegistry()->exists($id)) {
-//                    $title = new Text($this->markdown->getTitleRegistry()->get($id));
-//                    $title->escapeHtml();
-//                    $result->append(" title=\"$title\"");
-//                }
-//                return $result->append(">$linkText</a>");
             } else {
                 if ($options['strict']) {
                     throw new SyntaxError(
                         sprintf('Unable to find id "%s" in Reference-style link', $id),
-                        $this, $w, $this->markdown
+                        $this, $whole, $this->markdown
                     );
                 }
 
@@ -151,7 +143,7 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
     {
         /** @noinspection PhpUnusedParameterInspection */
         $text->replace('{
-            (               # wrap whole match in $1
+            #(               # wrap whole match in $1
               \[
                 (' . $this->getNestedBrackets() . ')    # link text = $2
               \]
@@ -162,11 +154,11 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
                 (           # $4
                   ([\'"])   # quote char = $5
                   (.*?)     # Title = $6
-                  \5        # matching quote
+                  \4        # matching quote
                 )?          # title is optional
               \)
-            )
-        }xs', function (Text $w, Text $whole, Text $linkText, Text $url, Text $a = null, Text $q = null, Text $title = null) {
+            #)
+        }xs', function (Text $whole, Text $linkText, Text $url, Text $a = null, Text $q = null, Text $title = null) {
             $url->escapeHtml();
 
             $linkOptions = [
@@ -178,14 +170,6 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
             }
 
             return $this->getRenderer()->renderLink($linkText, $linkOptions);
-
-//            $result = new Text("<a href=\"$url\"");
-//            if ($title) {
-//                $title->replace('/"/', '&quot;')->escapeHtml();
-//                $result->append(" title=\"$title\"");
-//            }
-//
-//            return $result->append(">$linkText</a>");
         });
     }
 
@@ -198,7 +182,7 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
     {
         //$text->replace('{<((https?|ftp):[^\'">\s]+)>}', '<a '.'href="$1">$1</a>');
 
-        $text->replace('{<((https?|ftp):[^\'">\s]+)>}', function (Text $w, Text $url) {
+        $text->replace('{<((?:https?|ftp):[^\'">\s]+)>}', function (Text $w, Text $url) {
             return $this->getRenderer()->renderLink($url, ['href' => $url->getString()]);
         });
 

@@ -53,7 +53,7 @@ class ImageExtension implements ExtensionInterface, RendererAwareInterface
         /** @noinspection PhpUnusedParameterInspection */
         $text->replace(
             '{
-                (               # wrap whole match in $1
+                #(               # wrap whole match in $1
                   !\[
                     (.*?)       # alt text = $2
                   \]
@@ -64,9 +64,9 @@ class ImageExtension implements ExtensionInterface, RendererAwareInterface
                   \[
                     (.*?)       # id = $3
                   \]
-                )
+                #)
             }xs',
-            function (Text $w, Text $whole, Text $alt, Text $id = null) use ($options) {
+            function (Text $whole, Text $alt, Text $id = null) use ($options) {
                 $result = null;
 
                 if ($id->lower() == '') {
@@ -91,7 +91,7 @@ class ImageExtension implements ExtensionInterface, RendererAwareInterface
                     if ($options['strict']) {
                         throw new SyntaxError(
                             sprintf('Unable to find id "%s" in Reference-style image', $id),
-                            $this, $w, $this->markdown
+                            $this, $whole, $this->markdown
                         );
                     }
 

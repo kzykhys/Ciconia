@@ -54,7 +54,7 @@ class CodeExtension implements ExtensionInterface, RendererAwareInterface
                 .*\n+
               )+
             )
-            ((?=^[ ]{0,' . $options['tabWidth'] . '}\S)|\Z) # Lookahead for non-space at line-start, or end of doc
+            (?:(?=^[ ]{0,' . $options['tabWidth'] . '}\S)|\Z) # Lookahead for non-space at line-start, or end of doc
         }mx', function (Text $whole, Text $code) {
             $this->markdown->emit('outdent', array($code));
             $code->escapeHtml(ENT_NOQUOTES);

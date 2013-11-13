@@ -43,24 +43,23 @@ class BlockQuoteExtension implements ExtensionInterface, RendererAwareInterface
      */
     public function processBlockQuote(Text $text)
     {
-        /** @noinspection PhpUnusedParameterInspection */
         $text->replace('{
-          (                  # Wrap whole match in $1
-            (
+          (?:
+            (?:
               ^[ \t]*>[ \t]? # \'>\' at the start of a line
                 .+\n         # rest of the first line
-              (.+\n)*        # subsequent consecutive lines
+              (?:.+\n)*      # subsequent consecutive lines
               \n*            # blanks
             )+
           )
-        }mx', function (Text $w, Text $bq) {
+        }mx', function (Text $bq) {
             $bq->replace('/^[ \t]*>[ \t]?/m', '');
             $bq->replace('/^[ \t]+$/m', '');
 
             $this->markdown->emit('block', array($bq));
 
             //$bq->replace('/^/', '  ');
-            $bq->replace('|(\s*<pre>.+?</pre>)|s', function (Text $w, Text $pre) {
+            $bq->replace('|\s*<pre>.+?</pre>|s', function (Text $pre) {
                 return $pre->replace('/^  /m', '');
             });
 

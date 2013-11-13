@@ -63,14 +63,14 @@ class ListExtension implements ExtensionInterface, RendererAwareInterface, Emitt
         $lessThanTab = $options['tabWidth'] - 1;
 
         $wholeList = '
-            (                                 # $1 = whole list
+            #(                                 # $1 = whole list
               (                               # $2
                 [ ]{0,' . $lessThanTab . '}
                 (' . $this->getPattern() . ') # $3 = first list item marker
                 [ \t]+
               )
               (?s:.+?)
-              (                               # $4
+              (?:                             # $4
                   \z
                 |
                   \n{2,}
@@ -80,11 +80,11 @@ class ListExtension implements ExtensionInterface, RendererAwareInterface, Emitt
                     ' . $this->getPattern() . '[ \t]+
                   )
               )
-            )
+            #)
         ';
 
         /** @noinspection PhpUnusedParameterInspection */
-        $callback = function (Text $whole, Text $list, Text $marker) use ($options, $level) {
+        $callback = function (Text $list, Text $marker) use ($options, $level) {
             $type = preg_match('{' . $this->ul . '}', $marker) ? 'ul' : 'ol';
             $list->replace('/\n{2,}/', "\n\n\n");
             $this->processListItems($list, $options, $level);
