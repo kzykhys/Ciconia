@@ -27,10 +27,11 @@ trait EmitterTrait
     public function on($event, callable $callback, $priority = 10)
     {
         if (!isset($this->callbacks[$event])) {
-            $this->callbacks[$event] = array();
+            $this->callbacks[$event] = [true, []];
         }
 
-        $this->callbacks[$event][] = array($priority, $callback);
+        $this->callbacks[$event][0] = false;
+        $this->callbacks[$event][1][] = array($priority, $callback);
 
         return $this;
     }
@@ -45,8 +46,12 @@ trait EmitterTrait
      */
     public function emit($event, $parameters)
     {
-        if (isset($this->callbacks[$event])) {
-            usort($this->callbacks[$event], function ($A, $B) {
+        if (!isset($this->callbacks[$event])) {
+            return;
+        }
+
+        if (!$this->callbacks[$event][0]) {
+            usort($this->callbacks[$event][1], function ($A, $B) {
                 if ($A[0] == $B[0]) {
                     return 0;
                 }
@@ -54,9 +59,11 @@ trait EmitterTrait
                 return ($A[0] > $B[0]) ? 1 : -1;
             });
 
-            foreach ($this->callbacks[$event] as $item) {
-                call_user_func_array($item[1], $this->buildParameters($parameters));
-            }
+            $this->callbacks[$event][0] = true;
+        }
+
+        foreach ($this->callbacks[$event][1] as $item) {
+            call_user_func_array($item[1], $this->buildParameters($parameters));
         }
     }
 
