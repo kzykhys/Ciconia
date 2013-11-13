@@ -17,11 +17,12 @@
     },
     "require": {
         "php": ">5.4.0",
-        "symfony/options-resolver": "2.3.x",
-        "symfony/console":"2.3.x"
+        "symfony/options-resolver": "~2.3",
+        "symfony/console":"~2.3"
     },
     "require-dev": {
-        "symfony/finder": "2.3.x"
+        "symfony/finder": "~2.3",
+        "symfony/stopwatch": "~2.3"
     },
     "bin": ["bin/ciconia"]
 }
