@@ -179,7 +179,7 @@ class Ciconia
     /**
      * @param Markdown $markdown
      */
-    private function registerExtensions(Markdown $markdown)
+    protected function registerExtensions(Markdown $markdown)
     {
         foreach ($this->extensions as $extension) {
             if ($extension instanceof RendererAwareInterface) {

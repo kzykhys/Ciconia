@@ -104,6 +104,13 @@ class CiconiaCommandTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(0, $return);
     }
 
+    public function testDiagnose()
+    {
+        $file = __DIR__ . '/../../Resources/core/markdown-testsuite/2-paragraphs-line.md';
+        $tester = $this->createCommandTester();
+        $tester->execute(['file' => $file, '--diagnose' => true, '--gfm' => true]);
+    }
+
     /**
      * @return CommandTester
      */

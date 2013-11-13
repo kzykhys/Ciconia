@@ -13,7 +13,7 @@ trait EmitterTrait
     /**
      * @var array
      */
-    private $callbacks = array();
+    protected $callbacks = array();
 
     /**
      * Adds a listener to the end of the listeners array for the specified event.

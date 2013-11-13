@@ -12,6 +12,7 @@ use Ciconia\Extension\Gfm\WhiteSpaceExtension;
 use Ciconia\Renderer\XhtmlRenderer;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Command\HelpCommand;
+use Symfony\Component\Console\Helper\TableHelper;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -41,7 +42,7 @@ class CiconiaCommand extends Command
             ->addArgument('file', InputArgument::OPTIONAL, 'The input file')
             ->addOption('gfm', null, InputOption::VALUE_NONE, 'Activate Gfm extensions')
             ->addOption('compress', 'c', InputOption::VALUE_NONE, 'Remove whitespace between HTML tags')
-            //->addOption('profile', null, InputOption::VALUE_NONE, 'Display events and extensions information')
+            ->addOption('diagnose', null, InputOption::VALUE_NONE, 'Display events and extensions information')
             ->addOption('format', 'f', InputOption::VALUE_OPTIONAL, 'Output format (html|xhtml)', 'html')
             ->addOption('lint', 'l', InputOption::VALUE_NONE, 'Syntax check only (lint)')
             ->setHelp($this->getHelpContent())
@@ -62,7 +63,12 @@ class CiconiaCommand extends Command
             return 1;
         }
 
-        $ciconia = new Ciconia();
+        if ($input->getOption('diagnose')) {
+            $output->writeln('Diagnose');
+            $ciconia = new \Ciconia\Diagnose\Ciconia();
+        } else {
+            $ciconia = new Ciconia();
+        }
 
         if ($input->getOption('format') == 'xhtml') {
             $ciconia->setRenderer(new XhtmlRenderer());
@@ -76,6 +82,31 @@ class CiconiaCommand extends Command
                 new WhiteSpaceExtension(),
                 new TableExtension()
             ));
+        }
+
+        if ($input->getOption('diagnose')) {
+            /* @var TableHelper $table */
+            $table = $this->getHelper('table');
+            $table->setHeaders([
+                'Event', 'Callback', 'Duration', 'MEM Usage'
+            ]);
+
+            $table->addRow(['', 'render()', '-', '-']);
+
+            $events = $ciconia->render($content);
+
+            foreach ($events as $event) {
+                $table->addRow([
+                    $event->getEvent(),
+                    str_repeat('  ', $event->getDepth()) . $event->getCallback(),
+                    $event->getDuration(),
+                    $event->getMemory()
+                ]);
+            }
+
+            $table->render($output);
+
+            return 0;
         }
 
         if ($input->getOption('lint')) {
