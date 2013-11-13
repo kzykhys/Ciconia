@@ -63,50 +63,10 @@ class CiconiaCommand extends Command
             return 1;
         }
 
-        if ($input->getOption('diagnose')) {
-            $output->writeln('Diagnose');
-            $ciconia = new \Ciconia\Diagnose\Ciconia();
-        } else {
-            $ciconia = new Ciconia();
-        }
-
-        if ($input->getOption('format') == 'xhtml') {
-            $ciconia->setRenderer(new XhtmlRenderer());
-        }
-
-        if ($input->getOption('gfm')) {
-            $ciconia->addExtensions(array(
-                new FencedCodeBlockExtension(),
-                new InlineStyleExtension(),
-                new TaskListExtension(),
-                new WhiteSpaceExtension(),
-                new TableExtension()
-            ));
-        }
+        $ciconia = $this->createCiconia($input);
 
         if ($input->getOption('diagnose')) {
-            /* @var TableHelper $table */
-            $table = $this->getHelper('table');
-            $table->setHeaders([
-                'Event', 'Callback', 'Duration', 'MEM Usage'
-            ]);
-
-            $table->addRow(['', 'render()', '-', '-']);
-
-            $events = $ciconia->render($content);
-
-            foreach ($events as $event) {
-                $table->addRow([
-                    $event->getEvent(),
-                    str_repeat('  ', $event->getDepth()) . $event->getCallback(),
-                    $event->getDuration(),
-                    $event->getMemory()
-                ]);
-            }
-
-            $table->render($output);
-
-            return 0;
+            return $this->diagnose($output, $ciconia, $content);
         }
 
         if ($input->getOption('lint')) {
@@ -166,6 +126,36 @@ class CiconiaCommand extends Command
     }
 
     /**
+     * @param InputInterface $input
+     *
+     * @return Ciconia|\Ciconia\Diagnose\Ciconia
+     */
+    protected function createCiconia(InputInterface $input)
+    {
+        if ($input->getOption('diagnose')) {
+            $ciconia = new \Ciconia\Diagnose\Ciconia();
+        } else {
+            $ciconia = new Ciconia();
+        }
+
+        if ($input->getOption('format') == 'xhtml') {
+            $ciconia->setRenderer(new XhtmlRenderer());
+        }
+
+        if ($input->getOption('gfm')) {
+            $ciconia->addExtensions([
+                new FencedCodeBlockExtension(),
+                new InlineStyleExtension(),
+                new TaskListExtension(),
+                new WhiteSpaceExtension(),
+                new TableExtension()
+            ]);
+        }
+
+        return $ciconia;
+    }
+
+    /**
      * Runs help command
      *
      * @param InputInterface  $input
@@ -204,6 +194,40 @@ class CiconiaCommand extends Command
         }
     }
 
+    /**
+     * Diagnose
+     *
+     * @param OutputInterface           $output
+     * @param \Ciconia\Diagnose\Ciconia $ciconia
+     * @param string                    $content
+     *
+     * @return int
+     */
+    protected function diagnose(OutputInterface $output, \Ciconia\Diagnose\Ciconia $ciconia, $content)
+    {
+        /* @var TableHelper $table */
+        $table = $this->getHelper('table');
+        $table->setHeaders([
+            'Event', 'Callback', 'Duration', 'MEM Usage'
+        ]);
+
+        $table->addRow(['', 'render()', '-', '-']);
+
+        $events = $ciconia->render($content);
+
+        foreach ($events as $event) {
+            $table->addRow([
+                $event->getEvent(),
+                str_repeat('  ', $event->getDepth()) . $event->getCallback(),
+                $event->getDuration(),
+                $event->getMemory()
+            ]);
+        }
+
+        $table->render($output);
+
+        return 0;
+    }
 
     /**
      * --help
