@@ -93,7 +93,10 @@ Option             | Type    | Default | Description                   |
 use Ciconia\Ciconia;
 
 $ciconia = new Ciconia();
-$html = $ciconia->render('Markdown is **awesome**', array('tabWidth' => 8, 'nestedTagLevel' => 5));
+$html = $ciconia->render(
+    'Markdown is **awesome**',
+    ['tabWidth' => 8, 'nestedTagLevel' => 5, 'strict' => true]
+);
 ```
 
 Rendering HTML or XHTML
@@ -277,6 +280,6 @@ Kazuyuki Hayashi (@kzykhys)
 
 
 [milestones]: https://github.com/kzykhys/Ciconia/issues/milestones
-[phar]: https://github.com/kzykhys/Ciconia/releases/download/v0.1.4/ciconia.phar
+[phar]: https://github.com/kzykhys/Ciconia/releases/download/v0.1.5/ciconia.phar
 [contributors]: https://github.com/kzykhys/Ciconia/graphs/contributors
 [textapi]: https://github.com/kzykhys/Text#api
