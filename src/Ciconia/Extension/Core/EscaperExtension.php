@@ -51,9 +51,13 @@ class EscaperExtension implements ExtensionInterface
      */
     public function escapeAmpsAndBrackets(Text $text)
     {
-        $text->replace('/&(?!#?[xX]?(?:[0-9a-fA-F]+|\w+);)/', '&amp;');
+        if ($text->contains('&')) {
+            $text->replace('/&(?!#?[xX]?(?:[0-9a-fA-F]+|\w+);)/', '&amp;');
+        }
 
-        $text->replace('{<(?![a-z/?\$!])}i', '&lt;');
+        if ($text->contains('<')) {
+            $text->replace('{<(?![a-z/?\$!])}i', '&lt;');
+        }
     }
 
     /**
