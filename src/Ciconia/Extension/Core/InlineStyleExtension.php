@@ -35,7 +35,7 @@ class InlineStyleExtension implements ExtensionInterface, RendererAwareInterface
      */
     public function processBold(Text $text)
     {
-        if (!$text->contains('**') || !$text->contains('__')) {
+        if (!$text->contains('**') && !$text->contains('__')) {
             return;
         }
 
@@ -50,7 +50,7 @@ class InlineStyleExtension implements ExtensionInterface, RendererAwareInterface
      */
     public function processItalic(Text $text)
     {
-        if (!$text->contains('*') || !$text->contains('_')) {
+        if (!$text->contains('*') && !$text->contains('_')) {
             return;
         }
 
