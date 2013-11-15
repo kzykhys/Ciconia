@@ -135,45 +135,62 @@ If your name is the same as one of core extension, it will be replaced by your e
 
 ### Extension Example
 
+This sample extension turns `@username ` mentions into links.
+
 ``` php
 <?php
 
 use Ciconia\Common\Text;
 use Ciconia\Extension\ExtensionInterface;
-use Ciconia\Markdown;
 
-class YourExtension implements ExtensionInterface
+class MentionExtension implements ExtensionInterface
 {
-    // Necessary if your extension calls other events
-    private $markdown;
 
-    //@implement
-    public function register(Markdown $markdown)
+    /**
+     * {@inheritdoc}
+     */
+    public function register(\Ciconia\Markdown $markdown)
     {
-        // Necessary if your extension calls another event
-        $this->markdown = $markdown;
-
-        // Register a callback
-        $markdown->on('block', array($this, 'processBlock'));
+        $markdown->on('inline', [$this, 'processMentions']);
     }
 
-    //@implement
-    public function getName()
+    /**
+     * @param Text $text
+     */
+    public function processMentions(Text $text)
     {
-        return 'yourExtension';
-    }
-
-    public function processBlock(Text $text)
-    {
-        // Do regexp's
-        $text->replace('/foo(bar)(baz)/', function (Text $whole, Text $bar, Text $baz) {
-            // You can call other events registered by other extension
-            $this->markdown->emit('inline', $bar);
-
-            return $baz->upper();
+        // Turn @username into [@username](http://example.com/user/username)
+        $text->replace('/(?:^|[^a-zA-Z0-9.])@([A-Za-z]+[A-Za-z0-9]+)/', function (Text $w, Text $username) {
+            return '[@' . $username . '](http://example.com/user/' . $username . ')';
         });
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'mention';
+    }
 }
+```
+
+Register your extension.
+
+``` php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+$ciconia = new \Ciconia\Ciconia();
+$ciconia->addExtension(new MentionExtension());
+echo $ciconia->render('@kzykhys my email address is example@example.com!');
+```
+
+Output
+
+``` html
+<p><a href="http://example.com/user/kzykhys">@kzykhys</a> my email address is example@example.com!</p>
 ```
 
 Each extension handles string as a `Text` object. See [API section of kzykhys/Text][textapi].
