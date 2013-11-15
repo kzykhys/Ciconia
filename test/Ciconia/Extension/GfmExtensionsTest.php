@@ -5,6 +5,7 @@ use Ciconia\Extension\Gfm\FencedCodeBlockExtension;
 use Ciconia\Extension\Gfm\InlineStyleExtension;
 use Ciconia\Extension\Gfm\TableExtension;
 use Ciconia\Extension\Gfm\TaskListExtension;
+use Ciconia\Extension\Gfm\UrlAutoLinkExtension;
 use Ciconia\Extension\Gfm\WhiteSpaceExtension;
 use Symfony\Component\Finder\Finder;
 
@@ -35,7 +36,8 @@ class GfmExtensionsTest extends PHPUnit_Framework_TestCase
             new InlineStyleExtension(),
             new WhiteSpaceExtension(),
             new TaskListExtension(),
-            new TableExtension()
+            new TableExtension(),
+            new UrlAutoLinkExtension()
         ]);
 
         $expected = str_replace("\r\n", "\n", $expected);
@@ -63,7 +65,8 @@ class GfmExtensionsTest extends PHPUnit_Framework_TestCase
             new InlineStyleExtension(),
             new WhiteSpaceExtension(),
             new TaskListExtension(),
-            new TableExtension()
+            new TableExtension(),
+            new UrlAutoLinkExtension()
         ]);
 
         $html = $ciconia->render($markdown, ['strict' => true]);
