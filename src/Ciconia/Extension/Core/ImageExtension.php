@@ -50,6 +50,10 @@ class ImageExtension implements ExtensionInterface, RendererAwareInterface
      */
     public function processReferencedImage(Text $text, array $options = array())
     {
+        if (!$text->contains('![')) {
+            return;
+        }
+
         /** @noinspection PhpUnusedParameterInspection */
         $text->replace(
             '{
@@ -111,6 +115,10 @@ class ImageExtension implements ExtensionInterface, RendererAwareInterface
      */
     public function processInlineImage(Text $text, array $options = array())
     {
+        if (!$text->contains('![')) {
+            return;
+        }
+
         /** @xnoinspection PhpUnusedParameterInspection */
         $text->replace(
             '{

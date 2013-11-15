@@ -87,6 +87,10 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
      */
     public function processReferencedLink(Text $text, array $options = array())
     {
+        if (!$text->contains('[')) {
+            return;
+        }
+
         /** @noinspection PhpUnusedParameterInspection */
         $text->replace('{
             #(                   # wrap whole match in $1
@@ -141,6 +145,10 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
      */
     public function processInlineLink(Text $text)
     {
+        if (!$text->contains('[')) {
+            return;
+        }
+
         /** @noinspection PhpUnusedParameterInspection */
         $text->replace('{
             #(               # wrap whole match in $1
@@ -180,7 +188,9 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
      */
     public function processAutoLink(Text $text)
     {
-        //$text->replace('{<((https?|ftp):[^\'">\s]+)>}', '<a '.'href="$1">$1</a>');
+        if (!$text->contains('<')) {
+            return;
+        }
 
         $text->replace('{<((?:https?|ftp):[^\'">\s]+)>}', function (Text $w, Text $url) {
             return $this->getRenderer()->renderLink($url, ['href' => $url->getString()]);

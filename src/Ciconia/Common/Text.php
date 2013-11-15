@@ -131,6 +131,16 @@ class Text implements \Serializable
     }
 
     /**
+     * @param $text
+     *
+     * @return bool
+     */
+    public function contains($text)
+    {
+        return strpos($this->text, $text) !== false;
+    }
+
+    /**
      * Convert special characters to HTML entities
      *
      * @param int $option

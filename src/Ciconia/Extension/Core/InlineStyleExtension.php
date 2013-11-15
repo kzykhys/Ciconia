@@ -35,6 +35,10 @@ class InlineStyleExtension implements ExtensionInterface, RendererAwareInterface
      */
     public function processBold(Text $text)
     {
+        if (!$text->contains('**') || !$text->contains('__')) {
+            return;
+        }
+
         /** @noinspection PhpUnusedParameterInspection */
         $text->replace('{ (\*\*|__) (?=\S) (.+?[*_]*) (?<=\S) \1 }sx', function (Text $w, Text $a, Text $target) {
             return $this->getRenderer()->renderBoldText($target);
@@ -46,6 +50,10 @@ class InlineStyleExtension implements ExtensionInterface, RendererAwareInterface
      */
     public function processItalic(Text $text)
     {
+        if (!$text->contains('*') || !$text->contains('_')) {
+            return;
+        }
+
         /** @noinspection PhpUnusedParameterInspection */
         $text->replace('{ (\*|_) (?=\S) (.+?) (?<=\S) \1 }sx', function (Text $w, Text $a, Text $target) {
             return $this->getRenderer()->renderItalicText($target);

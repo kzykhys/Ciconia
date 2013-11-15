@@ -71,6 +71,10 @@ class CodeExtension implements ExtensionInterface, RendererAwareInterface
      */
     public function processCodeSpan(Text $text)
     {
+        if (!$text->contains('`')) {
+            return;
+        }
+
         /** @noinspection PhpUnusedParameterInspection */
         $text->replace('{
             (`+)        # $1 = Opening run of `
