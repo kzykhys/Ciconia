@@ -19,6 +19,7 @@ Ciconia is the collection of extension, so you can replace, add or remove each p
     * Fenced code blocks
     * Task lists
     * Table
+    * URL Autolinking
 
 *   Tested with [karlcow/markdown-testsuite](https://github.com/karlcow/markdown-testsuite)
 
@@ -63,7 +64,7 @@ $html = $ciconia->render('Markdown is **awesome**');
 
 ### Github Flavored Markdown
 
-To activate 4 gfm features:
+To activate 6 gfm features:
 
 ``` php
 use Ciconia\Ciconia;
@@ -75,6 +76,7 @@ $ciconia->addExtension(new Gfm\TaskListExtension());
 $ciconia->addExtension(new Gfm\InlineStyleExtension());
 $ciconia->addExtension(new Gfm\WhiteSpaceExtension());
 $ciconia->addExtension(new Gfm\TableExtension());
+$ciconia->addExtension(new Gfm\UrlAutoLinkExtension());
 
 $html = $ciconia->render('Markdown is **awesome**');
 
@@ -290,7 +292,7 @@ The MIT License
 Contributing
 ------------
 
-Feel free to folk this repository and send a pull request. ([A list of contributor][contributors])
+Feel free to folk this repository and send a pull request. ([A list of contributors][contributors])
 
 Author
 ------
