@@ -24,5 +24,10 @@
         "symfony/finder": "~2.3",
         "symfony/stopwatch": "~2.3"
     },
-    "bin": ["bin/ciconia"]
+    "bin": ["bin/ciconia"],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
 }
