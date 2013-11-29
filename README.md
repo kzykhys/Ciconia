@@ -301,6 +301,6 @@ Kazuyuki Hayashi (@kzykhys)
 
 
 [milestones]: https://github.com/kzykhys/Ciconia/issues/milestones
-[phar]: https://github.com/kzykhys/Ciconia/releases/download/v0.1.6/ciconia.phar
+[phar]: https://github.com/kzykhys/Ciconia/releases/download/v0.1.7/ciconia.phar
 [contributors]: https://github.com/kzykhys/Ciconia/graphs/contributors
 [textapi]: https://github.com/kzykhys/Text#api
