@@ -108,8 +108,9 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
         }xs', function (Text $whole, Text $linkText, Text $id = null) use ($options) {
             if (is_null($id) || (string) $id == '') {
                 $id = new Text($linkText);
-                $id->lower();
             }
+
+            $id->lower();
 
             if ($this->markdown->getUrlRegistry()->exists($id)) {
                 $url = new Text($this->markdown->getUrlRegistry()->get($id));
