@@ -8,6 +8,7 @@ use Ciconia\Extension\Gfm\FencedCodeBlockExtension;
 use Ciconia\Extension\Gfm\InlineStyleExtension;
 use Ciconia\Extension\Gfm\TableExtension;
 use Ciconia\Extension\Gfm\TaskListExtension;
+use Ciconia\Extension\Gfm\UrlAutoLinkExtension;
 use Ciconia\Extension\Gfm\WhiteSpaceExtension;
 use Ciconia\Renderer\XhtmlRenderer;
 use Symfony\Component\Console\Command\Command;
@@ -148,7 +149,8 @@ class CiconiaCommand extends Command
                 new InlineStyleExtension(),
                 new TaskListExtension(),
                 new WhiteSpaceExtension(),
-                new TableExtension()
+                new TableExtension(),
+                new UrlAutoLinkExtension()
             ]);
         }
 
