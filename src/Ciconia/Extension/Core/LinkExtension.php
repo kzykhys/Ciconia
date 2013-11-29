@@ -235,7 +235,6 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
             $text = $chars->slice(7)->join();
 
             return $this->getRenderer()->renderLink($text, ['href' => $address]);
-            //return "<a"." href=\"$address\">$text</a>";
         });
     }
 

@@ -58,7 +58,6 @@ class BlockQuoteExtension implements ExtensionInterface, RendererAwareInterface
 
             $this->markdown->emit('block', array($bq));
 
-            //$bq->replace('/^/', '  ');
             $bq->replace('|\s*<pre>.+?</pre>|s', function (Text $pre) {
                 return $pre->replace('/^  /m', '');
             });

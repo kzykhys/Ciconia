@@ -55,7 +55,6 @@ class HtmlRenderer implements RendererInterface
         $pre->setText($code->render());
 
         return $pre->render();
-        //return "<pre><code>" . $content . "\n</code></pre>";
     }
 
     /**
