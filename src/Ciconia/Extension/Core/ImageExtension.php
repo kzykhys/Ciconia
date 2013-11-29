@@ -43,8 +43,6 @@ class ImageExtension implements ExtensionInterface, RendererAwareInterface
     /**
      * Handle reference-style labeled images: ![alt text][id]
      *
-     * @todo Don't forget: encode * and _
-     *
      * @param Text  $text
      * @param array $options
      */
@@ -107,8 +105,6 @@ class ImageExtension implements ExtensionInterface, RendererAwareInterface
 
     /**
      * handle inline images:  ![alt text](url "optional title")
-     *
-     * @todo Don't forget: encode * and _
      *
      * @param Text  $text
      * @param array $options
