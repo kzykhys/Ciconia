@@ -40,6 +40,10 @@ class HtmlRenderer implements RendererInterface
      */
     public function renderCodeBlock($content, array $options = array())
     {
+        if (!$content instanceof Text) {
+            $content = new Text($content);
+        }
+
         $options = $this->createResolver()->resolve($options);
 
         $pre = new Tag('pre');
@@ -100,6 +104,10 @@ class HtmlRenderer implements RendererInterface
      */
     public function renderList($content, array $options = array())
     {
+        if (!$content instanceof Text) {
+            $content = new Text($content);
+        }
+
         $options = $this->createResolver()
             ->setRequired(array('type'))
             ->setAllowedValues(array('type' => array('ul', 'ol')))
