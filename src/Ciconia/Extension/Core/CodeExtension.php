@@ -75,6 +75,9 @@ class CodeExtension implements ExtensionInterface, RendererAwareInterface
             return;
         }
 
+        $chars = ['\\\\', '`', '\*', '_', '{', '}', '\[', '\]', '\(', '\)', '>', '#', '\+', '\-', '\.', '!'];
+        $chars = implode('|', $chars);
+
         /** @noinspection PhpUnusedParameterInspection */
         $text->replace('{
             (`+)        # $1 = Opening run of `
@@ -82,8 +85,9 @@ class CodeExtension implements ExtensionInterface, RendererAwareInterface
             (?<!`)
             \1          # Matching closer
             (?!`)
-        }x', function (Text $w, Text $b, Text $code) {
+        }x', function (Text $w, Text $b, Text $code) use ($chars) {
             $code->trim()->escapeHtml(ENT_NOQUOTES);
+            $code->replace(sprintf('/(?<!\\\\)(%s)/', $chars), '\\\\${1}');
 
             return $this->getRenderer()->renderCodeSpan($code);
         });

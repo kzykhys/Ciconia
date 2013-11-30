@@ -84,7 +84,7 @@ class EscaperExtension implements ExtensionInterface
     protected function generateSpecialCharsHash()
     {
         $hashes = array();
-        $chars = array('\\', '`', '*', '_', '{', '}', '[', ']', '(', ')', '>', '#', '+', '-', '.', '!');
+        $chars  = array('\\', '`', '*', '_', '{', '}', '[', ']', '(', ')', '>', '#', '+', '-', '.', '!');
 
         foreach ($chars as $char) {
             $hashes[$char] = sprintf('{escape:md5(%s)}', md5($char));
