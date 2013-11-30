@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ciconia - A New Markdown Parser for #PHP by Kazuyuki Hayashi</title>
+  <link rel="stylesheet" href="/assets/css/kzykhys.com.css">
+  <style>
+
+  </style>
+</head>
+<body>
+<header style="padding-top:5px;margin-bottom:5px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <a href="http://kzykhys.com/">
+          <img src="http://www.gravatar.com/avatar/6eb968b788b89c1a6a1564ccdb9560e1.png?s=70"
+               class="img-thumbnail" alt="gravatar" width="35" height="35" style="margin-top:8px;">
+          <h1 class="hidden-sm" style="font-size:22px;margin-top:12px;">
+            <!--Kazuyuki Hayashi-->@kzykhys
+          </h1>
+        </a>
+      </div>
+      <div class="col-lg-6 text-right">
+        <nav style="margin-top:0;">
+          <a style="font-size:22px;" class="active" href="http://kzykhys.com/projects/">Projects</a>
+          <a style="font-size:22px;" href="http://kzykhys.com/blog/">Blog</a>
+          <a style="font-size:22px;" href="https://github.com/kzykhys" class="icon"><span aria-hidden="true" class="icon-github"></span></a>
+          <a style="font-size:22px;" href="https://twitter.com/kzykhys" class="icon"><span aria-hidden="true" class="icon-twitter"></span></a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="a-project-content content">
+  <div class="content-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h1>Ciconia</h1>
+          <h2>A New Markdown Parser for #PHP</h2>
+          <p class="description">
+            The <strong>Markdown</strong> parser for PHP5.4, it is fully <strong>extensible</strong>. <br>
+            Ciconia is the collection of extension, so <strong>you can replace, add or remove each parsing mechanism</strong>.
+          </p>
+          <p>
+            <a class="btn btn-primary btn-large" href="https://github.com/kzykhys/Ciconia/releases">Download Now</a>
+            <a class="btn btn-default btn-large" href="https://github.com/kzykhys/Ciconia"><span aria-hidden="true" class="icon-github"></span> Fork on Github</a>
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <h3>You can install Ciconia via Composer</h3>
+          <div class="panel instruction">
+            <div class="panel-body">
+              <pre>$ vi composer.json</pre>
+          <pre>{
+  "require": {
+    "kzykhys/ciconia":"~1.0.0"
+  }
+}</pre>
+          <pre>$ curl -s http://getcomposer.com/installer | php
+$ php composer.phar install</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--
+  <div class="content-header" style="padding:10px 0;background-color:#0d96ad;">
+    <div class="container">
+      <nav class="ciconia-subnav">
+        <a class="btn btn-info active" href="./">Try Ciconia</a>
+        <a class="btn btn-info" href="./docs/">Documentation</a>
+        <a class="btn btn-info" href="./syntax.html">Syntax</a>
+        <a class="btn btn-info" href="./development.html">Development</a>
+        <a class="btn btn-info" href="./api/">API</a>
+      </nav>
+    </div>
+  </div>
+  -->
+
+  <div class="container" style="margin-top:10px;">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="title">Try it now!</h2>
+
+        <div class="panel editor" style="border:1px solid #eee;">
+          <div class="panel-heading">
+            <ul id="nav-demo" class="nav nav-tabs">
+              <li id="write" class="active"><a href="#">Write</a></li>
+              <li id="preview"><a href="#">Preview</a></li>
+            </ul>
+          </div>
+          <div id="write-content" class="panel-body">
+            <form action="">
+              <textarea class="form-control" id="markdown-text" rows="10"></textarea>
+            </form>
+          </div>
+          <div id="preview-content" class="panel-body hide">
+
+          </div>
+          <div class="alert alert-info" style="margin-bottom:0;margin-top:20px;">
+            <a class="btn btn-info btn-mini" href="https://github.com/kzykhys/Ciconia/issues">Create an issue on github</a> if you found a bug.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="a-project-content content quickstart">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="title">Quick Start</h2>
+
+          <h3>As a library</h3>
+
+          <div class="instruction2"><pre>&lt;?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+$ciconia = new \Ciconia\Ciconia();
+$ciconia->render('Markdown is **awesome**');</pre></div>
+
+          <div class="instruction2"><pre>&lt;p&gt;Markdown is &lt;strong&gt;awesome&lt;/strong&gt;&lt;/p&gt;</pre></div>
+
+          <h3>As a command-line tool</h3>
+
+          <div class="instruction2">
+            <pre>bin/ciconia /path/to/file.md > output.html</pre>
+          </div>
+
+          <div class="instruction2">
+            <pre>php ciconia.phar /path/to/file.md > output.html</pre>
+          </div>
+        </div>
+      </div>
+
+      <!--
+      <p class="text-center" style="margin-top:20px;">
+        <a class="btn btn-large btn-default" href="./docs/">Next: Installation</a>
+      </p>
+      -->
+    </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">&copy; 2013 Kazuyuki Hayashi.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/assets/js/kzykhys.com.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(function () {
+    $('#preview').find('a').click(function () {
+      $.ajax({
+        url: 'http://ciconia-api.gopagoda.com/',
+        method: 'post',
+        data: { text: $('#markdown-text').val() }
+      })
+      .done(function (html) {
+        $('#preview-content').html(html);
+        $('#nav-demo').find('li').removeClass('active');
+        $('#preview').addClass('active');
+        $('#write-content').addClass('hide');
+        $('#preview-content').removeClass('hide');
+      });
+
+      return false;
+    });
+
+    $('#write').find('a').click(function () {
+      $('#nav-demo').find('li').removeClass('active');
+      $('#write').addClass('active');
+      $('#write-content').removeClass('hide');
+      $('#preview-content').addClass('hide');
+
+      return false;
+    });
+  });
+</script>
+</body>
+</html>
