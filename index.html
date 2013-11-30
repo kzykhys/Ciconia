@@ -1,0 +1,394 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Ciconia by kzykhys</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Ciconia</h1>
+        <p>A New Markdown parser for PHP5.4</p>
+
+        <p class="view"><a href="https://github.com/kzykhys/Ciconia">View the Project on GitHub <small>kzykhys/Ciconia</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/kzykhys/Ciconia/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/kzykhys/Ciconia/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/kzykhys/Ciconia">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="ciconia---a-new-markdown-parser-for-php" class="anchor" href="#ciconia---a-new-markdown-parser-for-php"><span class="octicon octicon-link"></span></a>Ciconia - A New Markdown Parser for PHP</h1>
+
+<p><a href="https://packagist.org/packages/kzykhys/ciconia"><img src="https://poser.pugx.org/kzykhys/ciconia/v/stable.png" alt="Latest Stable Version"></a>
+<a href="https://travis-ci.org/kzykhys/Ciconia"><img src="https://travis-ci.org/kzykhys/Ciconia.png?branch=master" alt="Build Status"></a>
+<a href="https://coveralls.io/r/kzykhys/Ciconia?branch=master"><img src="https://coveralls.io/repos/kzykhys/Ciconia/badge.png?branch=master" alt="Coverage Status"></a></p>
+
+<p><strong>This project is <em>unstable</em></strong> until 1.0.0 (see <a href="https://github.com/kzykhys/Ciconia/issues/milestones">milestones</a>)</p>
+
+<p>The Markdown parser for PHP5.4, it is fully extensible.
+Ciconia is the collection of extension, so you can replace, add or remove each parsing mechanism.</p>
+
+<ul>
+<li><p>Based on John Gruber's Markdown.pl</p></li>
+<li>
+<p><a href="https://help.github.com/articles/github-flavored-markdown">Github Flavored Markdown</a> support (disabled by default)</p>
+
+<ul>
+<li>Multiple underscores in words</li>
+<li>New lines</li>
+<li>Fenced code blocks</li>
+<li>Task lists</li>
+<li>Table</li>
+<li>URL Autolinking</li>
+</ul>
+</li>
+<li><p>Tested with <a href="https://github.com/karlcow/markdown-testsuite">karlcow/markdown-testsuite</a></p></li>
+</ul><h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<ul>
+<li>PHP5.4+</li>
+<li>Composer</li>
+</ul><h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>create a <code>composer.json</code></p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+    <span class="nt">"require"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"kzykhys/ciconia"</span><span class="p">:</span> <span class="s2">"dev-master"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>and run</p>
+
+<pre><code>php composer.phar install
+</code></pre>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a name="traditional-markdown" class="anchor" href="#traditional-markdown"><span class="octicon octicon-link"></span></a>Traditional Markdown</h3>
+
+<div class="highlight highlight-php"><pre><span class="k">use</span> <span class="nx">Ciconia\Ciconia</span><span class="p">;</span>
+
+<span class="nv">$ciconia</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Ciconia</span><span class="p">();</span>
+<span class="nv">$html</span> <span class="o">=</span> <span class="nv">$ciconia</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'Markdown is **awesome**'</span><span class="p">);</span>
+
+<span class="c1">// &lt;p&gt;Markdown is &lt;em&gt;awesome&lt;/em&gt;&lt;/p&gt;</span>
+</pre></div>
+
+<h3>
+<a name="github-flavored-markdown" class="anchor" href="#github-flavored-markdown"><span class="octicon octicon-link"></span></a>Github Flavored Markdown</h3>
+
+<p>To activate 6 gfm features:</p>
+
+<div class="highlight highlight-php"><pre><span class="k">use</span> <span class="nx">Ciconia\Ciconia</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Ciconia\Extension\Gfm</span><span class="p">;</span>
+
+<span class="nv">$ciconia</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Ciconia</span><span class="p">();</span>
+<span class="nv">$ciconia</span><span class="o">-&gt;</span><span class="na">addExtension</span><span class="p">(</span><span class="k">new</span> <span class="nx">Gfm\FencedCodeBlockExtension</span><span class="p">());</span>
+<span class="nv">$ciconia</span><span class="o">-&gt;</span><span class="na">addExtension</span><span class="p">(</span><span class="k">new</span> <span class="nx">Gfm\TaskListExtension</span><span class="p">());</span>
+<span class="nv">$ciconia</span><span class="o">-&gt;</span><span class="na">addExtension</span><span class="p">(</span><span class="k">new</span> <span class="nx">Gfm\InlineStyleExtension</span><span class="p">());</span>
+<span class="nv">$ciconia</span><span class="o">-&gt;</span><span class="na">addExtension</span><span class="p">(</span><span class="k">new</span> <span class="nx">Gfm\WhiteSpaceExtension</span><span class="p">());</span>
+<span class="nv">$ciconia</span><span class="o">-&gt;</span><span class="na">addExtension</span><span class="p">(</span><span class="k">new</span> <span class="nx">Gfm\TableExtension</span><span class="p">());</span>
+<span class="nv">$ciconia</span><span class="o">-&gt;</span><span class="na">addExtension</span><span class="p">(</span><span class="k">new</span> <span class="nx">Gfm\UrlAutoLinkExtension</span><span class="p">());</span>
+
+<span class="nv">$html</span> <span class="o">=</span> <span class="nv">$ciconia</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'Markdown is **awesome**'</span><span class="p">);</span>
+
+<span class="c1">// &lt;p&gt;Markdown is &lt;em&gt;awesome&lt;/em&gt;&lt;/p&gt;</span>
+</pre></div>
+
+<h3>
+<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h3>
+
+<table>
+<thead><tr>
+<th>Option</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>tabWidth</strong></td>
+<td>integer</td>
+<td>4</td>
+<td>Number of spaces</td>
+</tr>
+<tr>
+<td><strong>nestedTagLevel</strong></td>
+<td>integer</td>
+<td>3</td>
+<td>Max depth of nested HTML tags</td>
+</tr>
+<tr>
+<td><strong>strict</strong></td>
+<td>boolean</td>
+<td>false</td>
+<td>Throws exception if markdown contains syntax error</td>
+</tr>
+</tbody>
+</table><div class="highlight highlight-php"><pre><span class="k">use</span> <span class="nx">Ciconia\Ciconia</span><span class="p">;</span>
+
+<span class="nv">$ciconia</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Ciconia</span><span class="p">();</span>
+<span class="nv">$html</span> <span class="o">=</span> <span class="nv">$ciconia</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span>
+    <span class="s1">'Markdown is **awesome**'</span><span class="p">,</span>
+    <span class="p">[</span><span class="s1">'tabWidth'</span> <span class="o">=&gt;</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">'nestedTagLevel'</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">'strict'</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">]</span>
+<span class="p">);</span>
+</pre></div>
+
+<h2>
+<a name="rendering-html-or-xhtml" class="anchor" href="#rendering-html-or-xhtml"><span class="octicon octicon-link"></span></a>Rendering HTML or XHTML</h2>
+
+<p>Ciconia renders HTML by default. If you prefer XHTML:</p>
+
+<div class="highlight highlight-php"><pre><span class="k">use</span> <span class="nx">Ciconia\Ciconia</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Ciconia\Renderer\XhtmlRenderer</span><span class="p">;</span>
+
+<span class="nv">$ciconia</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Ciconia</span><span class="p">(</span><span class="k">new</span> <span class="nx">XhtmlRenderer</span><span class="p">());</span>
+<span class="nv">$html</span> <span class="o">=</span> <span class="nv">$ciconia</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'Markdown is **awesome**'</span><span class="p">);</span>
+
+<span class="c1">// &lt;p&gt;Markdown is &lt;em&gt;awesome&lt;/em&gt;&lt;/p&gt;</span>
+</pre></div>
+
+<h2>
+<a name="extend-ciconia" class="anchor" href="#extend-ciconia"><span class="octicon octicon-link"></span></a>Extend Ciconia</h2>
+
+<h3>
+<a name="how-to-extend" class="anchor" href="#how-to-extend"><span class="octicon octicon-link"></span></a>How to Extend</h3>
+
+<p>Creating extension is easy, just implement <code>Ciconia\Extension\ExtensionInterface</code>.</p>
+
+<p>Your class must implement 2 methods.</p>
+
+<h4>
+<a name="void-registerciconiamarkdown-markdown" class="anchor" href="#void-registerciconiamarkdown-markdown"><span class="octicon octicon-link"></span></a><em>void</em> register(<code>Ciconia\Markdown</code> $markdown)</h4>
+
+<p>Register your callback to markdown event manager.
+<code>Ciconia\Markdown</code> is instance of <code>Ciconia\Event\EmitterInterface</code> (looks like Node.js's EventEmitter)</p>
+
+<h4>
+<a name="string-getname" class="anchor" href="#string-getname"><span class="octicon octicon-link"></span></a><em>string</em> getName()</h4>
+
+<p>Returns the name of your extension.
+If your name is the same as one of core extension, it will be replaced by your extension.</p>
+
+<h3>
+<a name="extension-example" class="anchor" href="#extension-example"><span class="octicon octicon-link"></span></a>Extension Example</h3>
+
+<p>This sample extension turns <code>@username</code> mentions into links.</p>
+
+<div class="highlight highlight-php"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">Ciconia\Common\Text</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Ciconia\Extension\ExtensionInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MentionExtension</span> <span class="k">implements</span> <span class="nx">ExtensionInterface</span>
+<span class="p">{</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * {@inheritdoc}</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">register</span><span class="p">(</span><span class="nx">\Ciconia\Markdown</span> <span class="nv">$markdown</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$markdown</span><span class="o">-&gt;</span><span class="na">on</span><span class="p">(</span><span class="s1">'inline'</span><span class="p">,</span> <span class="p">[</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">'processMentions'</span><span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @param Text $text</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">processMentions</span><span class="p">(</span><span class="nx">Text</span> <span class="nv">$text</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Turn @username into [@username](http://example.com/user/username)</span>
+        <span class="nv">$text</span><span class="o">-&gt;</span><span class="na">replace</span><span class="p">(</span><span class="s1">'/(?:^|[^a-zA-Z0-9.])@([A-Za-z]+[A-Za-z0-9]+)/'</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Text</span> <span class="nv">$w</span><span class="p">,</span> <span class="nx">Text</span> <span class="nv">$username</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s1">'[@'</span> <span class="o">.</span> <span class="nv">$username</span> <span class="o">.</span> <span class="s1">'](http://example.com/user/'</span> <span class="o">.</span> <span class="nv">$username</span> <span class="o">.</span> <span class="s1">')'</span><span class="p">;</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * {@inheritdoc}</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getName</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">'mention'</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Register your extension.</p>
+
+<div class="highlight highlight-php"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">'/vendor/autoload.php'</span><span class="p">;</span>
+
+<span class="nv">$ciconia</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Ciconia\Ciconia</span><span class="p">();</span>
+<span class="nv">$ciconia</span><span class="o">-&gt;</span><span class="na">addExtension</span><span class="p">(</span><span class="k">new</span> <span class="nx">MentionExtension</span><span class="p">());</span>
+<span class="k">echo</span> <span class="nv">$ciconia</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'@kzykhys my email address is example@example.com!'</span><span class="p">);</span>
+</pre></div>
+
+<p>Output</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">"http://example.com/user/kzykhys"</span><span class="nt">&gt;</span>@kzykhys<span class="nt">&lt;/a&gt;</span> my email address is example@example.com!<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+
+<p>Each extension handles string as a <code>Text</code> object. See <a href="https://github.com/kzykhys/Text#api">API section of kzykhys/Text</a>.</p>
+
+<h3>
+<a name="events" class="anchor" href="#events"><span class="octicon octicon-link"></span></a>Events</h3>
+
+<p>Possible events are:</p>
+
+<table>
+<thead><tr>
+<th>Event</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>initialize</td>
+<td>Document level parsing. Called at the first of the sequence.</td>
+</tr>
+<tr>
+<td>block</td>
+<td>Block level parsing. Called after <code>initialize</code>
+</td>
+</tr>
+<tr>
+<td>inline</td>
+<td>Inline level parsing. Generally called by block level parsers.</td>
+</tr>
+<tr>
+<td>detab</td>
+<td>Convert tabs to spaces. Generally called by block level parsers.</td>
+</tr>
+<tr>
+<td>outdent</td>
+<td>Remove one level of line-leading tabs or spaces. Generally called by block level parsers.</td>
+</tr>
+<tr>
+<td>finalize</td>
+<td>Called after <code>block</code>
+</td>
+</tr>
+</tbody>
+</table><p><a href="src/Ciconia/Extension">See the source code of Extensions</a></p>
+
+<p><a href="https://gist.github.com/kzykhys/7443440">See events and timing information</a></p>
+
+<h3>
+<a name="create-your-own-renderer" class="anchor" href="#create-your-own-renderer"><span class="octicon octicon-link"></span></a>Create your own Renderer</h3>
+
+<p>Ciconia supports HTML/XHTML output. but if you prefer customizing the output,
+just create a class that implements <code>Ciconia\Renderer\RendererInterface</code>.</p>
+
+<p>See <a href="src/Ciconia/Renderer/RendererInterface.php">Ciconia\Renderer\RendererInterface</a></p>
+
+<h2>
+<a name="command-line-interface" class="anchor" href="#command-line-interface"><span class="octicon octicon-link"></span></a>Command Line Interface</h2>
+
+<h3>
+<a name="usage-1" class="anchor" href="#usage-1"><span class="octicon octicon-link"></span></a>Usage</h3>
+
+<p>Basic Usage: (Outputs result to STDOUT)</p>
+
+<pre><code>ciconia /path/to/file.md
+</code></pre>
+
+<p>Following command saves result to file:</p>
+
+<pre><code>ciconia /path/to/file.md &gt; /path/to/file.html
+</code></pre>
+
+<p>Or using pipe (On Windows in does't work):</p>
+
+<pre><code>echo "Markdown is **awesome**" | ciconia
+</code></pre>
+
+<h3>
+<a name="command-line-options" class="anchor" href="#command-line-options"><span class="octicon octicon-link"></span></a>Command Line Options</h3>
+
+<pre><code> --gfm                 Activate Gfm extensions
+ --compress (-c)       Remove whitespace between HTML tags
+ --format (-f)         Output format (html|xhtml) (default: "html")
+ --lint (-l)           Syntax check only (lint)
+</code></pre>
+
+<h3>
+<a name="where-is-the-script" class="anchor" href="#where-is-the-script"><span class="octicon octicon-link"></span></a>Where is the script?</h3>
+
+<p>CLI script will be installed in <code>vendor/bin/ciconia</code> by default.
+To change the location:</p>
+
+<blockquote>
+<p>Yes, there are two ways an alternate vendor binary location can be specified:</p>
+
+<ol>
+<li>Setting the bin-dir configuration setting in composer.json</li>
+<li>Setting the environment variable COMPOSER_BIN_DIR</li>
+</ol>
+</blockquote>
+
+<p><a href="http://getcomposer.org/doc/articles/vendor-binaries.md">http://getcomposer.org/doc/articles/vendor-binaries.md</a></p>
+
+<h3>
+<a name="using-phar-version" class="anchor" href="#using-phar-version"><span class="octicon octicon-link"></span></a>Using PHAR version</h3>
+
+<p>You can also use <a href="https://github.com/kzykhys/Ciconia/releases/download/v0.1.7/ciconia.phar">single phar file</a></p>
+
+<pre><code>ciconia.phar /path/to/file.md
+</code></pre>
+
+<p>If you prefer access this command globally, download <a href="https://github.com/kzykhys/Ciconia/releases/download/v0.1.7/ciconia.phar">ciconia.phar</a> and move it into your <code>PATH</code>.</p>
+
+<pre><code>mv ciconia.phar /usr/local/bin/ciconia
+</code></pre>
+
+<h2>
+<a name="testing" class="anchor" href="#testing"><span class="octicon octicon-link"></span></a>Testing</h2>
+
+<p>Install or update <code>dev</code> dependencies.</p>
+
+<pre><code>php composer.phar update --dev
+</code></pre>
+
+<p>and run <code>phpunit</code></p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>The MIT License</p>
+
+<h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Feel free to folk this repository and send a pull request. (<a href="https://github.com/kzykhys/Ciconia/graphs/contributors">A list of contributors</a>)</p>
+
+<h2>
+<a name="author" class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
+
+<p>Kazuyuki Hayashi (<a href="https://github.com/kzykhys" class="user-mention">@kzykhys</a>)</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/kzykhys">kzykhys</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
