@@ -126,7 +126,7 @@ Your class must implement 2 methods.
 #### _void_ register(`Ciconia\Markdown` $markdown)
 
 Register your callback to markdown event manager.
-`Ciconia\Markdown` is instance of `Ciconia\Event\EmitterInterface` (looks like Node.js's EventEmitter)
+`Ciconia\Markdown` is instance of `Sabre\Event\EventEmitterInterface` (looks like Node.js's EventEmitter, see the [docs][sabreevent] for more details.)
 
 #### _string_ getName()
 
@@ -302,3 +302,4 @@ Kazuyuki Hayashi (@kzykhys)
 [phar]: https://github.com/kzykhys/Ciconia/releases/download/v1.0.0/ciconia.phar
 [contributors]: https://github.com/kzykhys/Ciconia/graphs/contributors
 [textapi]: https://github.com/kzykhys/Text#api
+[sabreevent]: https://github.com/fruux/sabre-event#sabreevent

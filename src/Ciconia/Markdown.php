@@ -4,21 +4,22 @@ namespace Ciconia;
 
 use Ciconia\Common\Collection;
 use Ciconia\Common\Text;
-use Ciconia\Event\EmitterInterface;
 use Ciconia\Event\EmitterTrait;
 use Ciconia\Renderer\RendererInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Sabre\Event\EventEmitterInterface;
+use Sabre\Event\EventEmitterTrait;
 
 /**
  * Manages parser options and events
  *
  * @author Kazuyuki Hayashi <hayashi@valnur.net>
  */
-class Markdown implements EmitterInterface
+class Markdown implements EventEmitterInterface
 {
 
-    use EmitterTrait;
+    use EventEmitterTrait;
 
     /**
      * @var RendererInterface
