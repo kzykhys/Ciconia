@@ -53,25 +53,23 @@ class Markdown extends BaseMarkdown
 
         $callbacks = $this->listeners($event);
 
-        if (isset($callbacks[$event])) {
-            foreach ($callbacks[$event] as $item) {
-                $name = $this->getCallableName($item[1]);
-                $this->stopwatch->start($name);
+        foreach ($callbacks as $item) {
+            $name = $this->getCallableName($item[1]);
+            $this->stopwatch->start($name);
 
-                $diagnoseEvent = Event::create()
-                    ->setEvent($event)
-                    ->setCallback($name)
-                    ->setDepth(self::$depth);
+            $diagnoseEvent = Event::create()
+                ->setEvent($event)
+                ->setCallback($name)
+                ->setDepth(self::$depth);
 
-                $this->events[] = $diagnoseEvent;
+            $this->events[] = $diagnoseEvent;
 
-                call_user_func_array($item[1], $this->buildParameters($parameters));
-                $stopwatchEvent = $this->stopwatch->stop($name);
+            call_user_func_array($item[1], $this->buildParameters($parameters));
+            $stopwatchEvent = $this->stopwatch->stop($name);
 
-                $diagnoseEvent
-                    ->setDuration($stopwatchEvent->getDuration())
-                    ->setMemory($stopwatchEvent->getMemory());
-            }
+            $diagnoseEvent
+                ->setDuration($stopwatchEvent->getDuration())
+                ->setMemory($stopwatchEvent->getMemory());
         }
 
         $this->stopwatch->stopSection($event);
