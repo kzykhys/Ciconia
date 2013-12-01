@@ -4381,6 +4381,9 @@ footer {
   color: #B33641;
   margin-bottom: 24px;
 }
+.a-project-content h3 {
+  margin-bottom:20px;
+}
 .a-project-content .list-group {
   border: 1px solid #EEEEEE;
 }
@@ -4441,6 +4444,14 @@ footer {
 .a-project-content .editor .panel-body > :last-child {
   margin-bottom: 0;
 }
+.a-project-content .content h3 {
+  margin-top:20px;
+  margin-bottom:20px;
+}
+.a-project-content .project-footer {
+  margin-top:30px;
+  background: #bae0e8 url(../img/bg2.png) repeat;
+}
 
 .ciconia-subnav a {
   color:#fff;
@@ -4460,7 +4471,7 @@ footer {
   border:none;
 }
 .quickstart {
-  background: url("../assets/img/bg2.png") repeat scroll 0 0 #0dc4dc;
+  background: url("/assets/img/bg2.png") repeat scroll 0 0 #0dc4dc;
   padding:20px 0 40px 0;
 }
 .quickstart h2.title {
@@ -4470,4 +4481,13 @@ footer {
 .quickstart h3 {
   color: #fff; margin-bottom:15px;
   font-size:22px;text-shadow: 0 1px 1px #999;
+}
+.docs-subnav {
+  margin-top:20px;
+}
+.docs-subnav a {
+  font-size:16px;
+}
+.docs-subnav li.active a {
+  background-image:url(/assets/img/bg2.png);
 }
