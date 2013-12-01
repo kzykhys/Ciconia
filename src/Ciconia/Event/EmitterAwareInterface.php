@@ -11,6 +11,8 @@ interface EmitterAwareInterface
 {
 
     /**
+     * @api
+     *
      * @param EmitterInterface $emitter
      *
      * @return mixed
@@ -18,6 +20,8 @@ interface EmitterAwareInterface
     public function setEmitter(EmitterInterface $emitter);
 
     /**
+     * @api
+     *
      * @return EmitterInterface
      */
     public function getEmitter();

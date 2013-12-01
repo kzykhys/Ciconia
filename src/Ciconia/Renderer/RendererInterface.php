@@ -14,6 +14,8 @@ interface RendererInterface
 {
 
     /**
+     * @api
+     *
      * @param string|Text $content
      * @param array       $options
      *
@@ -22,6 +24,8 @@ interface RendererInterface
     public function renderParagraph($content, array $options = array());
 
     /**
+     * @api
+     *
      * @param string|Text $content
      * @param array       $options
      *
@@ -30,6 +34,8 @@ interface RendererInterface
     public function renderHeader($content, array $options = array());
 
     /**
+     * @api
+     *
      * @param string|Text $content
      * @param array       $options
      *
@@ -38,6 +44,8 @@ interface RendererInterface
     public function renderCodeBlock($content, array $options = array());
 
     /**
+     * @api
+     *
      * @param string|Text $content
      * @param array       $options
      *
@@ -46,6 +54,8 @@ interface RendererInterface
     public function renderCodeSpan($content, array $options = array());
 
     /**
+     * @api
+     *
      * @param string|Text $content
      * @param array       $options
      *
@@ -54,6 +64,8 @@ interface RendererInterface
     public function renderLink($content, array $options = array());
 
     /**
+     * @api
+     *
      * @param string|Text $content
      * @param array       $options
      *
@@ -62,6 +74,8 @@ interface RendererInterface
     public function renderBlockQuote($content, array $options = array());
 
     /**
+     * @api
+     *
      * @param string|Text $content
      * @param array       $options
      *
@@ -70,6 +84,8 @@ interface RendererInterface
     public function renderList($content, array $options = array());
 
     /**
+     * @api
+     *
      * @param string|Text $content
      * @param array       $options
      *
@@ -78,6 +94,8 @@ interface RendererInterface
     public function renderListItem($content, array $options = array());
 
     /**
+     * @api
+     *
      * @param array $options
      *
      * @return string
@@ -85,6 +103,8 @@ interface RendererInterface
     public function renderHorizontalRule(array $options = array());
 
     /**
+     * @api
+     *
      * @param string $src
      * @param array  $options
      *
@@ -93,6 +113,8 @@ interface RendererInterface
     public function renderImage($src, array $options = array());
 
     /**
+     * @api
+     *
      * @param string|Text $text
      * @param array       $options
      *
@@ -101,6 +123,8 @@ interface RendererInterface
     public function renderBoldText($text, array $options = array());
 
     /**
+     * @api
+     *
      * @param string|Text $text
      * @param array       $options
      *
@@ -109,6 +133,8 @@ interface RendererInterface
     public function renderItalicText($text, array $options = array());
 
     /**
+     * @api
+     *
      * @param array $options
      *
      * @return string

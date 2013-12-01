@@ -15,6 +15,8 @@ interface ExtensionInterface
     /**
      * Adds listeners to EventEmitter
      *
+     * @api
+     *
      * @param Markdown $markdown
      *
      * @return void
@@ -23,6 +25,8 @@ interface ExtensionInterface
 
     /**
      * Returns the name of the extension
+     *
+     * @api
      *
      * @return string
      */

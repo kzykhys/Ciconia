@@ -5,8 +5,6 @@ Ciconia - A New Markdown Parser for PHP
 [![Build Status](https://travis-ci.org/kzykhys/Ciconia.png?branch=master)](https://travis-ci.org/kzykhys/Ciconia)
 [![Coverage Status](https://coveralls.io/repos/kzykhys/Ciconia/badge.png?branch=master)](https://coveralls.io/r/kzykhys/Ciconia?branch=master)
 
-**This project is _unstable_** until 1.0.0 (see [milestones][milestones])
-
 The Markdown parser for PHP5.4, it is fully extensible.
 Ciconia is the collection of extension, so you can replace, add or remove each parsing mechanism.
 
@@ -37,7 +35,7 @@ create a `composer.json`
 ``` json
 {
     "require": {
-        "kzykhys/ciconia": "dev-master"
+        "kzykhys/ciconia": "~1.0.0"
     }
 }
 ```
@@ -301,6 +299,6 @@ Kazuyuki Hayashi (@kzykhys)
 
 
 [milestones]: https://github.com/kzykhys/Ciconia/issues/milestones
-[phar]: https://github.com/kzykhys/Ciconia/releases/download/v0.1.7/ciconia.phar
+[phar]: https://github.com/kzykhys/Ciconia/releases/download/v1.0.0/ciconia.phar
 [contributors]: https://github.com/kzykhys/Ciconia/graphs/contributors
 [textapi]: https://github.com/kzykhys/Text#api

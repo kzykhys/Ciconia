@@ -2,8 +2,6 @@
 
 namespace Ciconia\Renderer;
 
-use Ciconia\Renderer\RendererInterface;
-
 /**
  * Implementation of RendererAwareInterface
  *

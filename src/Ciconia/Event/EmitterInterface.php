@@ -13,6 +13,8 @@ interface EmitterInterface
     /**
      * Adds a listener to the end of the listeners array for the specified event.
      *
+     * @api
+     *
      * @param string   $event
      * @param callable $callback
      * @param int      $priority
@@ -24,8 +26,10 @@ interface EmitterInterface
     /**
      * Execute each of the subscribed listeners
      *
-     * @param $event
-     * @param $parameters
+     * @api
+     *
+     * @param string $event
+     * @param array  $parameters
      *
      * @return mixed
      */
