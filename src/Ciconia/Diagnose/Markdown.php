@@ -51,20 +51,10 @@ class Markdown extends BaseMarkdown
 
         $this->stopwatch->openSection();
 
-        if (isset($this->callbacks[$event])) {
-            if (!$this->callbacks[$event][0]) {
-                usort($this->callbacks[$event][1], function ($A, $B) {
-                    if ($A[0] == $B[0]) {
-                        return 0;
-                    }
+        $callbacks = $this->listeners($event);
 
-                    return ($A[0] > $B[0]) ? 1 : -1;
-                });
-
-                $this->callbacks[$event][0] = true;
-            }
-
-            foreach ($this->callbacks[$event][1] as $item) {
+        if (isset($callbacks[$event])) {
+            foreach ($callbacks[$event] as $item) {
                 $name = $this->getCallableName($item[1]);
                 $this->stopwatch->start($name);
 
