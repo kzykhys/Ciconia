@@ -4449,7 +4449,7 @@ footer {
   margin-bottom:20px;
 }
 .a-project-content .project-footer {
-  margin-top:30px;
+  /*margin-top:30px;*/
   background: #bae0e8 url(../img/bg2.png) repeat;
 }
 

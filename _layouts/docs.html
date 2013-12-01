@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<div class="a-project-content content">
+  <div class="content-header" style="padding:10px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8">
+          <h1 style="margin:0;font-size:30px;">Ciconia <small style="color:#eee;font-size:18px;">/ A New Markdown Parser for #PHP</small></h1>
+        </div>
+        <div class="col-lg-4 col-md-4 text-right">
+          <a class="btn btn-primary" href="https://github.com/kzykhys/Ciconia/releases">Download Now</a>
+          <a class="btn btn-default" href="https://github.com/kzykhys/Ciconia"><span aria-hidden="true" class="icon-github"></span> Fork on Github</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="content-header" style="padding:10px 0;background-color:#0d96ad;">
+    <div class="container">
+      <nav class="ciconia-subnav">
+        <a class="btn btn-info" href="/">Try Ciconia</a>
+        <a class="btn btn-info active" href="/docs/">Documentation</a>
+        <a class="btn btn-info" href="/syntax.html">Syntax</a>
+        <a class="btn btn-info" href="/development.html">Development</a>
+        <a class="btn btn-info" href="/api/">API</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container" style="margin-top:10px;">
+    <div class="row">
+      <div class="col-lg-3 col-md-3">
+        <ul class="nav nav-pills nav-stacked docs-subnav">
+          <li {% if page.url == '/docs/index.html' %}class="active"{% endif %}><a href="./">Installation</a></li>
+          <li {% if page.url == '/docs/usage.html' %}class="active"{% endif %}><a href="usage.html">Basic Usage</a></li>
+          <li {% if page.url == '/docs/extend.html' %}class="active"{% endif %}><a href="extend.html">Extending Ciconia</a></li>
+          <li {% if page.url == '/docs/recipes.html' %}class="active"{% endif %}><a href="recipes.html">Recipes</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-9 col-md-9">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</div>

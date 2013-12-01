@@ -1,0 +1,47 @@
+---
+title: "Basic Usage - Ciconia (A Markdown Parser)"
+layout: docs
+---
+
+<h2 class="title">Basic Usage</h2>
+
+<h3>Transform Markdown into HTML</h3>
+
+<pre>
+require __DIR__ . '/vendor/autoload.php';
+
+use Ciconia\Ciconia;
+
+$ciconia = new \Ciconia\Ciconia();
+$html = $ciconia->render($markdown);</pre>
+
+<h3>Enable Github Flavored Markdown</h3>
+
+<pre>
+require __DIR__ . '/vendor/autoload.php';
+
+use Ciconia\Ciconia;
+use Ciconia\Extension\Gfm;
+
+$ciconia = new \Ciconia();
+$ciconia->addExtension(new Gfm\FencedCodeBlockExtension());
+$ciconia->addExtension(new Gfm\TaskListExtension());
+$ciconia->addExtension(new Gfm\InlineStyleExtension());
+$ciconia->addExtension(new Gfm\WhiteSpaceExtension());
+$ciconia->addExtension(new Gfm\TableExtension());
+$ciconia->addExtension(new Gfm\UrlAutoLinkExtension());
+$html = $ciconia->render($markdown);</pre>
+
+<div class="alert alert-info">
+  If you are interested in extension, check the <a href="extend.md">Extending Ciconia</a> section.
+</div>
+
+<h3>Rendering HTML or XHTML</h3>
+
+<p>Ciconia renders HTML by default. If you prefer XHTML,</p>
+
+<pre>use Ciconia\Ciconia;
+use Ciconia\Renderer\XhtmlRenderer;
+
+$ciconia = new Ciconia(new XhtmlRenderer());
+$html = $ciconia->render('Markdown is **awesome**');</pre>
