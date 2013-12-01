@@ -40,12 +40,12 @@ class Markdown extends BaseMarkdown
     }
 
     /**
-     * @param $event
-     * @param $parameters
+     * @param string $event
+     * @param array $parameters
      *
      * @return mixed|void
      */
-    public function emit($event, $parameters)
+    public function emit($event, array $parameters = array())
     {
         self::$depth++;
 
