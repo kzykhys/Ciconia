@@ -22,7 +22,7 @@ class WhiteSpaceExtension implements ExtensionInterface
      */
     public function register(Markdown $markdown)
     {
-        $markdown->on('inline', array($this, 'processHardBreak'), 75);
+        $markdown->on('inline', array($this, 'processHardBreak'), 750);
     }
 
     /**

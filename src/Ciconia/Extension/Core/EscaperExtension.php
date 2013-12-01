@@ -31,9 +31,9 @@ class EscaperExtension implements ExtensionInterface
     {
         $this->hashes = $this->generateSpecialCharsHash();
 
-        $markdown->on('inline', array($this, 'escapeSpecialChars'), 20);
-        $markdown->on('inline', array($this, 'escapeAmpsAndBrackets'), 60);
-        $markdown->on('finalize', array($this, 'unescapeSpecialChars'), 20);
+        $markdown->on('inline', array($this, 'escapeSpecialChars'), 200);
+        $markdown->on('inline', array($this, 'escapeAmpsAndBrackets'), 600);
+        $markdown->on('finalize', array($this, 'unescapeSpecialChars'), 200);
     }
 
     /**

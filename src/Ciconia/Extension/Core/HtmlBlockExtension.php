@@ -44,9 +44,9 @@ class HtmlBlockExtension implements ExtensionInterface
     {
         $this->markdown = $markdown;
 
-        $markdown->on('initialize', array($this, 'hashHtmlBlocks'), 20);
-        $markdown->on('block', array($this, 'hashHtmlBlocks'), 100);
-        $markdown->on('finalize', array($this, 'unhashHtmlBlocks'), 10);
+        $markdown->on('initialize', array($this, 'hashHtmlBlocks'), 200);
+        $markdown->on('block', array($this, 'hashHtmlBlocks'), 1000);
+        $markdown->on('finalize', array($this, 'unhashHtmlBlocks'), 100);
     }
 
     /**
