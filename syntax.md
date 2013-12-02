@@ -67,3 +67,8 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 <div class="alert alert-danger">
     You have to activate Gfm/* extensions if you prefer to use following syntax.
 </div>
+
+<p class="text-center" style="margin-top:20px;">
+  <a class="btn btn-default" href="/docs/recipes.html">Prev: Recipes</a>&nbsp;
+  <a class="btn btn-default" href="development.html">Next: Development</a>
+</p>

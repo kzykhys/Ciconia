@@ -115,8 +115,14 @@ just create a class that implements `Ciconia\Renderer\RendererInterface`.
 
 
 <div class="alert alert-warning">
-    Please let me know if you create an extension. <a href="https://twitter.com/kzykhys">@kzykhys on twitter</a>
+    <p>Please let me know if you create an extension.</p>
+    <p><a href="https://twitter.com/kzykhys">@kzykhys on twitter</a></p>
 </div>
+
+<p class="text-center" style="margin-top:20px;">
+  <a class="btn btn-default" href="usage.html">Prev: Basic Usage</a>&nbsp;
+  <a class="btn btn-default" href="recipes.html">Next: Recipes</a>
+</p>
 
 [milestones]: https://github.com/kzykhys/Ciconia/issues/milestones
 [phar]: https://github.com/kzykhys/Ciconia/releases/download/v1.0.0/ciconia.phar
