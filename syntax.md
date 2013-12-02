@@ -22,7 +22,7 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 
 <div class="tab-content" style="margin-top:10px;">
   <div class="tab-pane active" id="header12-md">
-    {% gist 7745918 header-setext.md.txt %}
+     {% gist 7745918 header-setext.md.txt %}
   </div>
   <div class="tab-pane" id="header12-html">
      {% gist 7745918 header-setext.html.txt %}
@@ -32,26 +32,38 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 </div>
 </div>
 
-#### H1~H6 (Atx-style)
 
-Atx-style headers use 1-6 hash characters at the start of the line.
+<div class="panel">
+<h4 class="panel-heading">
+    H1~H6 (Atx-style)
+    <small class="label label-info pull-right">HeaderExtension</small> <small class="label label-info pull-right">1.0</small>
+</h4>
+
+<div class="panel-body">
+
+<p>Atx-style headers use 1-6 hash characters at the start of the line.</p>
 
 <ul class="nav nav-tabs">
   <li class="active"><a href="#header16-md" data-toggle="tab">Markdown</a></li>
   <li><a href="#header16-html" data-toggle="tab">HTML</a></li>
 </ul>
 
-<div class="tab-content">
+<div class="tab-content" style="margin-top:10px;">
   <div class="tab-pane active" id="header16-md">
-    <pre style="margin-top:10px;"># Header 1
-# Header 2
-# Header 3
-# Header 4
-# Header 5
-# Header 6</pre>
+    {% gist 7745918 header-atx.md.txt %}
   </div>
   <div class="tab-pane" id="header16-html">
-     <h1>Header 1</h1>
-     <h2>Header 2</h2>
+     {% gist 7745918 header-atx.html.txt %}
   </div>
+</div>
+
+</div>
+</div>
+
+### Paragraphs
+
+<h2 class="title">Github Flavored Markdown Syntax</h2>
+
+<div class="alert alert-danger">
+    You have to activate Gfm/* extensions if you prefer to use following syntax.
 </div>

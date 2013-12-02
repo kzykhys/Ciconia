@@ -4504,6 +4504,12 @@ footer {
 .syntax-guide h4 small {
   font-size:12px;
 }
+.syntax-guide h5 {
+  color: #3B384C;
+  margin:5px 0;
+  font-weight:bold;
+  font-size:16px;
+}
 
 .syntax-guide .panel .panel-heading {
   margin:-15px -15px 15px;
