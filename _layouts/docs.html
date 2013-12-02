@@ -36,7 +36,7 @@ layout: default
           <li {% if page.url == '/docs/index.html' %}class="active"{% endif %}><a href="./">Installation</a></li>
           <li {% if page.url == '/docs/usage.html' %}class="active"{% endif %}><a href="usage.html">Basic Usage</a></li>
           <li {% if page.url == '/docs/extend.html' %}class="active"{% endif %}><a href="extend.html">Extending Ciconia</a></li>
-          <li {% if page.url == '/docs/recipes.html' %}class="active"{% endif %}><a href="recipes.html">Recipes</a></li>
+          <li {% if page.url contains '/docs/recipe' %}class="active"{% endif %}><a href="recipes.html">Recipes</a></li>
         </ul>
       </div>
       <div class="col-lg-9 col-md-9">
