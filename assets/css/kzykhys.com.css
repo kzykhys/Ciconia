@@ -4384,6 +4384,13 @@ footer {
 .a-project-content h3 {
   margin-bottom:20px;
 }
+.a-project-content h4 {
+  margin-top:15px;
+  margin-bottom:15px;
+}
+.a-project-content pre {
+  font-size:14px;
+}
 .a-project-content .list-group {
   border: 1px solid #EEEEEE;
 }
