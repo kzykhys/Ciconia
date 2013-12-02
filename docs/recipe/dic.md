@@ -30,7 +30,7 @@ layout: docs
 
 ### Configure your services.yml
 
-``` yml
+``` yaml
 services:
     markdown.renderer.html:
         class: Ciconia\Renderer\HtmlRenderer
@@ -108,7 +108,7 @@ class AcmeMarkdownBundle extends Bundle
 
 Add a extension to services.yml
 
-``` yml
+``` yaml
 services:
     markdown.renderer.html:
         class: Ciconia\Renderer\HtmlRenderer

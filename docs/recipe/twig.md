@@ -15,10 +15,10 @@ layout: docs
 This example translates a markdown string into HTML.
 
 ```
-<div class="content">
+<div class="content">{% raw %}
     {{ "**Markdown** with _Twig_"|markdown }}
     {{ post.content|markdown }}
-</div>
+{% endraw %}</div>
 ```
 
 To implement `markdown` filter, we can use extension to integrate Ciconia into Twig.
@@ -71,3 +71,7 @@ class MarkdownExtension extends \Twig_Extension
 }
 ```
 
+<div class="alert alert-warning">
+    <p>Are you new to Twig?</p>
+    <a class="btn btn-warning" href="http://twig.sensiolabs.org/doc/advanced.html">See "Extending Twig" to get more information</a>
+</div>

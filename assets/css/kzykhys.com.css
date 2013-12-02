@@ -4498,3 +4498,25 @@ footer {
 .docs-subnav li.active a {
   background-image:url(/assets/img/bg2.png);
 }
+
+.syntax-guide h2 small,
+.syntax-guide h3 small,
+.syntax-guide h4 small {
+  font-size:12px;
+}
+
+.syntax-guide .panel .panel-heading {
+  margin:-15px -15px 15px;
+}
+.syntax-guide .panel .panel-heading small {
+  margin-left:5px;
+}
+
+.gist table, .gist td {
+  border:none;
+  background:none !important;
+}
+.gist table {
+  width:auto;
+  margin:0;
+}

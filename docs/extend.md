@@ -11,12 +11,15 @@ Creating extension is easy, just implement `Ciconia\Extension\ExtensionInterface
 
 Your class must implement 2 methods.
 
-#### _void_ register(`Ciconia\Markdown` $markdown)
+* _void_ register(`Ciconia\Markdown` $markdown)
+* _string_ getName()
+
+> #### _void_ register(`Ciconia\Markdown` $markdown)
 
 Register your callback to markdown event manager.
 `Ciconia\Markdown` is instance of `Ciconia\Event\EmitterInterface` (looks like Node.js's EventEmitter)
 
-#### _string_ getName()
+> #### _string_ getName()
 
 Returns the name of your extension.
 If your name is the same as one of core extension, it will be replaced by your extension.
@@ -80,7 +83,9 @@ Output
 ```
 
 
-Each extension handles string as a `Text` object. See [API section of kzykhys/Text][textapi].
+Each extension handles string as a `Text` object.
+
+<a class="btn btn-info" href="https://github.com/kzykhys/Text#api">See API section of kzykhys/Text</a>
 
 ### Events
 
@@ -95,13 +100,25 @@ Possible events are:
 | outdent    | Remove one level of line-leading tabs or spaces. Generally called by block level parsers. |
 | finalize   | Called after `block`                                                                      |
 
-[See the source code of Extensions](https://github.com/kzykhys/Ciconia/tree/master/src/Ciconia/Extension)
+<p>
+    <a class="btn btn-info" href="https://github.com/kzykhys/Ciconia/tree/master/src/Ciconia/Extension">See the source code of Extensions</a>
+    <a class="btn btn-info" href="https://gist.github.com/kzykhys/7443440">See events and timing information</a>
+</p>
 
-[See events and timing information](https://gist.github.com/kzykhys/7443440)
 
 ### Create your own Renderer
 
 Ciconia supports HTML/XHTML output. but if you prefer customizing the output,
 just create a class that implements `Ciconia\Renderer\RendererInterface`.
 
-See [Ciconia\Renderer\RendererInterface](https://github.com/kzykhys/Ciconia/tree/master/src/Ciconia/Renderer/RendererInterface.php)
+<a class="btn btn-info" href="https://github.com/kzykhys/Ciconia/tree/master/src/Ciconia/Renderer/RendererInterface.php">See <code>Ciconia\Renderer\RendererInterface</code></a>
+
+
+<div class="alert alert-warning">
+    Please let me know if you create an extension. <a href="https://twitter.com/kzykhys">@kzykhys on twitter</a>
+</div>
+
+[milestones]: https://github.com/kzykhys/Ciconia/issues/milestones
+[phar]: https://github.com/kzykhys/Ciconia/releases/download/v1.0.0/ciconia.phar
+[contributors]: https://github.com/kzykhys/Ciconia/graphs/contributors
+[textapi]: https://github.com/kzykhys/Text#api
