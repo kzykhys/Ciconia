@@ -11,7 +11,7 @@ layout: docs
   <li><a href="#bowl">Bowl</a></li>
 </ul>
 
-<h2 id="symfony">Symfony</h2>
+<h2 id="symfony" class="title">Symfony</h2>
 
 ### The files to modify
 
@@ -44,7 +44,7 @@ $this->get('markdown.parser')->render($markdown);
 
 ### Manage extensions using tags
 
-<h2 id="pimple">Pimple/Silex</h2>
+<h2 id="pimple" class="title">Pimple/Silex</h2>
 
 ### Configure Pimple
 
@@ -80,7 +80,7 @@ $app['markdown.parser'] = function (Pimple $app) {
 $app['markdown.parser']->render($markdown);
 ```
 
-<h2 id="bowl">Bowl</h2>
+<h2 id="bowl" class="title">Bowl</h2>
 
 ### Configure Bowl
 
