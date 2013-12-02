@@ -5,6 +5,8 @@ layout: docs
 
 <h2 class="title">Using DI Container to manage extensions</h2>
 
+<p>Ciconia is DIC friendly library. You can work with various DI containers (symfony/dependency-injection, pimple/pimple, kzykhys/bowl...)</p>
+
 <ul style="font-size:18px;line-height: 1.5;">
   <li><a href="#symfony">Symfony</a></li>
   <li><a href="#pimple">Pimple/Silex</a></li>
