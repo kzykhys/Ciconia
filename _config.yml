@@ -1,0 +1,7 @@
+name: "Ciconia - A New Markdown Parser for #PHP by Kazuyuki Hayashi"
+description: "A New Markdown Parser for #PHP"
+url: http://ciconia.kzykhys.com
+paginate: 5
+markdown: redcarpet
+pygments: true
+exclude: ['CNAME']
