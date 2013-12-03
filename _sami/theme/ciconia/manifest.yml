@@ -1,0 +1,7 @@
+name:   ciconia
+parent: enhanced
+
+global:
+    'panel.twig':        'panel.html'
+    'search_index.twig': 'search_index.js'
+    'tree.twig':         'tree.html'

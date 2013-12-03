@@ -1,0 +1,30 @@
+{{ _self.element(tree) }}
+
+{% macro element(tree) %}
+{% if tree %}
+<ul>
+{% for element in tree %}
+  <li>
+    {%- if element[1] and not element[2] -%}
+      <a href="{{ class_path(element[1]) }}">{{ element[0] }}</a>
+        {#[{{ element[0] }}]({{ class_path(element[1]) }})#}
+        {#{%- if element[1].parent -%}#}
+          {#< {{ element[1].parent.shortname -}}#}
+        {#{%- endif -%}#}
+    {%- else -%}
+      {{ element[0] }}
+    {%- endif -%}
+
+    {{ _self.element(element[2]) -}}
+  </li>
+    {#[#}
+    {#{{- element[0]|json_encode }},#}
+    {#{{- element[1] ? ((not element[2] ? class_path(element[1]) : namespace_path(element[1]))|json_encode) : '' }},#}
+    {#{{- (not element[2] and element[1].parent ? ' < ' ~ element[1].parent.shortname : '')|json_encode }},#}
+    {#{{ _self.element(element[2]) -}}#}
+    {#]#}
+    {#{{- loop.last ? '' : ',' }}#}
+{%- endfor %}
+</ul>
+{% endif %}
+{% endmacro %}

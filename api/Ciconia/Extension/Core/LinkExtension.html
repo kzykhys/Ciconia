@@ -1,0 +1,264 @@
+---
+layout: api
+title: "Ciconia\Extension\Core\LinkExtension - API - Ciconia (A Markdown Parser)"
+---
+
+<div class="content">
+        <p>    class
+    <strong>LinkExtension</strong>        implements
+        <a href="../../../Ciconia/Extension/ExtensionInterface.html"><abbr title="Ciconia\Extension\ExtensionInterface">ExtensionInterface</abbr></a>, <a href="../../../Ciconia/Renderer/RendererAwareInterface.html"><abbr title="Ciconia\Renderer\RendererAwareInterface">RendererAwareInterface</abbr></a></p>
+
+            <div class="description">
+            <p>Original source code from Markdown.pl</p>
+            <p><blockquote>
+  <p>Copyright (c) 2004 John Gruber
+  <a href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a></p>
+</blockquote>
+</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    void
+                </td>
+                <td class="last">
+                    <a href="#method_register">register</a>(<a href="../../../Ciconia/Markdown.html"><abbr title="Ciconia\Markdown">Markdown</abbr></a> $markdown)
+                    <p>Adds listeners to EventEmitter</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_initialize">initialize</a>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text, array $options = array())
+                    <p>Strips link definitions from text, stores the URLs and titles in hash references.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_processReferencedLink">processReferencedLink</a>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text, array $options = array())
+                    <p>Handle reference-style links: [link text] [id]</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_processInlineLink">processInlineLink</a>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)
+                    <p>Inline-style links: <a href="url" title="optional title">link text</a></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_processAutoLink">processAutoLink</a>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)
+                    <p>Make links out of things like <code>&lt;http://example.com/&gt;</code></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_getName">getName</a>()
+                    <p>Returns the name of the extension</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_register">
+        <div class="location">at line 34</div>
+        <code>            public            void
+    <strong>register</strong>(<a href="../../../Ciconia/Markdown.html"><abbr title="Ciconia\Markdown">Markdown</abbr></a> $markdown)</code>
+    </h3>
+    <div class="details">
+        <p>Adds listeners to EventEmitter</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../../Ciconia/Markdown.html"><abbr title="Ciconia\Markdown">Markdown</abbr></a></td>
+                <td>$markdown</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>void</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_initialize">
+        <div class="location">at line 50</div>
+        <code>            public            
+    <strong>initialize</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text, array $options = array())</code>
+    </h3>
+    <div class="details">
+        <p>Strips link definitions from text, stores the URLs and titles in hash references.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a></td>
+                <td>$text</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$options</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_processReferencedLink">
+        <div class="location">at line 88</div>
+        <code>            public            
+    <strong>processReferencedLink</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text, array $options = array())</code>
+    </h3>
+    <div class="details">
+        <p>Handle reference-style links: [link text] [id]</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a></td>
+                <td>$text</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$options</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_processInlineLink">
+        <div class="location">at line 147</div>
+        <code>            public            
+    <strong>processInlineLink</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)</code>
+    </h3>
+    <div class="details">
+        <p>Inline-style links: <a href="url" title="optional title">link text</a></p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a></td>
+                <td>$text</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_processAutoLink">
+        <div class="location">at line 190</div>
+        <code>            public            
+    <strong>processAutoLink</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)</code>
+    </h3>
+    <div class="details">
+        <p>Make links out of things like <code>&lt;http://example.com/&gt;</code></p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a></td>
+                <td>$text</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getName">
+        <div class="location">at line 244</div>
+        <code>            public            
+    <strong>getName</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns the name of the extension</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+    
+    </div>

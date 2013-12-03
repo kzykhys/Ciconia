@@ -4657,3 +4657,12 @@ footer {
   width:auto;
   margin:0;
 }
+
+.api-reference .api-tree ul ul {
+  padding-left:12px;
+}
+
+.api-reference .api-tree ul ul,
+.api-reference .api-tree ul ul li {
+  list-style:none;
+}

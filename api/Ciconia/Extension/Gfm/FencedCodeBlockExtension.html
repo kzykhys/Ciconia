@@ -1,0 +1,142 @@
+---
+layout: api
+title: "Ciconia\Extension\Gfm\FencedCodeBlockExtension - API - Ciconia (A Markdown Parser)"
+---
+
+<div class="content">
+        <p>    class
+    <strong>FencedCodeBlockExtension</strong>        implements
+        <a href="../../../Ciconia/Extension/ExtensionInterface.html"><abbr title="Ciconia\Extension\ExtensionInterface">ExtensionInterface</abbr></a>, <a href="../../../Ciconia/Renderer/RendererAwareInterface.html"><abbr title="Ciconia\Renderer\RendererAwareInterface">RendererAwareInterface</abbr></a></p>
+
+            <div class="description">
+            <p>Markdown converts text with four spaces at the front of each line to code blocks.</p>
+            <p>GFM supports that, but we also support fenced blocks.
+Just wrap your code blocks in ``` and you won't need to indent manually to trigger a code block.</p>
+
+<p>PHP Markdown style <code>~</code> is also available.</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    void
+                </td>
+                <td class="last">
+                    <a href="#method_register">register</a>(<a href="../../../Ciconia/Markdown.html"><abbr title="Ciconia\Markdown">Markdown</abbr></a> $markdown)
+                    <p>Adds listeners to EventEmitter</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_processFencedCodeBlock">processFencedCodeBlock</a>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_getName">getName</a>()
+                    <p>Returns the name of the extension</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_register">
+        <div class="location">at line 33</div>
+        <code>            public            void
+    <strong>register</strong>(<a href="../../../Ciconia/Markdown.html"><abbr title="Ciconia\Markdown">Markdown</abbr></a> $markdown)</code>
+    </h3>
+    <div class="details">
+        <p>Adds listeners to EventEmitter</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../../Ciconia/Markdown.html"><abbr title="Ciconia\Markdown">Markdown</abbr></a></td>
+                <td>$markdown</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>void</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_processFencedCodeBlock">
+        <div class="location">at line 44</div>
+        <code>            public            
+    <strong>processFencedCodeBlock</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a></td>
+                <td>$text</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getName">
+        <div class="location">at line 79</div>
+        <code>            public            
+    <strong>getName</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns the name of the extension</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+    
+    </div>

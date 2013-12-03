@@ -1,0 +1,668 @@
+---
+layout: api
+title: "Ciconia\Common\Collection - API - Ciconia (A Markdown Parser)"
+---
+
+<div class="content">
+        <p>    class
+    <strong>Collection</strong>        implements
+        <a href="http://php.net/IteratorAggregate"><abbr title="IteratorAggregate">IteratorAggregate</abbr></a>, <a href="http://php.net/Countable"><abbr title="Countable">Countable</abbr></a></p>
+
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(array $objects = array())
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_add">add</a>(mixed $object)
+                    <p>Appends a new value as the last element.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_set">set</a>(string $name, mixed $object)
+                    <p>Sets the value at the specified index</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_get">get</a>(string $name)
+                    <p>Returns the value at the specified index</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    bool
+                </td>
+                <td class="last">
+                    <a href="#method_exists">exists</a>(string $name)
+                    <p>Returns whether the requested index exists</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    bool
+                </td>
+                <td class="last">
+                    <a href="#method_contains">contains</a>(mixed $object)
+                    <p>Returns whether the requested value exists</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Ciconia\Common\$this">$this</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_remove">remove</a>(<abbr title="Ciconia\Common\$name">$name</abbr> $name)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_join">join</a>(string $glue = &#039;&#039;)
+                    <p>Join array elements with a string</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_slice">slice</a>(integer $offset, integer $length = null)
+                    <p>Extract a slice of the array</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_each">each</a>(callable $callable)
+                    <p>Execute the callback for each element</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_apply">apply</a>(callable $callable)
+                    <p>Applies the callback to the elements</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_filter">filter</a>(callable $callable = null)
+                    <p>Filters elements using a callback function</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="http://php.net/Traversable"><abbr title="Traversable">Traversable</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_getIterator">getIterator</a>()
+                    <p>Retrieve an external iterator</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    int
+                </td>
+                <td class="last">
+                    <a href="#method_count">count</a>()
+                    <p>Count elements of an object</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 19</div>
+        <code>            public            
+    <strong>__construct</strong>(array $objects = array())</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$objects</td>
+                <td>[optional]</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_add">
+        <div class="location">at line 31</div>
+        <code>            public            <a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
+    <strong>add</strong>(mixed $object)</code>
+    </h3>
+    <div class="details">
+        <p>Appends a new value as the last element.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>mixed</td>
+                <td>$object</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_set">
+        <div class="location">at line 46</div>
+        <code>            public            <a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
+    <strong>set</strong>(string $name, mixed $object)</code>
+    </h3>
+    <div class="details">
+        <p>Sets the value at the specified index</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$object</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_get">
+        <div class="location">at line 62</div>
+        <code>            public            mixed
+    <strong>get</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Returns the value at the specified index</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="http://php.net/OutOfBoundsException"><abbr title="OutOfBoundsException">OutOfBoundsException</abbr></a></td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_exists">
+        <div class="location">at line 78</div>
+        <code>            public            bool
+    <strong>exists</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Returns whether the requested index exists</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_contains">
+        <div class="location">at line 90</div>
+        <code>            public            bool
+    <strong>contains</strong>(mixed $object)</code>
+    </h3>
+    <div class="details">
+        <p>Returns whether the requested value exists</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>mixed</td>
+                <td>$object</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_remove">
+        <div class="location">at line 100</div>
+        <code>            public            <abbr title="Ciconia\Common\$this">$this</abbr>
+    <strong>remove</strong>(<abbr title="Ciconia\Common\$name">$name</abbr> $name)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Ciconia\Common\$name">$name</abbr></td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Ciconia\Common\$this">$this</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_join">
+        <div class="location">at line 116</div>
+        <code>            public            string
+    <strong>join</strong>(string $glue = &#039;&#039;)</code>
+    </h3>
+    <div class="details">
+        <p>Join array elements with a string</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$glue</td>
+                <td>[optional] Defaults to an empty string.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_slice">
+        <div class="location">at line 133</div>
+        <code>            public            <a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
+    <strong>slice</strong>(integer $offset, integer $length = null)</code>
+    </h3>
+    <div class="details">
+        <p>Extract a slice of the array</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>integer</td>
+                <td>$offset</td>
+                <td>If offset is non-negative, the sequence will start at that offset in the array. If offset is negative, the sequence will start that far from the end of the array.</td>
+            </tr>
+                    <tr>
+                <td>integer</td>
+                <td>$length</td>
+                <td>If length is given and is positive, then the sequence will have up to that many elements in it. If the array is shorter than the length, then only the available array elements will be present. If length is given and is negative then the sequence will stop that many elements from the end of the array. If it is omitted, then the sequence will have everything from offset up until the end of the array.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_each">
+        <div class="location">at line 145</div>
+        <code>            public            <a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
+    <strong>each</strong>(callable $callable)</code>
+    </h3>
+    <div class="details">
+        <p>Execute the callback for each element</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>callable</td>
+                <td>$callable</td>
+                <td>function ($value, $key) {}</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_apply">
+        <div class="location">at line 163</div>
+        <code>            public            <a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
+    <strong>apply</strong>(callable $callable)</code>
+    </h3>
+    <div class="details">
+        <p>Applies the callback to the elements</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>callable</td>
+                <td>$callable</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_filter">
+        <div class="location">at line 177</div>
+        <code>            public            <a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
+    <strong>filter</strong>(callable $callable = null)</code>
+    </h3>
+    <div class="details">
+        <p>Filters elements using a callback function</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>callable</td>
+                <td>$callable</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getIterator">
+        <div class="location">at line 187</div>
+        <code>            public            <a href="http://php.net/Traversable"><abbr title="Traversable">Traversable</abbr></a>
+    <strong>getIterator</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Retrieve an external iterator</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="http://php.net/Traversable"><abbr title="Traversable">Traversable</abbr></a></td>
+            <td>An instance of an object implementing <b>Iterator</b> or <b>Traversable</b></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_count">
+        <div class="location">at line 197</div>
+        <code>            public            int
+    <strong>count</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Count elements of an object</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>int</td>
+            <td>The custom count as an integer. The return value is cast to an integer.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+    </div>

@@ -1,0 +1,426 @@
+---
+layout: api
+title: "Ciconia\Diagnose\Markdown - API - Ciconia (A Markdown Parser)"
+---
+
+<div class="content">
+        <p>    class
+    <strong>Markdown</strong>        extends <a href="../../Ciconia/Markdown.html"><abbr title="Ciconia\Markdown">Markdown</abbr></a></p>
+
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(<a href="../../Ciconia/Renderer/RendererInterface.html"><abbr title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a> $renderer, <a href="../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $rawContent = null, array $options = array())
+                    <p>Constructor</p>
+                </td>
+                <td><small>from&nbsp;<a href="../../Ciconia/Markdown.html#method___construct"><abbr title="Ciconia\Markdown">Markdown</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Ciconia/HashRegistry.html"><abbr title="Ciconia\HashRegistry">HashRegistry</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_getHashRegistry">getHashRegistry</a>()
+                    <p>
+</p>
+                </td>
+                <td><small>from&nbsp;<a href="../../Ciconia/Markdown.html#method_getHashRegistry"><abbr title="Ciconia\Markdown">Markdown</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_getTitleRegistry">getTitleRegistry</a>()
+                    <p>
+</p>
+                </td>
+                <td><small>from&nbsp;<a href="../../Ciconia/Markdown.html#method_getTitleRegistry"><abbr title="Ciconia\Markdown">Markdown</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_getUrlRegistry">getUrlRegistry</a>()
+                    <p>
+</p>
+                </td>
+                <td><small>from&nbsp;<a href="../../Ciconia/Markdown.html#method_getUrlRegistry"><abbr title="Ciconia\Markdown">Markdown</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_getOptions">getOptions</a>()
+                    <p>
+</p>
+                </td>
+                <td><small>from&nbsp;<a href="../../Ciconia/Markdown.html#method_getOptions"><abbr title="Ciconia\Markdown">Markdown</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_getRawContent">getRawContent</a>()
+                    <p>
+</p>
+                </td>
+                <td><small>from&nbsp;<a href="../../Ciconia/Markdown.html#method_getRawContent"><abbr title="Ciconia\Markdown">Markdown</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_start">start</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Ciconia/Diagnose/Event.html"><abbr title="Ciconia\Diagnose\Event">Event</abbr></a>[]
+                </td>
+                <td class="last">
+                    <a href="#method_stop">stop</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed|void
+                </td>
+                <td class="last">
+                    <a href="#method_emit">emit</a>(<abbr title="Ciconia\Diagnose\$event">$event</abbr> $event, <abbr title="Ciconia\Diagnose\$parameters">$parameters</abbr> $parameters)
+                    <p>Execute each of the subscribed listeners</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getCallableName">getCallableName</a>(<abbr title="Ciconia\Diagnose\$callable">$callable</abbr> $callable)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">in <a href="../../Ciconia/Markdown.html#method___construct"><abbr title="Ciconia\Markdown">Markdown</abbr></a> at line 60</div>
+        <code>            public            
+    <strong>__construct</strong>(<a href="../../Ciconia/Renderer/RendererInterface.html"><abbr title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a> $renderer, <a href="../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $rawContent = null, array $options = array())</code>
+    </h3>
+    <div class="details">
+        <p>Constructor</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../Ciconia/Renderer/RendererInterface.html"><abbr title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a></td>
+                <td>$renderer</td>
+                <td>A RendererInterface instance</td>
+            </tr>
+                    <tr>
+                <td><a href="../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a></td>
+                <td>$rawContent</td>
+                <td>[optional] The whole content</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$options</td>
+                <td>[optional] An array of options</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getHashRegistry">
+        <div class="location">in <a href="../../Ciconia/Markdown.html#method_getHashRegistry"><abbr title="Ciconia\Markdown">Markdown</abbr></a> at line 73</div>
+        <code>            public            <a href="../../Ciconia/HashRegistry.html"><abbr title="Ciconia\HashRegistry">HashRegistry</abbr></a>
+    <strong>getHashRegistry</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Ciconia/HashRegistry.html"><abbr title="Ciconia\HashRegistry">HashRegistry</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getTitleRegistry">
+        <div class="location">in <a href="../../Ciconia/Markdown.html#method_getTitleRegistry"><abbr title="Ciconia\Markdown">Markdown</abbr></a> at line 81</div>
+        <code>            public            <a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
+    <strong>getTitleRegistry</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getUrlRegistry">
+        <div class="location">in <a href="../../Ciconia/Markdown.html#method_getUrlRegistry"><abbr title="Ciconia\Markdown">Markdown</abbr></a> at line 89</div>
+        <code>            public            <a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
+    <strong>getUrlRegistry</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getOptions">
+        <div class="location">in <a href="../../Ciconia/Markdown.html#method_getOptions"><abbr title="Ciconia\Markdown">Markdown</abbr></a> at line 97</div>
+        <code>            public            array
+    <strong>getOptions</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getRawContent">
+        <div class="location">in <a href="../../Ciconia/Markdown.html#method_getRawContent"><abbr title="Ciconia\Markdown">Markdown</abbr></a> at line 105</div>
+        <code>            public            <a href="../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a>
+    <strong>getRawContent</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_start">
+        <div class="location">at line 29</div>
+        <code>            public            
+    <strong>start</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_stop">
+        <div class="location">at line 37</div>
+        <code>            public            <a href="../../Ciconia/Diagnose/Event.html"><abbr title="Ciconia\Diagnose\Event">Event</abbr></a>[]
+    <strong>stop</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Ciconia/Diagnose/Event.html"><abbr title="Ciconia\Diagnose\Event">Event</abbr></a>[]</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_emit">
+        <div class="location">at line 48</div>
+        <code>            public            mixed|void
+    <strong>emit</strong>(<abbr title="Ciconia\Diagnose\$event">$event</abbr> $event, <abbr title="Ciconia\Diagnose\$parameters">$parameters</abbr> $parameters)</code>
+    </h3>
+    <div class="details">
+        <p>Execute each of the subscribed listeners</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Ciconia\Diagnose\$event">$event</abbr></td>
+                <td>$event</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Ciconia\Diagnose\$parameters">$parameters</abbr></td>
+                <td>$parameters</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed|void</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getCallableName">
+        <div class="location">at line 97</div>
+        <code>            public            string
+    <strong>getCallableName</strong>(<abbr title="Ciconia\Diagnose\$callable">$callable</abbr> $callable)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Ciconia\Diagnose\$callable">$callable</abbr></td>
+                <td>$callable</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+    </div>
