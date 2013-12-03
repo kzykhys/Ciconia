@@ -37,7 +37,7 @@ class WhiteSpaceExtension implements ExtensionInterface
      */
     public function processHardBreak(Text $text)
     {
-        $text->replace('/^[\w\<][^\n]*\n+(?!( |\t)*<)/m', function (Text $w) {
+        $text->replace('/^[\S\<][^\n]*\n+(?!( |\t)*<)/m', function (Text $w) {
             if ($w->match('/\n{2}/') || $w->match('/  \n/')) {
                 return $w;
             }
