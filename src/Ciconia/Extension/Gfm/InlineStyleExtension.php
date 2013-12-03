@@ -32,8 +32,8 @@ class InlineStyleExtension implements ExtensionInterface, RendererAwareInterface
      */
     public function register(Markdown $markdown)
     {
-        $markdown->on('inline', array($this, 'processMultipleUnderScore'), 10);
-        $markdown->on('inline', array($this, 'processStrikeThrough'), 70);
+        $markdown->on('inline', array($this, 'processMultipleUnderScore'), 100);
+        $markdown->on('inline', array($this, 'processStrikeThrough'), 700);
     }
 
     /**

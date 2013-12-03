@@ -2,6 +2,9 @@
 
 namespace Ciconia\Event;
 
+use
+    Sabre\Event\EventEmitterInterface;
+
 /**
  * Implementation of EmitterAwareInterface
  *
@@ -11,20 +14,20 @@ trait EmitterAwareTrait
 {
 
     /**
-     * @var EmitterInterface
+     * @var EventEmitterInterface
      */
     private $emitter;
 
     /**
-     * @param EmitterInterface $emitter
+     * @param EventEmitterInterface $emitter
      */
-    public function setEmitter(EmitterInterface $emitter)
+    public function setEmitter(EventEmitterInterface $emitter)
     {
         $this->emitter = $emitter;
     }
 
     /**
-     * @return EmitterInterface
+     * @return EventEmitterInterface
      */
     public function getEmitter()
     {

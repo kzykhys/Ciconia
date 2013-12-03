@@ -35,7 +35,7 @@ class BlockQuoteExtension implements ExtensionInterface, RendererAwareInterface
     {
         $this->markdown = $markdown;
 
-        $markdown->on('block', array($this, 'processBlockQuote'), 50);
+        $markdown->on('block', array($this, 'processBlockQuote'), 500);
     }
 
     /**

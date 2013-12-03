@@ -19,7 +19,7 @@ class UrlAutoLinkExtension implements ExtensionInterface
      */
     public function register(Markdown $markdown)
     {
-        $markdown->on('inline', array($this, 'processStandardUrl'), 40);
+        $markdown->on('inline', array($this, 'processStandardUrl'), 400);
     }
 
     /**

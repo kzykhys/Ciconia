@@ -36,8 +36,8 @@ class ImageExtension implements ExtensionInterface, RendererAwareInterface
     {
         $this->markdown = $markdown;
 
-        $markdown->on('inline', array($this, 'processReferencedImage'), 30);
-        $markdown->on('inline', array($this, 'processInlineImage'), 31);
+        $markdown->on('inline', array($this, 'processReferencedImage'), 300);
+        $markdown->on('inline', array($this, 'processInlineImage'), 310);
     }
 
     /**

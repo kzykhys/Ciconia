@@ -2,8 +2,12 @@
 
 namespace Ciconia\Event;
 
+use
+    Sabre\Event\EventEmitterInterface;
+
 /**
- * EmitterAwareInterface should be implemented by classes that depends on EmitterInterface
+ * EmitterAwareInterface should be implemented by classes that depends on
+ * Sabre\Event\EventEmitterInterface.
  *
  * @author Kazuyuki Hayashi <hayashi@valnur.net>
  */
@@ -13,16 +17,16 @@ interface EmitterAwareInterface
     /**
      * @api
      *
-     * @param EmitterInterface $emitter
+     * @param EventEmitterInterface $emitter
      *
      * @return mixed
      */
-    public function setEmitter(EmitterInterface $emitter);
+    public function setEmitter(EventEmitterInterface $emitter);
 
     /**
      * @api
      *
-     * @return EmitterInterface
+     * @return EventEmitterInterface
      */
     public function getEmitter();
 

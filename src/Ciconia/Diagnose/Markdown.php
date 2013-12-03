@@ -40,48 +40,36 @@ class Markdown extends BaseMarkdown
     }
 
     /**
-     * @param $event
-     * @param $parameters
+     * @param string $event
+     * @param array $parameters
      *
      * @return mixed|void
      */
-    public function emit($event, $parameters)
+    public function emit($event, array $parameters = array())
     {
         self::$depth++;
 
         $this->stopwatch->openSection();
 
-        if (isset($this->callbacks[$event])) {
-            if (!$this->callbacks[$event][0]) {
-                usort($this->callbacks[$event][1], function ($A, $B) {
-                    if ($A[0] == $B[0]) {
-                        return 0;
-                    }
+        $callbacks = $this->listeners($event);
 
-                    return ($A[0] > $B[0]) ? 1 : -1;
-                });
+        foreach ($callbacks as $item) {
+            $name = $this->getCallableName($item[1]);
+            $this->stopwatch->start($name);
 
-                $this->callbacks[$event][0] = true;
-            }
+            $diagnoseEvent = Event::create()
+                ->setEvent($event)
+                ->setCallback($name)
+                ->setDepth(self::$depth);
 
-            foreach ($this->callbacks[$event][1] as $item) {
-                $name = $this->getCallableName($item[1]);
-                $this->stopwatch->start($name);
+            $this->events[] = $diagnoseEvent;
 
-                $diagnoseEvent = Event::create()
-                    ->setEvent($event)
-                    ->setCallback($name)
-                    ->setDepth(self::$depth);
+            call_user_func_array($item[1], $this->buildParameters($parameters));
+            $stopwatchEvent = $this->stopwatch->stop($name);
 
-                $this->events[] = $diagnoseEvent;
-
-                call_user_func_array($item[1], $this->buildParameters($parameters));
-                $stopwatchEvent = $this->stopwatch->stop($name);
-
-                $diagnoseEvent
-                    ->setDuration($stopwatchEvent->getDuration())
-                    ->setMemory($stopwatchEvent->getMemory());
-            }
+            $diagnoseEvent
+                ->setDuration($stopwatchEvent->getDuration())
+                ->setMemory($stopwatchEvent->getMemory());
         }
 
         $this->stopwatch->stopSection($event);

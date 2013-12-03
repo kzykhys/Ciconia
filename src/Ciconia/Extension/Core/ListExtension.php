@@ -48,7 +48,7 @@ class ListExtension implements ExtensionInterface, RendererAwareInterface, Emitt
     {
         $this->markdown = $markdown;
 
-        $markdown->on('block', array($this, 'processList'), 30);
+        $markdown->on('block', array($this, 'processList'), 300);
     }
 
     /**

@@ -35,10 +35,10 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
     {
         $this->markdown = $markdown;
 
-        $markdown->on('initialize', array($this, 'initialize'), 30);
-        $markdown->on('inline', array($this, 'processReferencedLink'), 40);
-        $markdown->on('inline', array($this, 'processInlineLink'), 40);
-        $markdown->on('inline', array($this, 'processAutoLink'), 50);
+        $markdown->on('initialize', array($this, 'initialize'), 300);
+        $markdown->on('inline', array($this, 'processReferencedLink'), 400);
+        $markdown->on('inline', array($this, 'processInlineLink'), 400);
+        $markdown->on('inline', array($this, 'processAutoLink'), 500);
     }
 
     /**

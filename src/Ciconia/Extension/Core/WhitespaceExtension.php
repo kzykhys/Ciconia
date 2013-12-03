@@ -33,10 +33,10 @@ class WhitespaceExtension implements ExtensionInterface, RendererAwareInterface
     {
         $this->markdown = $markdown;
 
-        $markdown->on('initialize', array($this, 'initialize'), 10);
-        $markdown->on('detab', array($this, 'detab'), 10);
-        $markdown->on('outdent', array($this, 'outdent'), 10);
-        $markdown->on('inline', array($this, 'processHardBreak'), 80);
+        $markdown->on('initialize', array($this, 'initialize'), 100);
+        $markdown->on('detab', array($this, 'detab'), 100);
+        $markdown->on('outdent', array($this, 'outdent'), 100);
+        $markdown->on('inline', array($this, 'processHardBreak'), 800);
     }
 
     /**

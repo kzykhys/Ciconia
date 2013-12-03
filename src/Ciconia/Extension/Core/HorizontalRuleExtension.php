@@ -28,7 +28,7 @@ class HorizontalRuleExtension implements ExtensionInterface, RendererAwareInterf
      */
     public function register(Markdown $markdown)
     {
-        $markdown->on('block', array($this, 'processHorizontalRule'), 20);
+        $markdown->on('block', array($this, 'processHorizontalRule'), 200);
     }
 
     /**

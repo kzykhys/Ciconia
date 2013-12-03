@@ -35,8 +35,9 @@ class CodeExtension implements ExtensionInterface, RendererAwareInterface
     {
         $this->markdown = $markdown;
 
-        $markdown->on('block', array($this, 'processCodeBlock'), 40);
-        $markdown->on('inline', array($this, 'processCodeSpan'), 10);
+        $markdown->on('block', array($this, 'processCodeBlock'), 400);
+        $markdown->on('inline', array($this, 'processCodeSpan'), 100);
+
     }
 
     /**

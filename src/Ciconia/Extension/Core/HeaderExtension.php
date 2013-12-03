@@ -35,8 +35,8 @@ class HeaderExtension implements ExtensionInterface, RendererAwareInterface
     {
         $this->markdown = $markdown;
 
-        $markdown->on('block', array($this, 'processSetExtHeader'), 10);
-        $markdown->on('block', array($this, 'processAtxHeader'), 11);
+        $markdown->on('block', array($this, 'processSetExtHeader'), 100);
+        $markdown->on('block', array($this, 'processAtxHeader'), 110);
     }
 
     /**

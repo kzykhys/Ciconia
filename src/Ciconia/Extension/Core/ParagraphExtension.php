@@ -33,7 +33,7 @@ class ParagraphExtension implements ExtensionInterface, RendererAwareInterface
     {
         $this->markdown = $markdown;
 
-        $markdown->on('block', array($this, 'buildParagraph'), 120);
+        $markdown->on('block', array($this, 'buildParagraph'), 1200);
     }
 
     /**
