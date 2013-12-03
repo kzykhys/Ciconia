@@ -1,0 +1,26 @@
+{% extends page_layout %}
+
+{% from "macros.twig" import class_link %}
+
+{% block frontmatter %}{% endblock %}
+
+{% block content_header %}
+    <h1>Classes</h1>
+{% endblock %}
+
+{% block content %}
+    <table>
+        {% for class in classes %}
+            <tr>
+                <td>
+                    {% if class.interface %}<em>{% endif %}
+                    {{ class_link(class, {}, true) }}
+                    {% if class.interface %}</em>{% endif %}
+                </td>
+                <td>
+                    {{ class.shortdesc|desc(class) }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

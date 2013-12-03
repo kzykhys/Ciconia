@@ -1,20 +1,27 @@
 <?php
 
 use Sami\Sami;
+use Sami\Version\GitVersionCollection;
 use Symfony\Component\Finder\Finder;
 
 $iterator = Finder::create()
     ->files()
     ->name('*.php')
     ->exclude('Resources')
-    ->in('_src/Ciconia/src')
+    ->in($dir = '_src/Ciconia/src')
+;
+
+$versions = GitVersionCollection::create($dir)
+    ->add('0.1', '0.1 branch')
+    ->add('master', 'master branch')
 ;
 
 return new Sami($iterator, array(
     'theme'     => 'ciconia',
     'title'     => 'API',
-    'build_dir' => __DIR__.'/../build',
-    'cache_dir' => __DIR__.'/../cache',
+    'versions'  => $versions,
+    'build_dir' => __DIR__.'/../build/%version%',
+    'cache_dir' => __DIR__.'/../cache/%version%',
     'default_opened_level' => 2,
     'template_dirs' => [__DIR__.'/theme']
 ));

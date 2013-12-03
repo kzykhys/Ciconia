@@ -11,7 +11,7 @@ global:
     'pages/index.twig':      '_trash/doc-index.html'
     'pages/namespaces.twig': '_trash/namespaces.html'
     'pages/interfaces.twig': '_trash/interfaces.html'
-    'pages/classes.twig':    '_trash/classes.html'
+    'pages/classes.twig':    'classes.html'
     'pages/traits.twig':     '_trash/traits.html'
     'panel.twig':            '_trash/panel.html'
     'search_index.twig':     '_trash/search_index.js'

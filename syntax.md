@@ -5,7 +5,7 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 
 <h2 class="title">Markdown Syntax</h2>
 
-### Headings
+<h3 id="core-headings">Headings</h3>
 
 <div class="panel">
 <h4 class="panel-heading">
@@ -60,7 +60,7 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 </div>
 </div>
 
-### Paragraphs
+<h3 id="core-paragraphs">Paragraphs</h3>
 
 <div class="panel">
 <h4 class="panel-heading">
@@ -87,7 +87,7 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 </div>
 </div>
 
-### Blockquotes
+<h3 id="core-blockquotes">Blockquotes</h3>
 
 <div class="panel">
 <h4 class="panel-heading">
@@ -143,7 +143,7 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 </div>
 </div>
 
-### Lists
+<h3 id="core-lists">Lists</h3>
 
 <div class="panel">
 <h4 class="panel-heading">
@@ -195,7 +195,7 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 </div>
 </div>
 
-### Code Blocks / Inline Code
+<h3 id="core-code">Code Blocks / Inline Code</h3>
 
 <div class="panel">
 <h4 class="panel-heading">
@@ -260,7 +260,7 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 </div>
 </div>
 
-### Horizontal Rules
+<h3 id="core-hr">Horizontal Rules</h3>
 
 <div class="panel">
 <h4 class="panel-heading">
@@ -286,7 +286,7 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 </div>
 </div>
 
-### Links
+<h3 id="core-links">Links</h3>
 
 <div class="panel">
 <h4 class="panel-heading">
@@ -349,7 +349,7 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 </div>
 </div>
 
-### Emphasis
+<h3 id="core-emphasis">Emphasis</h3>
 
 <div class="panel">
 <h4 class="panel-heading">
@@ -375,7 +375,7 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 </div>
 </div>
 
-### Images
+<h3 id="core-images">Images</h3>
 
 <div class="panel">
 <h4 class="panel-heading">
@@ -431,7 +431,7 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
     You have to activate Gfm/* extensions if you prefer to use following syntax.
 </div>
 
-### Links
+<h3 id="gfm-links">Links</h3>
 
 <div class="alert alert-info">
     <p>You have to activate Gfm\UrlAutoLinkExtension to use this syntax.</p>
@@ -463,7 +463,7 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 </div>
 </div>
 
-### Emphasis
+<h3 id="gfm-emphasis">Emphasis</h3>
 
 <div class="alert alert-info">
     <p>You have to activate Gfm\InlineStyleExtension to use this syntax.</p>
@@ -493,7 +493,7 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 </div>
 </div>
 
-### Fenced code blocks
+<h3 id="gfm-code">Fenced code blocks</h3>
 
 <div class="alert alert-info">
     <p>You have to activate Gfm\FencedCodeBlockExtension to use this syntax.</p>
@@ -550,7 +550,7 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 </div>
 </div>
 
-### Task Lists
+<h3 id="gfm-task-list">Task Lists</h3>
 
 <div class="alert alert-info">
     <p>You have to activate Gfm\TaskListExtension to use this syntax.</p>
@@ -580,7 +580,7 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 </div>
 </div>
 
-### Tables
+<h3 id="gfm-tables">Tables</h3>
 
 <div class="alert alert-info">
     <p>You have to activate Gfm\TableExtension to use this syntax.</p>

@@ -18,7 +18,7 @@
   </script>
 </head>
 <body>
-  <header style="padding-top:5px;margin-bottom:5px;">
+  <header style="padding-top:5px;margin-bottom:0px;">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -80,17 +80,24 @@
   <script type="text/javascript">
     $(function () {
       $('#preview').find('a').click(function () {
+        $('#loading').show();
+        $('#api-error').hide();
         $.ajax({
           url: 'http://ciconia-api.gopagoda.com/',
           method: 'post',
           data: { text: $('#markdown-text').val() }
         })
         .done(function (html) {
+          $('#loading').hide();
           $('#preview-content').html(html);
           $('#nav-demo').find('li').removeClass('active');
           $('#preview').addClass('active');
           $('#write-content').addClass('hide');
           $('#preview-content').removeClass('hide');
+        })
+        .error(function () {
+          $('#loading').hide();
+          $('#api-error').show();
         });
 
         return false;

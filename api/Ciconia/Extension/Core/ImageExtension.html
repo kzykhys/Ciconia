@@ -2,11 +2,10 @@
 title: "Ciconia\\Extension\\Core\\ImageExtension - API - Ciconia (A Markdown Parser)"
 layout: api
 ---
-
 <div class="content">
         <h2 class="title">    <small>class</small>
     ImageExtension        <small>implements</small>
-        <a href="../../../Ciconia/Extension/ExtensionInterface.html"><abbr title="Ciconia\Extension\ExtensionInterface">ExtensionInterface</abbr></a>, <a href="../../../Ciconia/Renderer/RendererAwareInterface.html"><abbr title="Ciconia\Renderer\RendererAwareInterface">RendererAwareInterface</abbr></a></h2>
+        <a href="../../../Ciconia/Extension/ExtensionInterface.html"><abbr title="Ciconia\Extension\ExtensionInterface">ExtensionInterface</abbr></a><small>,</small> <a href="../../../Ciconia/Renderer/RendererAwareInterface.html"><abbr title="Ciconia\Renderer\RendererAwareInterface">RendererAwareInterface</abbr></a></h2>
 
             <div class="panel description">
           <div class="panel-body">
@@ -55,7 +54,7 @@ layout: api
             </tr>
                     <tr>
                 <td class="type">
-                    
+                    string
                 </td>
                 <td class="last">
                     <a href="#method_getName">getName</a>()
@@ -74,8 +73,6 @@ layout: api
     <strong>register</strong>(<a href="../../../Ciconia/Markdown.html"><abbr title="Ciconia\Markdown">Markdown</abbr></a> $markdown)
     </h4>
     <div class="panel-body">
-
-
       <div class="details">
         <p>Adds listeners to EventEmitter</p>
         <p>
@@ -119,8 +116,6 @@ layout: api
     <strong>processReferencedImage</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text, array $options = array())
     </h4>
     <div class="panel-body">
-
-
       <div class="details">
         <p>Handle reference-style labeled images: ![alt text][id]</p>
         <p>
@@ -160,8 +155,6 @@ layout: api
     <strong>processInlineImage</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text, array $options = array())
     </h4>
     <div class="panel-body">
-
-
       <div class="details">
         <p>handle inline images:  <img src="url" alt="alt text" title="optional title" /></p>
         <p>
@@ -197,18 +190,26 @@ layout: api
               <div class="panel">
     <h4 class="panel-heading" id="method_getName">
       <small class="location pull-right">at line 165</small>
-                  public            
+                  public            string
     <strong>getName</strong>()
     </h4>
     <div class="panel-body">
-
-
       <div class="details">
         <p>Returns the name of the extension</p>
         <p>
 </p>
         <div class="tags">
           
+                      <h4>Return Value</h4>
+
+                <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
           
           
                   </div>

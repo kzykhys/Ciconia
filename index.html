@@ -38,17 +38,17 @@ $ php composer.phar install</pre>
     </div>
   </div>
 
-  <!--<div class="content-header" style="padding:10px 0;background-color:#0d96ad;">-->
-    <!--<div class="container">-->
-      <!--<nav class="ciconia-subnav">-->
-        <!--<a class="btn btn-info active" href="./">Try Ciconia</a>-->
-        <!--<a class="btn btn-info" href="./docs/">Documentation</a>-->
-        <!--<a class="btn btn-info" href="./syntax.html">Syntax</a>-->
-        <!--<a class="btn btn-info" href="./development.html">Development</a>-->
-        <!--<a class="btn btn-info" href="./api/">API</a>-->
-      <!--</nav>-->
-    <!--</div>-->
-  <!--</div>-->
+  <div class="content-header" style="padding:10px 0;background-color:#0d96ad;">
+    <div class="container">
+      <nav class="ciconia-subnav">
+        <a class="btn btn-info active" href="./">Try Ciconia</a>
+        <a class="btn btn-info" href="./docs/">Documentation</a>
+        <a class="btn btn-info" href="./syntax.html">Syntax</a>
+        <a class="btn btn-info" href="./development.html">Development</a>
+        <a class="btn btn-info" href="./api/">API</a>
+      </nav>
+    </div>
+  </div>
 
   <div class="container" style="margin-top:10px;">
     <div class="row">
@@ -59,7 +59,13 @@ $ php composer.phar install</pre>
           <div class="panel-heading">
             <ul id="nav-demo" class="nav nav-tabs">
               <li id="write" class="active"><a href="#">Write</a></li>
-              <li id="preview"><a href="#">Preview</a></li>
+              <li id="preview">
+                <a href="#">
+                  Preview
+                  <small id="loading" class="text-muted" style="display:none;">(Loading...)</small>
+                  <small id="api-error" class="text-danger" style="display:none;">(Error)</small>
+                </a>
+              </li>
             </ul>
           </div>
           <div id="write-content" class="panel-body">
@@ -109,8 +115,8 @@ $ciconia->render('Markdown is **awesome**');</pre></div>
           </div>
         </div>
       </div>
-      <!--<p class="text-center" style="margin-top:20px;">-->
-        <!--<a class="btn btn-default" href="./docs/">Next: Installation</a>-->
-      <!--</p>-->
+      <p class="text-center" style="margin-top:20px;">
+        <a class="btn btn-default" href="./docs/">Next: Installation</a>
+      </p>
     </div>
 </div>

@@ -111,7 +111,7 @@ Possible events are:
 Ciconia supports HTML/XHTML output. but if you prefer customizing the output,
 just create a class that implements `Ciconia\Renderer\RendererInterface`.
 
-<a class="btn btn-info" href="https://github.com/kzykhys/Ciconia/tree/master/src/Ciconia/Renderer/RendererInterface.php">See <code>Ciconia\Renderer\RendererInterface</code></a>
+<a class="btn btn-info" href="https://github.com/kzykhys/Ciconia/tree/master/src/Ciconia/Renderer/RendererInterface.php">See the source code of RendererInterface</a>
 
 
 <div class="alert alert-warning">

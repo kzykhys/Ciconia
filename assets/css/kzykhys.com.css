@@ -4667,7 +4667,9 @@ footer {
 }
 
 .api-reference .api-tree ul ul,
-.api-reference .api-tree ul ul li {
+.api-reference .api-tree ul ul li,
+.api-reference .api-index ul ul,
+.api-reference .api-index ul ul li {
   list-style:none;
 }
 
@@ -4677,9 +4679,13 @@ footer {
 .api-reference table td {
   border-left:none;
   border-right:none;
-  /*background: #d8f4f9 !important;*/
-  background:transparent !important;
+  /*background: #d8f4f9 url(../img/bg.png) !important;*/
+  /*background:transparent !important;*/
+  background: #e4f9fb url(../img/bg.png) !important;
   border-color:#cde9ee;
+}
+.api-reference table tr:nth-child(2n+1) > td {
+  background: #f1fdff url(../img/bg.png) !important;
 }
 .api-reference table td p:last-child {
   margin-bottom:0;
@@ -4695,4 +4701,13 @@ footer {
 
 .api-reference h2.title abbr {
   font-size:22px;
+}
+.api-reference .api-index ul li {
+  margin-bottom:5px;
+}
+.api-reference .api-index ul li a {
+  font-size:16px;
+}
+.api-reference .api-index ul ul {
+  padding-left:20px;
 }

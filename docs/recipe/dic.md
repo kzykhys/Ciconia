@@ -151,7 +151,7 @@ $app['markdown.parser'] = function (Pimple $app) {
 ```
 
 <div class="alert alert-info">
-<p>Before Pimle 1.1, you have to define shared object like this:</p>
+<p>Before Pimle 1.1, you have to define a shared object like this:</p>
 <pre>$app['markdown.renderer'] = $app->share(function () {
     return new HtmlRenderer();
 });</pre>
