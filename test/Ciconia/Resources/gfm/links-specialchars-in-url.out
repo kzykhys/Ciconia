@@ -1,0 +1,4 @@
+<p><a href="https://help.github.com/articles/github-flavored-markdown">GFM</a> will <a href="https://help.github.com/articles/github-flavored-markdown#url-autolinking">autolink</a> standard URLs, so if you want to link to a URL (instead of setting link text),<br>
+you can simply enter the URL like <a href="http://hello.world?_t=a">http://hello.world?_t=a</a> and it will be turned into a link to that URL.</p>
+
+<p>Internally, the URL will be turned into <a href="http://example.com/">http://example.com/</a>.</p>
