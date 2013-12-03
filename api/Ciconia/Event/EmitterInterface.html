@@ -1,21 +1,23 @@
 ---
-title: "Ciconia\Event\EmitterInterface - API - Ciconia (A Markdown Parser)"
+title: "Ciconia\\Event\\EmitterInterface - API - Ciconia (A Markdown Parser)"
 layout: api
 ---
 
 <div class="content">
-        <p>    interface
-    <strong>EmitterInterface</strong></p>
+        <h2 class="title">    <small>interface</small>
+    EmitterInterface</h2>
 
-            <div class="description">
+            <div class="panel description">
+          <div class="panel-body">
             <p>Central event manager (heavily inspired by Node.js's EventEmitter)</p>
             <p>
 </p>
+          </div>
         </div>
     
     
     
-            <h2>Methods</h2>
+            <h3>Methods</h3>
 
             <table>
                     <tr>
@@ -24,8 +26,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_on">on</a>($event, callable $callback, $priority = 10)
-                    <p>Adds a listener to the end of the listeners array for the specified event.</p>
-                </td>
+                    <p>Adds a listener to the end of the listeners array for the specified event.</p>                </td>
                 <td></td>
             </tr>
                     <tr>
@@ -34,28 +35,31 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_emit">emit</a>($event, $parameters)
-                    <p>Execute each of the subscribed listeners</p>
-                </td>
+                    <p>Execute each of the subscribed listeners</p>                </td>
                 <td></td>
             </tr>
             </table>
 
 
-        <h2>Details</h2>
+        <h3>Details</h3>
 
-                        <h3 id="method_on">
-        <div class="location">at line 24</div>
-        <code>            public            mixed
-    <strong>on</strong>($event, callable $callback, $priority = 10)</code>
-    </h3>
-    <div class="details">
+                      <div class="panel">
+    <h4 class="panel-heading" id="method_on">
+      <small class="location pull-right">at line 24</small>
+                  public            mixed
+    <strong>on</strong>($event, callable $callback, $priority = 10)
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>Adds a listener to the end of the listeners array for the specified event.</p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td></td>
                 <td>$event</td>
@@ -76,10 +80,10 @@ layout: api
             </tr>
             </table>
 
-            
-                            <h4>Return Value</h4>
+          
+                      <h4>Return Value</h4>
 
-                    <table>
+                <table>
         <tr>
             <td>mixed</td>
             <td>
@@ -87,24 +91,32 @@ layout: api
         </tr>
     </table>
 
-            
-            
-                    </div>
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_emit">
-        <div class="location">at line 36</div>
-        <code>            public            mixed
-    <strong>emit</strong>($event, $parameters)</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_emit">
+      <small class="location pull-right">at line 36</small>
+                  public            mixed
+    <strong>emit</strong>($event, $parameters)
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>Execute each of the subscribed listeners</p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td></td>
                 <td>$event</td>
@@ -119,10 +131,10 @@ layout: api
             </tr>
             </table>
 
-            
-                            <h4>Return Value</h4>
+          
+                      <h4>Return Value</h4>
 
-                    <table>
+                <table>
         <tr>
             <td>mixed</td>
             <td>
@@ -130,10 +142,14 @@ layout: api
         </tr>
     </table>
 
-            
-            
-                    </div>
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
+
+                        
 
     
     </div>

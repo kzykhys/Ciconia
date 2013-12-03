@@ -1,21 +1,23 @@
 ---
-title: "Ciconia\Event\EmitterTrait - API - Ciconia (A Markdown Parser)"
+title: "Ciconia\\Event\\EmitterTrait - API - Ciconia (A Markdown Parser)"
 layout: api
 ---
 
 <div class="content">
-        <p>    trait
-    <strong>EmitterTrait</strong></p>
+        <h2 class="title">    <small>trait</small>
+    EmitterTrait</h2>
 
-            <div class="description">
+            <div class="panel description">
+          <div class="panel-body">
             <p>Central event manager (heavily inspired by Node.js's EventEmitter)</p>
             <p>
 </p>
+          </div>
         </div>
     
     
     
-            <h2>Methods</h2>
+            <h3>Methods</h3>
 
             <table>
                     <tr>
@@ -24,8 +26,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_on">on</a>(string $event, callable $callback, int $priority = 10)
-                    <p>Adds a listener to the end of the listeners array for the specified event.</p>
-                </td>
+                    <p>Adds a listener to the end of the listeners array for the specified event.</p>                </td>
                 <td></td>
             </tr>
                     <tr>
@@ -34,28 +35,31 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_emit">emit</a>(<abbr title="Ciconia\Event\$event">$event</abbr> $event, <abbr title="Ciconia\Event\$parameters">$parameters</abbr> $parameters)
-                    <p>Execute each of the subscribed listeners</p>
-                </td>
+                    <p>Execute each of the subscribed listeners</p>                </td>
                 <td></td>
             </tr>
             </table>
 
 
-        <h2>Details</h2>
+        <h3>Details</h3>
 
-                        <h3 id="method_on">
-        <div class="location">at line 27</div>
-        <code>            public            <abbr title="Ciconia\Event\$this">$this</abbr>
-    <strong>on</strong>(string $event, callable $callback, int $priority = 10)</code>
-    </h3>
-    <div class="details">
+                      <div class="panel">
+    <h4 class="panel-heading" id="method_on">
+      <small class="location pull-right">at line 27</small>
+                  public            <abbr title="Ciconia\Event\$this">$this</abbr>
+    <strong>on</strong>(string $event, callable $callback, int $priority = 10)
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>Adds a listener to the end of the listeners array for the specified event.</p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td>string</td>
                 <td>$event</td>
@@ -76,10 +80,10 @@ layout: api
             </tr>
             </table>
 
-            
-                            <h4>Return Value</h4>
+          
+                      <h4>Return Value</h4>
 
-                    <table>
+                <table>
         <tr>
             <td><abbr title="Ciconia\Event\$this">$this</abbr></td>
             <td>
@@ -87,24 +91,32 @@ layout: api
         </tr>
     </table>
 
-            
-            
-                    </div>
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_emit">
-        <div class="location">at line 47</div>
-        <code>            public            mixed
-    <strong>emit</strong>(<abbr title="Ciconia\Event\$event">$event</abbr> $event, <abbr title="Ciconia\Event\$parameters">$parameters</abbr> $parameters)</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_emit">
+      <small class="location pull-right">at line 47</small>
+                  public            mixed
+    <strong>emit</strong>(<abbr title="Ciconia\Event\$event">$event</abbr> $event, <abbr title="Ciconia\Event\$parameters">$parameters</abbr> $parameters)
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>Execute each of the subscribed listeners</p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td><abbr title="Ciconia\Event\$event">$event</abbr></td>
                 <td>$event</td>
@@ -119,10 +131,10 @@ layout: api
             </tr>
             </table>
 
-            
-                            <h4>Return Value</h4>
+          
+                      <h4>Return Value</h4>
 
-                    <table>
+                <table>
         <tr>
             <td>mixed</td>
             <td>
@@ -130,10 +142,14 @@ layout: api
         </tr>
     </table>
 
-            
-            
-                    </div>
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
+
+                        
 
     
     </div>

@@ -1,25 +1,27 @@
 ---
-title: "Ciconia\Extension\Gfm\InlineStyleExtension - API - Ciconia (A Markdown Parser)"
+title: "Ciconia\\Extension\\Gfm\\InlineStyleExtension - API - Ciconia (A Markdown Parser)"
 layout: api
 ---
 
 <div class="content">
-        <p>    class
-    <strong>InlineStyleExtension</strong>        implements
-        <a href="../../../Ciconia/Extension/ExtensionInterface.html"><abbr title="Ciconia\Extension\ExtensionInterface">ExtensionInterface</abbr></a>, <a href="../../../Ciconia/Renderer/RendererAwareInterface.html"><abbr title="Ciconia\Renderer\RendererAwareInterface">RendererAwareInterface</abbr></a></p>
+        <h2 class="title">    <small>class</small>
+    InlineStyleExtension        <small>implements</small>
+        <a href="../../../Ciconia/Extension/ExtensionInterface.html"><abbr title="Ciconia\Extension\ExtensionInterface">ExtensionInterface</abbr></a>, <a href="../../../Ciconia/Renderer/RendererAwareInterface.html"><abbr title="Ciconia\Renderer\RendererAwareInterface">RendererAwareInterface</abbr></a></h2>
 
-            <div class="description">
+            <div class="panel description">
+          <div class="panel-body">
             <p>Original source code from GitHub Flavored Markdown</p>
             <p><blockquote>
   <p>Copyright 2013 GitHub Inc.
   https://help.github.com/articles/github-flavored-markdown</p>
 </blockquote>
 </p>
+          </div>
         </div>
     
     
     
-            <h2>Methods</h2>
+            <h3>Methods</h3>
 
             <table>
                     <tr>
@@ -28,8 +30,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_register">register</a>(<a href="../../../Ciconia/Markdown.html"><abbr title="Ciconia\Markdown">Markdown</abbr></a> $markdown)
-                    <p>Adds listeners to EventEmitter</p>
-                </td>
+                    <p>Adds listeners to EventEmitter</p>                </td>
                 <td></td>
             </tr>
                     <tr>
@@ -38,8 +39,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_processMultipleUnderScore">processMultipleUnderScore</a>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)
-                    <p>Multiple underscores in words</p>
-                </td>
+                    <p>Multiple underscores in words</p>                </td>
                 <td></td>
             </tr>
                     <tr>
@@ -48,8 +48,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_processStrikeThrough">processStrikeThrough</a>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)
-                    <p>Strike-through <code>~~word~~</code> to <code>&lt;del&gt;word&lt;/del&gt;</code></p>
-                </td>
+                    <p>Strike-through <code>~~word~~</code> to <code>&lt;del&gt;word&lt;/del&gt;</code></p>                </td>
                 <td></td>
             </tr>
                     <tr>
@@ -58,28 +57,31 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_getName">getName</a>()
-                    <p>Returns the name of the extension</p>
-                </td>
+                    <p>Returns the name of the extension</p>                </td>
                 <td></td>
             </tr>
             </table>
 
 
-        <h2>Details</h2>
+        <h3>Details</h3>
 
-                        <h3 id="method_register">
-        <div class="location">at line 33</div>
-        <code>            public            void
-    <strong>register</strong>(<a href="../../../Ciconia/Markdown.html"><abbr title="Ciconia\Markdown">Markdown</abbr></a> $markdown)</code>
-    </h3>
-    <div class="details">
+                      <div class="panel">
+    <h4 class="panel-heading" id="method_register">
+      <small class="location pull-right">at line 33</small>
+                  public            void
+    <strong>register</strong>(<a href="../../../Ciconia/Markdown.html"><abbr title="Ciconia\Markdown">Markdown</abbr></a> $markdown)
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>Adds listeners to EventEmitter</p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td><a href="../../../Ciconia/Markdown.html"><abbr title="Ciconia\Markdown">Markdown</abbr></a></td>
                 <td>$markdown</td>
@@ -88,10 +90,10 @@ layout: api
             </tr>
             </table>
 
-            
-                            <h4>Return Value</h4>
+          
+                      <h4>Return Value</h4>
 
-                    <table>
+                <table>
         <tr>
             <td>void</td>
             <td>
@@ -99,24 +101,32 @@ layout: api
         </tr>
     </table>
 
-            
-            
-                    </div>
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_processMultipleUnderScore">
-        <div class="location">at line 47</div>
-        <code>            public            
-    <strong>processMultipleUnderScore</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_processMultipleUnderScore">
+      <small class="location pull-right">at line 47</small>
+                  public            
+    <strong>processMultipleUnderScore</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>Multiple underscores in words</p>
         <p>It is not reasonable to italicize just part of a word, especially when you're dealing with code and names often
 appear with multiple underscores. Therefore, GFM ignores multiple underscores in words.</p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td><a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a></td>
                 <td>$text</td>
@@ -125,25 +135,33 @@ appear with multiple underscores. Therefore, GFM ignores multiple underscores in
             </tr>
             </table>
 
-            
-            
-            
-                    </div>
+          
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_processStrikeThrough">
-        <div class="location">at line 79</div>
-        <code>            public            
-    <strong>processStrikeThrough</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_processStrikeThrough">
+      <small class="location pull-right">at line 79</small>
+                  public            
+    <strong>processStrikeThrough</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>Strike-through <code>~~word~~</code> to <code>&lt;del&gt;word&lt;/del&gt;</code></p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td><a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a></td>
                 <td>$text</td>
@@ -152,27 +170,39 @@ appear with multiple underscores. Therefore, GFM ignores multiple underscores in
             </tr>
             </table>
 
-            
-            
-            
-                    </div>
+          
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_getName">
-        <div class="location">at line 90</div>
-        <code>            public            
-    <strong>getName</strong>()</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_getName">
+      <small class="location pull-right">at line 90</small>
+                  public            
+    <strong>getName</strong>()
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>Returns the name of the extension</p>
         <p>
 </p>
         <div class="tags">
-            
-            
-            
-                    </div>
+          
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
+
+                        
 
     
     </div>

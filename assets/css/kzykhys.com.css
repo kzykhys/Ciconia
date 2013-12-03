@@ -4642,7 +4642,7 @@ footer {
   font-size:16px;
 }
 
-.syntax-guide .panel .panel-heading {
+.panel .panel-heading {
   margin:-15px -15px 15px;
 }
 .syntax-guide .panel .panel-heading small {
@@ -4662,7 +4662,37 @@ footer {
   padding-left:12px;
 }
 
+.api-reference .api-tree li {
+  color:#999;
+}
+
 .api-reference .api-tree ul ul,
 .api-reference .api-tree ul ul li {
   list-style:none;
+}
+
+.api-reference table {
+  border:none;
+}
+.api-reference table td {
+  border-left:none;
+  border-right:none;
+  /*background: #d8f4f9 !important;*/
+  background:transparent !important;
+  border-color:#cde9ee;
+}
+.api-reference table td p:last-child {
+  margin-bottom:0;
+}
+
+.api-reference .panel-body :last-child {
+  margin-bottom:0;
+}
+
+.api-reference .description blockquote p {
+  font-size:14px;
+}
+
+.api-reference h2.title abbr {
+  font-size:22px;
 }

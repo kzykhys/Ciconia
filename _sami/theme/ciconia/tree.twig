@@ -6,7 +6,7 @@
 {% for element in tree %}
   <li>
     {%- if element[1] and not element[2] -%}
-      <a href="{{ class_path(element[1]) }}">{{ element[0] }}</a>
+      <a href="/api/{{ class_path(element[1]) }}">{{ element[0] }}</a>
         {#[{{ element[0] }}]({{ class_path(element[1]) }})#}
         {#{%- if element[1].parent -%}#}
           {#< {{ element[1].parent.shortname -}}#}

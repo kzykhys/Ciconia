@@ -1,14 +1,15 @@
 ---
-title: "Ciconia\Extension\Core\EscaperExtension - API - Ciconia (A Markdown Parser)"
+title: "Ciconia\\Extension\\Core\\EscaperExtension - API - Ciconia (A Markdown Parser)"
 layout: api
 ---
 
 <div class="content">
-        <p>    class
-    <strong>EscaperExtension</strong>        implements
-        <a href="../../../Ciconia/Extension/ExtensionInterface.html"><abbr title="Ciconia\Extension\ExtensionInterface">ExtensionInterface</abbr></a></p>
+        <h2 class="title">    <small>class</small>
+    EscaperExtension        <small>implements</small>
+        <a href="../../../Ciconia/Extension/ExtensionInterface.html"><abbr title="Ciconia\Extension\ExtensionInterface">ExtensionInterface</abbr></a></h2>
 
-            <div class="description">
+            <div class="panel description">
+          <div class="panel-body">
             <p>Escape special characters</p>
             <p>Original source code from Markdown.pl</p>
 
@@ -17,11 +18,12 @@ layout: api
   <a href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a></p>
 </blockquote>
 </p>
+          </div>
         </div>
     
     
     
-            <h2>Methods</h2>
+            <h3>Methods</h3>
 
             <table>
                     <tr>
@@ -30,8 +32,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_register">register</a>(<a href="../../../Ciconia/Markdown.html"><abbr title="Ciconia\Markdown">Markdown</abbr></a> $markdown)
-                    <p>Adds listeners to EventEmitter</p>
-                </td>
+                    <p>Adds listeners to EventEmitter</p>                </td>
                 <td></td>
             </tr>
                     <tr>
@@ -40,9 +41,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_escapeSpecialChars">escapeSpecialChars</a>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)
-                    <p>
-</p>
-                </td>
+                                    </td>
                 <td></td>
             </tr>
                     <tr>
@@ -51,9 +50,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_escapeAmpsAndBrackets">escapeAmpsAndBrackets</a>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)
-                    <p>
-</p>
-                </td>
+                                    </td>
                 <td></td>
             </tr>
                     <tr>
@@ -62,9 +59,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_unescapeSpecialChars">unescapeSpecialChars</a>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)
-                    <p>
-</p>
-                </td>
+                                    </td>
                 <td></td>
             </tr>
                     <tr>
@@ -73,28 +68,31 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_getName">getName</a>()
-                    <p>Returns the name of the extension</p>
-                </td>
+                    <p>Returns the name of the extension</p>                </td>
                 <td></td>
             </tr>
             </table>
 
 
-        <h2>Details</h2>
+        <h3>Details</h3>
 
-                        <h3 id="method_register">
-        <div class="location">at line 30</div>
-        <code>            public            void
-    <strong>register</strong>(<a href="../../../Ciconia/Markdown.html"><abbr title="Ciconia\Markdown">Markdown</abbr></a> $markdown)</code>
-    </h3>
-    <div class="details">
+                      <div class="panel">
+    <h4 class="panel-heading" id="method_register">
+      <small class="location pull-right">at line 30</small>
+                  public            void
+    <strong>register</strong>(<a href="../../../Ciconia/Markdown.html"><abbr title="Ciconia\Markdown">Markdown</abbr></a> $markdown)
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>Adds listeners to EventEmitter</p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td><a href="../../../Ciconia/Markdown.html"><abbr title="Ciconia\Markdown">Markdown</abbr></a></td>
                 <td>$markdown</td>
@@ -103,10 +101,10 @@ layout: api
             </tr>
             </table>
 
-            
-                            <h4>Return Value</h4>
+          
+                      <h4>Return Value</h4>
 
-                    <table>
+                <table>
         <tr>
             <td>void</td>
             <td>
@@ -114,25 +112,33 @@ layout: api
         </tr>
     </table>
 
-            
-            
-                    </div>
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_escapeSpecialChars">
-        <div class="location">at line 42</div>
-        <code>            public            
-    <strong>escapeSpecialChars</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_escapeSpecialChars">
+      <small class="location pull-right">at line 42</small>
+                  public            
+    <strong>escapeSpecialChars</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>
 </p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td><a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a></td>
                 <td>$text</td>
@@ -141,26 +147,34 @@ layout: api
             </tr>
             </table>
 
-            
-            
-            
-                    </div>
+          
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_escapeAmpsAndBrackets">
-        <div class="location">at line 52</div>
-        <code>            public            
-    <strong>escapeAmpsAndBrackets</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_escapeAmpsAndBrackets">
+      <small class="location pull-right">at line 52</small>
+                  public            
+    <strong>escapeAmpsAndBrackets</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>
 </p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td><a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a></td>
                 <td>$text</td>
@@ -169,26 +183,34 @@ layout: api
             </tr>
             </table>
 
-            
-            
-            
-                    </div>
+          
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_unescapeSpecialChars">
-        <div class="location">at line 66</div>
-        <code>            public            
-    <strong>unescapeSpecialChars</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_unescapeSpecialChars">
+      <small class="location pull-right">at line 66</small>
+                  public            
+    <strong>unescapeSpecialChars</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>
 </p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td><a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a></td>
                 <td>$text</td>
@@ -197,27 +219,39 @@ layout: api
             </tr>
             </table>
 
-            
-            
-            
-                    </div>
+          
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_getName">
-        <div class="location">at line 76</div>
-        <code>            public            
-    <strong>getName</strong>()</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_getName">
+      <small class="location pull-right">at line 76</small>
+                  public            
+    <strong>getName</strong>()
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>Returns the name of the extension</p>
         <p>
 </p>
         <div class="tags">
-            
-            
-            
-                    </div>
+          
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
+
+                        
 
     
     </div>

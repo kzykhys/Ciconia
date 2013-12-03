@@ -1,438 +1,470 @@
 ---
-title: "Ciconia\Ciconia - API - Ciconia (A Markdown Parser)"
+title: "Ciconia\\Ciconia - API - Ciconia (A Markdown Parser)"
 layout: api
 ---
 
 <div class="content">
-<p> class
-  <strong>Ciconia</strong></p>
+        <h2 class="title">    <small>class</small>
+    Ciconia</h2>
 
-<div class="description">
-  <p>Ciconia - The New Markdown Parser</p>
+            <div class="panel description">
+          <div class="panel-body">
+            <p>Ciconia - The New Markdown Parser</p>
+            <p>This is just the central point to manage <code>renderer</code> and <code>extensions</code>.</p>
 
-  <p>This is just the central point to manage <code>renderer</code> and <code>extensions</code>.</p>
+<p>The <code>Core</code> extensions are based on Markdown.pl
+The <code>Gfm</code> extensions are based on Github Flavored Markdown</p>
+          </div>
+        </div>
+    
+            <h3>Constants</h3>
 
-  <p>The <code>Core</code> extensions are based on Markdown.pl
-    The <code>Gfm</code> extensions are based on Github Flavored Markdown</p>
-</div>
+            <table>
+                    <tr>
+                <td>VERSION</td>
+                <td class="last">
+                    <p><em>
+</em></p>
+                    <p>
+</p>
+                </td>
+            </tr>
+            </table>
 
-<h2>Constants</h2>
+    
+    
+            <h3>Methods</h3>
 
-<table>
-  <tr>
-    <td>VERSION</td>
-    <td class="last">
-      <p><em>
-      </em></p>
-
-      <p>
-      </p>
-    </td>
-  </tr>
-</table>
-
-
-<h2>Methods</h2>
-
-<table>
-  <tr>
-    <td class="type">
-
-    </td>
-    <td class="last">
-      <a href="#method___construct">__construct</a>(<a href="../Ciconia/Renderer/RendererInterface.html"><abbr
-        title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a> $renderer = null)
-      <p>
-      </p>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
-    <td class="type">
-      string
-    </td>
-    <td class="last">
-      <a href="#method_render">render</a>(string $text, array $options = array())
-      <p>
-      </p>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
-    <td class="type">
-      <a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a>
-    </td>
-    <td class="last">
-      <a href="#method_setRenderer">setRenderer</a>(<a href="../Ciconia/Renderer/RendererInterface.html"><abbr
-        title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a> $renderer)
-      <p>
-      </p>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
-    <td class="type">
-      <a href="../Ciconia/Renderer/RendererInterface.html"><abbr title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a>
-    </td>
-    <td class="last">
-      <a href="#method_getRenderer">getRenderer</a>()
-      <p>
-      </p>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
-    <td class="type">
-      <a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a>
-    </td>
-    <td class="last">
-      <a href="#method_addExtension">addExtension</a>(<a href="../Ciconia/Extension/ExtensionInterface.html"><abbr
-        title="Ciconia\Extension\ExtensionInterface">ExtensionInterface</abbr></a> $extension)
-      <p>
-      </p>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
-    <td class="type">
-      <a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a>
-    </td>
-    <td class="last">
-      <a href="#method_addExtensions">addExtensions</a>(array $extensions)
-      <p>
-      </p>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
-    <td class="type">
-      <a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a>
-    </td>
-    <td class="last">
-      <a href="#method_removeExtension">removeExtension</a>(string|object $extension)
-      <p>
-      </p>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
-    <td class="type">
-      boolean
-    </td>
-    <td class="last">
-      <a href="#method_hasExtension">hasExtension</a>(string|object $extension)
-      <p>
-      </p>
-    </td>
-    <td></td>
-  </tr>
-</table>
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(<a href="../Ciconia/Renderer/RendererInterface.html"><abbr title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a> $renderer = null)
+                                    </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_render">render</a>(string $text, array $options = array())
+                                    </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setRenderer">setRenderer</a>(<a href="../Ciconia/Renderer/RendererInterface.html"><abbr title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a> $renderer)
+                                    </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../Ciconia/Renderer/RendererInterface.html"><abbr title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_getRenderer">getRenderer</a>()
+                                    </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_addExtension">addExtension</a>(<a href="../Ciconia/Extension/ExtensionInterface.html"><abbr title="Ciconia\Extension\ExtensionInterface">ExtensionInterface</abbr></a> $extension)
+                                    </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_addExtensions">addExtensions</a>(array $extensions)
+                                    </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_removeExtension">removeExtension</a>(string|object $extension)
+                                    </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasExtension">hasExtension</a>(string|object $extension)
+                                    </td>
+                <td></td>
+            </tr>
+            </table>
 
 
-<h2>Details</h2>
+        <h3>Details</h3>
 
-<h3 id="method___construct">
-  <div class="location">at line 42</div>
-  <code> public
-    <strong>__construct</strong>(<a href="../Ciconia/Renderer/RendererInterface.html"><abbr
-        title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a> $renderer = null)</code>
-</h3>
-<div class="details">
-  <p>
-  </p>
-
-  <p>
-  </p>
-
-  <div class="tags">
-    <h4>Parameters</h4>
-
-    <table>
-      <tr>
-        <td><a href="../Ciconia/Renderer/RendererInterface.html"><abbr title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a>
-        </td>
-        <td>$renderer</td>
-        <td>
-        </td>
-      </tr>
-    </table>
+                      <div class="panel">
+    <h4 class="panel-heading" id="method___construct">
+      <small class="location pull-right">at line 42</small>
+                  public            
+    <strong>__construct</strong>(<a href="../Ciconia/Renderer/RendererInterface.html"><abbr title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a> $renderer = null)
+    </h4>
+    <div class="panel-body">
 
 
+      <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                      <h4>Parameters</h4>
+
+                <table>
+                    <tr>
+                <td><a href="../Ciconia/Renderer/RendererInterface.html"><abbr title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a></td>
+                <td>$renderer</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+          
+          
+          
+                  </div>
+      </div>
+    </div>
   </div>
-</div>
 
-<h3 id="method_render">
-  <div class="location">at line 60</div>
-  <code> public string
-    <strong>render</strong>(string $text, array $options = array())</code>
-</h3>
-<div class="details">
-  <p>
-  </p>
+                        
 
-  <p>
-  </p>
+              <div class="panel">
+    <h4 class="panel-heading" id="method_render">
+      <small class="location pull-right">at line 60</small>
+                  public            string
+    <strong>render</strong>(string $text, array $options = array())
+    </h4>
+    <div class="panel-body">
 
-  <div class="tags">
-    <h4>Parameters</h4>
 
-    <table>
-      <tr>
-        <td>string</td>
-        <td>$text</td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <td>array</td>
-        <td>$options</td>
-        <td>
-        </td>
-      </tr>
+      <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                      <h4>Parameters</h4>
+
+                <table>
+                    <tr>
+                <td>string</td>
+                <td>$text</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$options</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+          
+                      <h4>Return Value</h4>
+
+                <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
     </table>
 
-
-    <h4>Return Value</h4>
-
-    <table>
-      <tr>
-        <td>string</td>
-        <td>
-        </td>
-      </tr>
-    </table>
-
-
+          
+          
+                  </div>
+      </div>
+    </div>
   </div>
-</div>
 
-<h3 id="method_setRenderer">
-  <div class="location">at line 79</div>
-  <code> public <a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a>
-    <strong>setRenderer</strong>(<a href="../Ciconia/Renderer/RendererInterface.html"><abbr
-        title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a> $renderer)</code>
-</h3>
-<div class="details">
-  <p>
-  </p>
+                        
 
-  <p>
-  </p>
+              <div class="panel">
+    <h4 class="panel-heading" id="method_setRenderer">
+      <small class="location pull-right">at line 79</small>
+                  public            <a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a>
+    <strong>setRenderer</strong>(<a href="../Ciconia/Renderer/RendererInterface.html"><abbr title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a> $renderer)
+    </h4>
+    <div class="panel-body">
 
-  <div class="tags">
-    <h4>Parameters</h4>
 
-    <table>
-      <tr>
-        <td><a href="../Ciconia/Renderer/RendererInterface.html"><abbr title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a>
-        </td>
-        <td>$renderer</td>
-        <td>
-        </td>
-      </tr>
+      <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                      <h4>Parameters</h4>
+
+                <table>
+                    <tr>
+                <td><a href="../Ciconia/Renderer/RendererInterface.html"><abbr title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a></td>
+                <td>$renderer</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+          
+                      <h4>Return Value</h4>
+
+                <table>
+        <tr>
+            <td><a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a></td>
+            <td>
+</td>
+        </tr>
     </table>
 
-
-    <h4>Return Value</h4>
-
-    <table>
-      <tr>
-        <td><a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a></td>
-        <td>
-        </td>
-      </tr>
-    </table>
-
-
+          
+          
+                  </div>
+      </div>
+    </div>
   </div>
-</div>
 
-<h3 id="method_getRenderer">
-  <div class="location">at line 89</div>
-  <code> public <a href="../Ciconia/Renderer/RendererInterface.html"><abbr title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a>
-    <strong>getRenderer</strong>()</code>
-</h3>
-<div class="details">
-  <p>
-  </p>
+                        
 
-  <p>
-  </p>
+              <div class="panel">
+    <h4 class="panel-heading" id="method_getRenderer">
+      <small class="location pull-right">at line 89</small>
+                  public            <a href="../Ciconia/Renderer/RendererInterface.html"><abbr title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a>
+    <strong>getRenderer</strong>()
+    </h4>
+    <div class="panel-body">
 
-  <div class="tags">
 
-    <h4>Return Value</h4>
+      <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+          
+                      <h4>Return Value</h4>
 
-    <table>
-      <tr>
-        <td><a href="../Ciconia/Renderer/RendererInterface.html"><abbr title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a>
-        </td>
-        <td>
-        </td>
-      </tr>
+                <table>
+        <tr>
+            <td><a href="../Ciconia/Renderer/RendererInterface.html"><abbr title="Ciconia\Renderer\RendererInterface">RendererInterface</abbr></a></td>
+            <td>
+</td>
+        </tr>
     </table>
 
-
+          
+          
+                  </div>
+      </div>
+    </div>
   </div>
-</div>
 
-<h3 id="method_addExtension">
-  <div class="location">at line 99</div>
-  <code> public <a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a>
-    <strong>addExtension</strong>(<a href="../Ciconia/Extension/ExtensionInterface.html"><abbr
-        title="Ciconia\Extension\ExtensionInterface">ExtensionInterface</abbr></a> $extension)</code>
-</h3>
-<div class="details">
-  <p>
-  </p>
+                        
 
-  <p>
-  </p>
+              <div class="panel">
+    <h4 class="panel-heading" id="method_addExtension">
+      <small class="location pull-right">at line 99</small>
+                  public            <a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a>
+    <strong>addExtension</strong>(<a href="../Ciconia/Extension/ExtensionInterface.html"><abbr title="Ciconia\Extension\ExtensionInterface">ExtensionInterface</abbr></a> $extension)
+    </h4>
+    <div class="panel-body">
 
-  <div class="tags">
-    <h4>Parameters</h4>
 
-    <table>
-      <tr>
-        <td><a href="../Ciconia/Extension/ExtensionInterface.html"><abbr title="Ciconia\Extension\ExtensionInterface">ExtensionInterface</abbr></a>
-        </td>
-        <td>$extension</td>
-        <td>
-        </td>
-      </tr>
+      <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                      <h4>Parameters</h4>
+
+                <table>
+                    <tr>
+                <td><a href="../Ciconia/Extension/ExtensionInterface.html"><abbr title="Ciconia\Extension\ExtensionInterface">ExtensionInterface</abbr></a></td>
+                <td>$extension</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+          
+                      <h4>Return Value</h4>
+
+                <table>
+        <tr>
+            <td><a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a></td>
+            <td>
+</td>
+        </tr>
     </table>
 
-
-    <h4>Return Value</h4>
-
-    <table>
-      <tr>
-        <td><a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a></td>
-        <td>
-        </td>
-      </tr>
-    </table>
-
-
+          
+          
+                  </div>
+      </div>
+    </div>
   </div>
-</div>
 
-<h3 id="method_addExtensions">
-  <div class="location">at line 111</div>
-  <code> public <a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a>
-    <strong>addExtensions</strong>(array $extensions)</code>
-</h3>
-<div class="details">
-  <p>
-  </p>
+                        
 
-  <p>
-  </p>
+              <div class="panel">
+    <h4 class="panel-heading" id="method_addExtensions">
+      <small class="location pull-right">at line 111</small>
+                  public            <a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a>
+    <strong>addExtensions</strong>(array $extensions)
+    </h4>
+    <div class="panel-body">
 
-  <div class="tags">
-    <h4>Parameters</h4>
 
-    <table>
-      <tr>
-        <td>array</td>
-        <td>$extensions</td>
-        <td>
-        </td>
-      </tr>
+      <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                      <h4>Parameters</h4>
+
+                <table>
+                    <tr>
+                <td>array</td>
+                <td>$extensions</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+          
+                      <h4>Return Value</h4>
+
+                <table>
+        <tr>
+            <td><a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a></td>
+            <td>
+</td>
+        </tr>
     </table>
 
-
-    <h4>Return Value</h4>
-
-    <table>
-      <tr>
-        <td><a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a></td>
-        <td>
-        </td>
-      </tr>
-    </table>
-
-
+          
+          
+                  </div>
+      </div>
+    </div>
   </div>
-</div>
 
-<h3 id="method_removeExtension">
-  <div class="location">at line 125</div>
-  <code> public <a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a>
-    <strong>removeExtension</strong>(string|object $extension)</code>
-</h3>
-<div class="details">
-  <p>
-  </p>
+                        
 
-  <p>
-  </p>
+              <div class="panel">
+    <h4 class="panel-heading" id="method_removeExtension">
+      <small class="location pull-right">at line 125</small>
+                  public            <a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a>
+    <strong>removeExtension</strong>(string|object $extension)
+    </h4>
+    <div class="panel-body">
 
-  <div class="tags">
-    <h4>Parameters</h4>
 
-    <table>
-      <tr>
-        <td>string|object</td>
-        <td>$extension</td>
-        <td>
-        </td>
-      </tr>
+      <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                      <h4>Parameters</h4>
+
+                <table>
+                    <tr>
+                <td>string|object</td>
+                <td>$extension</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+          
+                      <h4>Return Value</h4>
+
+                <table>
+        <tr>
+            <td><a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a></td>
+            <td>
+</td>
+        </tr>
     </table>
 
-
-    <h4>Return Value</h4>
-
-    <table>
-      <tr>
-        <td><a href="../Ciconia/Ciconia.html"><abbr title="Ciconia\Ciconia">Ciconia</abbr></a></td>
-        <td>
-        </td>
-      </tr>
-    </table>
-
-
+          
+          
+                  </div>
+      </div>
+    </div>
   </div>
-</div>
 
-<h3 id="method_hasExtension">
-  <div class="location">at line 141</div>
-  <code> public boolean
-    <strong>hasExtension</strong>(string|object $extension)</code>
-</h3>
-<div class="details">
-  <p>
-  </p>
+                        
 
-  <p>
-  </p>
+              <div class="panel">
+    <h4 class="panel-heading" id="method_hasExtension">
+      <small class="location pull-right">at line 141</small>
+                  public            boolean
+    <strong>hasExtension</strong>(string|object $extension)
+    </h4>
+    <div class="panel-body">
 
-  <div class="tags">
-    <h4>Parameters</h4>
 
-    <table>
-      <tr>
-        <td>string|object</td>
-        <td>$extension</td>
-        <td>
-        </td>
-      </tr>
+      <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                      <h4>Parameters</h4>
+
+                <table>
+                    <tr>
+                <td>string|object</td>
+                <td>$extension</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+          
+                      <h4>Return Value</h4>
+
+                <table>
+        <tr>
+            <td>boolean</td>
+            <td>
+</td>
+        </tr>
     </table>
 
-
-    <h4>Return Value</h4>
-
-    <table>
-      <tr>
-        <td>boolean</td>
-        <td>
-        </td>
-      </tr>
-    </table>
-
-
+          
+          
+                  </div>
+      </div>
+    </div>
   </div>
-</div>
 
+                        
 
-</div>
+    
+    </div>

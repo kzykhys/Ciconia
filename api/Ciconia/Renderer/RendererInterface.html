@@ -1,21 +1,23 @@
 ---
-title: "Ciconia\Renderer\RendererInterface - API - Ciconia (A Markdown Parser)"
+title: "Ciconia\\Renderer\\RendererInterface - API - Ciconia (A Markdown Parser)"
 layout: api
 ---
 
 <div class="content">
-        <p>    interface
-    <strong>RendererInterface</strong></p>
+        <h2 class="title">    <small>interface</small>
+    RendererInterface</h2>
 
-            <div class="description">
+            <div class="panel description">
+          <div class="panel-body">
             <p>RendererInterface must be implemented by classes that renders result of Markdown</p>
             <p>
 </p>
+          </div>
         </div>
     
     
     
-            <h2>Methods</h2>
+            <h3>Methods</h3>
 
             <table>
                     <tr>
@@ -24,9 +26,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_renderParagraph">renderParagraph</a>($content, array $options = array())
-                    <p>
-</p>
-                </td>
+                                    </td>
                 <td></td>
             </tr>
                     <tr>
@@ -35,9 +35,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_renderHeader">renderHeader</a>($content, array $options = array())
-                    <p>
-</p>
-                </td>
+                                    </td>
                 <td></td>
             </tr>
                     <tr>
@@ -46,9 +44,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_renderCodeBlock">renderCodeBlock</a>($content, array $options = array())
-                    <p>
-</p>
-                </td>
+                                    </td>
                 <td></td>
             </tr>
                     <tr>
@@ -57,9 +53,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_renderCodeSpan">renderCodeSpan</a>($content, array $options = array())
-                    <p>
-</p>
-                </td>
+                                    </td>
                 <td></td>
             </tr>
                     <tr>
@@ -68,9 +62,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_renderLink">renderLink</a>($content, array $options = array())
-                    <p>
-</p>
-                </td>
+                                    </td>
                 <td></td>
             </tr>
                     <tr>
@@ -79,9 +71,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_renderBlockQuote">renderBlockQuote</a>($content, array $options = array())
-                    <p>
-</p>
-                </td>
+                                    </td>
                 <td></td>
             </tr>
                     <tr>
@@ -90,9 +80,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_renderList">renderList</a>($content, array $options = array())
-                    <p>
-</p>
-                </td>
+                                    </td>
                 <td></td>
             </tr>
                     <tr>
@@ -101,9 +89,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_renderListItem">renderListItem</a>($content, array $options = array())
-                    <p>
-</p>
-                </td>
+                                    </td>
                 <td></td>
             </tr>
                     <tr>
@@ -112,9 +98,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_renderHorizontalRule">renderHorizontalRule</a>(array $options = array())
-                    <p>
-</p>
-                </td>
+                                    </td>
                 <td></td>
             </tr>
                     <tr>
@@ -123,9 +107,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_renderImage">renderImage</a>($src, array $options = array())
-                    <p>
-</p>
-                </td>
+                                    </td>
                 <td></td>
             </tr>
                     <tr>
@@ -134,9 +116,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_renderBoldText">renderBoldText</a>($text, array $options = array())
-                    <p>
-</p>
-                </td>
+                                    </td>
                 <td></td>
             </tr>
                     <tr>
@@ -145,9 +125,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_renderItalicText">renderItalicText</a>($text, array $options = array())
-                    <p>
-</p>
-                </td>
+                                    </td>
                 <td></td>
             </tr>
                     <tr>
@@ -156,9 +134,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_renderLineBreak">renderLineBreak</a>(array $options = array())
-                    <p>
-</p>
-                </td>
+                                    </td>
                 <td></td>
             </tr>
                     <tr>
@@ -167,74 +143,32 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_renderTag">renderTag</a>(string $tagName, string $content, string $tagType = Tag::TYPE_BLOCK, array $options = array())
-                    <p>
-</p>
-                </td>
+                                    </td>
                 <td></td>
             </tr>
             </table>
 
 
-        <h2>Details</h2>
+        <h3>Details</h3>
 
-                        <h3 id="method_renderParagraph">
-        <div class="location">at line 24</div>
-        <code>            public            string
-    <strong>renderParagraph</strong>($content, array $options = array())</code>
-    </h3>
-    <div class="details">
+                      <div class="panel">
+    <h4 class="panel-heading" id="method_renderParagraph">
+      <small class="location pull-right">at line 24</small>
+                  public            string
+    <strong>renderParagraph</strong>($content, array $options = array())
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>
 </p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
-                    <tr>
-                <td></td>
-                <td>$content</td>
-                <td>
-</td>
-            </tr>
-                    <tr>
-                <td>array</td>
-                <td>$options</td>
-                <td>
-</td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table>
-        <tr>
-            <td>string</td>
-            <td>
-</td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method_renderHeader">
-        <div class="location">at line 34</div>
-        <code>            public            string
-    <strong>renderHeader</strong>($content, array $options = array())</code>
-    </h3>
-    <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
+                <table>
                     <tr>
                 <td></td>
                 <td>$content</td>
@@ -249,10 +183,10 @@ layout: api
             </tr>
             </table>
 
-            
-                            <h4>Return Value</h4>
+          
+                      <h4>Return Value</h4>
 
-                    <table>
+                <table>
         <tr>
             <td>string</td>
             <td>
@@ -260,25 +194,33 @@ layout: api
         </tr>
     </table>
 
-            
-            
-                    </div>
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_renderCodeBlock">
-        <div class="location">at line 44</div>
-        <code>            public            string
-    <strong>renderCodeBlock</strong>($content, array $options = array())</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_renderHeader">
+      <small class="location pull-right">at line 34</small>
+                  public            string
+    <strong>renderHeader</strong>($content, array $options = array())
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>
 </p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td></td>
                 <td>$content</td>
@@ -293,10 +235,10 @@ layout: api
             </tr>
             </table>
 
-            
-                            <h4>Return Value</h4>
+          
+                      <h4>Return Value</h4>
 
-                    <table>
+                <table>
         <tr>
             <td>string</td>
             <td>
@@ -304,25 +246,33 @@ layout: api
         </tr>
     </table>
 
-            
-            
-                    </div>
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_renderCodeSpan">
-        <div class="location">at line 54</div>
-        <code>            public            string
-    <strong>renderCodeSpan</strong>($content, array $options = array())</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_renderCodeBlock">
+      <small class="location pull-right">at line 44</small>
+                  public            string
+    <strong>renderCodeBlock</strong>($content, array $options = array())
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>
 </p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td></td>
                 <td>$content</td>
@@ -337,10 +287,10 @@ layout: api
             </tr>
             </table>
 
-            
-                            <h4>Return Value</h4>
+          
+                      <h4>Return Value</h4>
 
-                    <table>
+                <table>
         <tr>
             <td>string</td>
             <td>
@@ -348,25 +298,33 @@ layout: api
         </tr>
     </table>
 
-            
-            
-                    </div>
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_renderLink">
-        <div class="location">at line 64</div>
-        <code>            public            string
-    <strong>renderLink</strong>($content, array $options = array())</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_renderCodeSpan">
+      <small class="location pull-right">at line 54</small>
+                  public            string
+    <strong>renderCodeSpan</strong>($content, array $options = array())
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>
 </p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td></td>
                 <td>$content</td>
@@ -381,10 +339,10 @@ layout: api
             </tr>
             </table>
 
-            
-                            <h4>Return Value</h4>
+          
+                      <h4>Return Value</h4>
 
-                    <table>
+                <table>
         <tr>
             <td>string</td>
             <td>
@@ -392,25 +350,33 @@ layout: api
         </tr>
     </table>
 
-            
-            
-                    </div>
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_renderBlockQuote">
-        <div class="location">at line 74</div>
-        <code>            public            string
-    <strong>renderBlockQuote</strong>($content, array $options = array())</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_renderLink">
+      <small class="location pull-right">at line 64</small>
+                  public            string
+    <strong>renderLink</strong>($content, array $options = array())
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>
 </p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td></td>
                 <td>$content</td>
@@ -425,10 +391,10 @@ layout: api
             </tr>
             </table>
 
-            
-                            <h4>Return Value</h4>
+          
+                      <h4>Return Value</h4>
 
-                    <table>
+                <table>
         <tr>
             <td>string</td>
             <td>
@@ -436,25 +402,33 @@ layout: api
         </tr>
     </table>
 
-            
-            
-                    </div>
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_renderList">
-        <div class="location">at line 84</div>
-        <code>            public            string
-    <strong>renderList</strong>($content, array $options = array())</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_renderBlockQuote">
+      <small class="location pull-right">at line 74</small>
+                  public            string
+    <strong>renderBlockQuote</strong>($content, array $options = array())
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>
 </p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td></td>
                 <td>$content</td>
@@ -469,10 +443,10 @@ layout: api
             </tr>
             </table>
 
-            
-                            <h4>Return Value</h4>
+          
+                      <h4>Return Value</h4>
 
-                    <table>
+                <table>
         <tr>
             <td>string</td>
             <td>
@@ -480,25 +454,33 @@ layout: api
         </tr>
     </table>
 
-            
-            
-                    </div>
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_renderListItem">
-        <div class="location">at line 94</div>
-        <code>            public            string
-    <strong>renderListItem</strong>($content, array $options = array())</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_renderList">
+      <small class="location pull-right">at line 84</small>
+                  public            string
+    <strong>renderList</strong>($content, array $options = array())
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>
 </p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td></td>
                 <td>$content</td>
@@ -513,10 +495,10 @@ layout: api
             </tr>
             </table>
 
-            
-                            <h4>Return Value</h4>
+          
+                      <h4>Return Value</h4>
 
-                    <table>
+                <table>
         <tr>
             <td>string</td>
             <td>
@@ -524,25 +506,39 @@ layout: api
         </tr>
     </table>
 
-            
-            
-                    </div>
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_renderHorizontalRule">
-        <div class="location">at line 103</div>
-        <code>            public            string
-    <strong>renderHorizontalRule</strong>(array $options = array())</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_renderListItem">
+      <small class="location pull-right">at line 94</small>
+                  public            string
+    <strong>renderListItem</strong>($content, array $options = array())
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>
 </p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
+                    <tr>
+                <td></td>
+                <td>$content</td>
+                <td>
+</td>
+            </tr>
                     <tr>
                 <td>array</td>
                 <td>$options</td>
@@ -551,10 +547,10 @@ layout: api
             </tr>
             </table>
 
-            
-                            <h4>Return Value</h4>
+          
+                      <h4>Return Value</h4>
 
-                    <table>
+                <table>
         <tr>
             <td>string</td>
             <td>
@@ -562,25 +558,79 @@ layout: api
         </tr>
     </table>
 
-            
-            
-                    </div>
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_renderImage">
-        <div class="location">at line 113</div>
-        <code>            public            string
-    <strong>renderImage</strong>($src, array $options = array())</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_renderHorizontalRule">
+      <small class="location pull-right">at line 103</small>
+                  public            string
+    <strong>renderHorizontalRule</strong>(array $options = array())
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>
 </p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
+                    <tr>
+                <td>array</td>
+                <td>$options</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+          
+                      <h4>Return Value</h4>
+
+                <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+          
+          
+                  </div>
+      </div>
+    </div>
+  </div>
+
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_renderImage">
+      <small class="location pull-right">at line 113</small>
+                  public            string
+    <strong>renderImage</strong>($src, array $options = array())
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                      <h4>Parameters</h4>
+
+                <table>
                     <tr>
                 <td></td>
                 <td>$src</td>
@@ -595,10 +645,10 @@ layout: api
             </tr>
             </table>
 
-            
-                            <h4>Return Value</h4>
+          
+                      <h4>Return Value</h4>
 
-                    <table>
+                <table>
         <tr>
             <td>string</td>
             <td>
@@ -606,25 +656,33 @@ layout: api
         </tr>
     </table>
 
-            
-            
-                    </div>
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_renderBoldText">
-        <div class="location">at line 123</div>
-        <code>            public            string
-    <strong>renderBoldText</strong>($text, array $options = array())</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_renderBoldText">
+      <small class="location pull-right">at line 123</small>
+                  public            string
+    <strong>renderBoldText</strong>($text, array $options = array())
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>
 </p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td></td>
                 <td>$text</td>
@@ -639,10 +697,10 @@ layout: api
             </tr>
             </table>
 
-            
-                            <h4>Return Value</h4>
+          
+                      <h4>Return Value</h4>
 
-                    <table>
+                <table>
         <tr>
             <td>string</td>
             <td>
@@ -650,25 +708,33 @@ layout: api
         </tr>
     </table>
 
-            
-            
-                    </div>
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_renderItalicText">
-        <div class="location">at line 133</div>
-        <code>            public            string
-    <strong>renderItalicText</strong>($text, array $options = array())</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_renderItalicText">
+      <small class="location pull-right">at line 133</small>
+                  public            string
+    <strong>renderItalicText</strong>($text, array $options = array())
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>
 </p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td></td>
                 <td>$text</td>
@@ -683,10 +749,10 @@ layout: api
             </tr>
             </table>
 
-            
-                            <h4>Return Value</h4>
+          
+                      <h4>Return Value</h4>
 
-                    <table>
+                <table>
         <tr>
             <td>string</td>
             <td>
@@ -694,25 +760,33 @@ layout: api
         </tr>
     </table>
 
-            
-            
-                    </div>
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_renderLineBreak">
-        <div class="location">at line 142</div>
-        <code>            public            string
-    <strong>renderLineBreak</strong>(array $options = array())</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_renderLineBreak">
+      <small class="location pull-right">at line 142</small>
+                  public            string
+    <strong>renderLineBreak</strong>(array $options = array())
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>
 </p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td>array</td>
                 <td>$options</td>
@@ -721,10 +795,10 @@ layout: api
             </tr>
             </table>
 
-            
-                            <h4>Return Value</h4>
+          
+                      <h4>Return Value</h4>
 
-                    <table>
+                <table>
         <tr>
             <td>string</td>
             <td>
@@ -732,25 +806,33 @@ layout: api
         </tr>
     </table>
 
-            
-            
-                    </div>
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_renderTag">
-        <div class="location">at line 152</div>
-        <code>            public            mixed
-    <strong>renderTag</strong>(string $tagName, string $content, string $tagType = Tag::TYPE_BLOCK, array $options = array())</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_renderTag">
+      <small class="location pull-right">at line 152</small>
+                  public            mixed
+    <strong>renderTag</strong>(string $tagName, string $content, string $tagType = Tag::TYPE_BLOCK, array $options = array())
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>
 </p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td>string</td>
                 <td>$tagName</td>
@@ -777,10 +859,10 @@ layout: api
             </tr>
             </table>
 
-            
-                            <h4>Return Value</h4>
+          
+                      <h4>Return Value</h4>
 
-                    <table>
+                <table>
         <tr>
             <td>mixed</td>
             <td>
@@ -788,10 +870,14 @@ layout: api
         </tr>
     </table>
 
-            
-            
-                    </div>
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
+
+                        
 
     
     </div>

@@ -2,7 +2,7 @@
 
 {% from "macros.twig" import namespace_link, class_link, method_link, hint_link %}
 
-{% block title %}{{ class.name }} - API - Ciconia (A Markdown Parser){% endblock %}
+{% block title %}{{ class.name|replace({'\\':'\\\\'}) }} - API - Ciconia (A Markdown Parser){% endblock %}
 
 {% block body_class 'class' %}
 
@@ -12,50 +12,52 @@
 {% endblock %}
 
 {% block content %}
-    <p>{{ block('class_signature') }}</p>
+    <h2 class="title">{{ block('class_signature') }}</h2>
 
     {% if class.shortdesc or class.longdesc %}
-        <div class="description">
+        <div class="panel description">
+          <div class="panel-body">
             <p>{{ class.shortdesc|desc(class) }}</p>
             <p>{{ class.longdesc|desc(class) }}</p>
+          </div>
         </div>
     {% endif %}
 
     {% if constants %}
-        <h2>Constants</h2>
+        <h3>Constants</h3>
 
         {{ block('constants') }}
     {% endif %}
 
     {% if properties %}
-        <h2>Properties</h2>
+        <h3>Properties</h3>
 
         {{ block('properties') }}
     {% endif %}
 
     {% if methods %}
-        <h2>Methods</h2>
+        <h3>Methods</h3>
 
         {{ block('methods') }}
 
-        <h2>Details</h2>
+        <h3>Details</h3>
 
         {{ block('methods_details') }}
     {% endif %}
 {% endblock %}
 
 {% block class_signature -%}
-    {% if not class.interface and class.abstract %}abstract {% endif %}
-    {{ class.categoryName }}
-    <strong>{{ class.shortname }}</strong>
+    {% if not class.interface and class.abstract %}<small>abstract</small> {% endif %}
+    <small>{{ class.categoryName }}</small>
+    {{ class.shortname }}
     {%- if class.parent %}
-        extends {{ class_link(class.parent) }}
+        <small>extends</small> {{ class_link(class.parent) }}
     {%- endif %}
     {%- if class.interfaces|length > 0 %}
-        implements
+        <small>implements</small>
         {% for interface in class.interfaces %}
             {{- class_link(interface) }}
-            {%- if not loop.last %}, {% endif %}
+            {%- if not loop.last %}<small>,</small> {% endif %}
         {%- endfor %}
     {%- endif %}
 {% endblock %}
@@ -158,7 +160,7 @@
                 </td>
                 <td class="last">
                     <a href="#method_{{ method.name }}">{{ method.name }}</a>{{ block('method_parameters_signature') }}
-                    <p>{{ method.shortdesc|desc(class) }}</p>
+                    {% if method.shortdesc %}<p>{{ method.shortdesc|desc(class) }}</p>{% endif %}
                 </td>
                 <td>
                     {%- if method.class is not sameas(class) -%}
@@ -177,37 +179,47 @@
 {% endblock %}
 
 {% block method %}
-    <h3 id="method_{{ method.name }}">
-        <div class="location">{% if method.class is not sameas(class) %}in {{ method_link(method, {}, false, true) }} {% endif %}at line {{ method.line }}</div>
-        <code>{{ block('method_signature') }}</code>
-    </h3>
-    <div class="details">
+  <div class="panel">
+    <h4 class="panel-heading" id="method_{{ method.name }}">
+      <small class="location pull-right">{% if method.class is not sameas(class) %}in {{ method_link(method, {}, false, true) }} {% endif %}at line {{ method.line }}</small>
+      {{ block('method_signature') }}
+    </h4>
+    <div class="panel-body">
+      <div class="details">
         <p>{{ method.shortdesc|desc(class) }}</p>
         <p>{{ method.longdesc|desc(class) }}</p>
         <div class="tags">
-            {% if method.parameters %}
-                <h4>Parameters</h4>
+          {% if method.parameters %}
+            <h4>Parameters</h4>
 
-                {{ block('parameters') }}
-            {% endif %}
+            {{ block('parameters') }}
+          {% endif %}
 
-            {% if method.hintDesc or method.hint %}
-                <h4>Return Value</h4>
+          {% if method.hintDesc or method.hint %}
+            <h4>Return Value</h4>
 
-                {{ block('return') }}
-            {% endif %}
+            {{ block('return') }}
+          {% endif %}
 
-            {% if method.exceptions %}
-                <h4>Exceptions</h4>
+          {% if method.exceptions %}
+            <h4>Exceptions</h4>
 
-                {{ block('exceptions') }}
-            {% endif %}
+            {{ block('exceptions') }}
+          {% endif %}
 
-            {% if method.tags('see') %}
-                <h4>See also</h4>
+          {% if method.tags('see') %}
+            <h4>See also</h4>
 
-                {{ block('see') }}
-            {% endif %}
+            {{ block('see') }}
+          {% endif %}
         </div>
+      </div>
     </div>
+  </div>
+
+    {#<h3 id="method_{{ method.name }}">#}
+        {#<div class="location">{% if method.class is not sameas(class) %}in {{ method_link(method, {}, false, true) }} {% endif %}at line {{ method.line }}</div>#}
+        {#<code>{{ block('method_signature') }}</code>#}
+    {#</h3>#}
+
 {% endblock %}

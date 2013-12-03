@@ -1,25 +1,27 @@
 ---
-title: "Ciconia\Extension\Core\WhitespaceExtension - API - Ciconia (A Markdown Parser)"
+title: "Ciconia\\Extension\\Core\\WhitespaceExtension - API - Ciconia (A Markdown Parser)"
 layout: api
 ---
 
 <div class="content">
-        <p>    class
-    <strong>WhitespaceExtension</strong>        implements
-        <a href="../../../Ciconia/Extension/ExtensionInterface.html"><abbr title="Ciconia\Extension\ExtensionInterface">ExtensionInterface</abbr></a>, <a href="../../../Ciconia/Renderer/RendererAwareInterface.html"><abbr title="Ciconia\Renderer\RendererAwareInterface">RendererAwareInterface</abbr></a></p>
+        <h2 class="title">    <small>class</small>
+    WhitespaceExtension        <small>implements</small>
+        <a href="../../../Ciconia/Extension/ExtensionInterface.html"><abbr title="Ciconia\Extension\ExtensionInterface">ExtensionInterface</abbr></a>, <a href="../../../Ciconia/Renderer/RendererAwareInterface.html"><abbr title="Ciconia\Renderer\RendererAwareInterface">RendererAwareInterface</abbr></a></h2>
 
-            <div class="description">
+            <div class="panel description">
+          <div class="panel-body">
             <p>Original source code from Markdown.pl</p>
             <p><blockquote>
   <p>Copyright (c) 2004 John Gruber
   <a href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a></p>
 </blockquote>
 </p>
+          </div>
         </div>
     
     
     
-            <h2>Methods</h2>
+            <h3>Methods</h3>
 
             <table>
                     <tr>
@@ -28,8 +30,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_register">register</a>(<a href="../../../Ciconia/Markdown.html"><abbr title="Ciconia\Markdown">Markdown</abbr></a> $markdown)
-                    <p>Adds listeners to EventEmitter</p>
-                </td>
+                    <p>Adds listeners to EventEmitter</p>                </td>
                 <td></td>
             </tr>
                     <tr>
@@ -38,8 +39,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_initialize">initialize</a>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)
-                    <p>Convert line breaks</p>
-                </td>
+                    <p>Convert line breaks</p>                </td>
                 <td></td>
             </tr>
                     <tr>
@@ -48,8 +48,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_detab">detab</a>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text, array $options = array())
-                    <p>Convert tabs to spaces</p>
-                </td>
+                    <p>Convert tabs to spaces</p>                </td>
                 <td></td>
             </tr>
                     <tr>
@@ -58,8 +57,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_outdent">outdent</a>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text, array $options = array())
-                    <p>Remove one level of line-leading tabs or spaces</p>
-                </td>
+                    <p>Remove one level of line-leading tabs or spaces</p>                </td>
                 <td></td>
             </tr>
                     <tr>
@@ -68,9 +66,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_processHardBreak">processHardBreak</a>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)
-                    <p>
-</p>
-                </td>
+                                    </td>
                 <td></td>
             </tr>
                     <tr>
@@ -79,28 +75,31 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_getName">getName</a>()
-                    <p>Returns the name of the extension</p>
-                </td>
+                    <p>Returns the name of the extension</p>                </td>
                 <td></td>
             </tr>
             </table>
 
 
-        <h2>Details</h2>
+        <h3>Details</h3>
 
-                        <h3 id="method_register">
-        <div class="location">at line 32</div>
-        <code>            public            void
-    <strong>register</strong>(<a href="../../../Ciconia/Markdown.html"><abbr title="Ciconia\Markdown">Markdown</abbr></a> $markdown)</code>
-    </h3>
-    <div class="details">
+                      <div class="panel">
+    <h4 class="panel-heading" id="method_register">
+      <small class="location pull-right">at line 32</small>
+                  public            void
+    <strong>register</strong>(<a href="../../../Ciconia/Markdown.html"><abbr title="Ciconia\Markdown">Markdown</abbr></a> $markdown)
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>Adds listeners to EventEmitter</p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td><a href="../../../Ciconia/Markdown.html"><abbr title="Ciconia\Markdown">Markdown</abbr></a></td>
                 <td>$markdown</td>
@@ -109,10 +108,10 @@ layout: api
             </tr>
             </table>
 
-            
-                            <h4>Return Value</h4>
+          
+                      <h4>Return Value</h4>
 
-                    <table>
+                <table>
         <tr>
             <td>void</td>
             <td>
@@ -120,24 +119,32 @@ layout: api
         </tr>
     </table>
 
-            
-            
-                    </div>
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_initialize">
-        <div class="location">at line 47</div>
-        <code>            public            
-    <strong>initialize</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_initialize">
+      <small class="location pull-right">at line 47</small>
+                  public            
+    <strong>initialize</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>Convert line breaks</p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td><a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a></td>
                 <td>$text</td>
@@ -146,25 +153,33 @@ layout: api
             </tr>
             </table>
 
-            
-            
-            
-                    </div>
+          
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_detab">
-        <div class="location">at line 63</div>
-        <code>            public            
-    <strong>detab</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text, array $options = array())</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_detab">
+      <small class="location pull-right">at line 63</small>
+                  public            
+    <strong>detab</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text, array $options = array())
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>Convert tabs to spaces</p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td><a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a></td>
                 <td>$text</td>
@@ -179,25 +194,33 @@ layout: api
             </tr>
             </table>
 
-            
-            
-            
-                    </div>
+          
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_outdent">
-        <div class="location">at line 77</div>
-        <code>            public            
-    <strong>outdent</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text, array $options = array())</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_outdent">
+      <small class="location pull-right">at line 77</small>
+                  public            
+    <strong>outdent</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text, array $options = array())
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>Remove one level of line-leading tabs or spaces</p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td><a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a></td>
                 <td>$text</td>
@@ -212,26 +235,34 @@ layout: api
             </tr>
             </table>
 
-            
-            
-            
-                    </div>
+          
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_processHardBreak">
-        <div class="location">at line 85</div>
-        <code>            public            
-    <strong>processHardBreak</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_processHardBreak">
+      <small class="location pull-right">at line 85</small>
+                  public            
+    <strong>processHardBreak</strong>(<a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>
 </p>
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+                      <h4>Parameters</h4>
 
-                    <table>
+                <table>
                     <tr>
                 <td><a href="../../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a></td>
                 <td>$text</td>
@@ -240,27 +271,39 @@ layout: api
             </tr>
             </table>
 
-            
-            
-            
-                    </div>
+          
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
 
-                <h3 id="method_getName">
-        <div class="location">at line 93</div>
-        <code>            public            
-    <strong>getName</strong>()</code>
-    </h3>
-    <div class="details">
+                        
+
+              <div class="panel">
+    <h4 class="panel-heading" id="method_getName">
+      <small class="location pull-right">at line 93</small>
+                  public            
+    <strong>getName</strong>()
+    </h4>
+    <div class="panel-body">
+
+
+      <div class="details">
         <p>Returns the name of the extension</p>
         <p>
 </p>
         <div class="tags">
-            
-            
-            
-                    </div>
+          
+          
+          
+                  </div>
+      </div>
     </div>
+  </div>
+
+                        
 
     
     </div>

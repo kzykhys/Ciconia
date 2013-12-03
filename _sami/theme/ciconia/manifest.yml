@@ -1,7 +1,25 @@
 name:   ciconia
 parent: enhanced
 
+static: {}
+
 global:
-    'panel.twig':        'panel.html'
-    'search_index.twig': 'search_index.js'
-    'tree.twig':         'tree.html'
+    'index.twig':            '_trash/index.html'
+    'namespaces.twig':       '_trash/namespaces-frame.html'
+    'classes.twig':          '_trash/classes-frame.html'
+    'pages/opensearch.twig': '_trash/opensearch.xml'
+    'pages/index.twig':      '_trash/doc-index.html'
+    'pages/namespaces.twig': '_trash/namespaces.html'
+    'pages/interfaces.twig': '_trash/interfaces.html'
+    'pages/classes.twig':    '_trash/classes.html'
+    'pages/traits.twig':     '_trash/traits.html'
+    'panel.twig':            '_trash/panel.html'
+    'search_index.twig':     '_trash/search_index.js'
+    'tree.twig':             'tree.html'
+
+namespace:
+    'namespace.twig':        '_trash/%s/namespace-frame.html'
+    'pages/namespace.twig':  '_trash/%s.html'
+
+class:
+    'pages/class.twig':      '%s.html'

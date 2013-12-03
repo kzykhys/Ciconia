@@ -7,14 +7,14 @@ $iterator = Finder::create()
     ->files()
     ->name('*.php')
     ->exclude('Resources')
-    ->in('_src')
+    ->in('_src/Ciconia/src')
 ;
 
 return new Sami($iterator, array(
     'theme'     => 'ciconia',
-    'title'     => 'Test API',
-    'build_dir' => __DIR__.'/build',
-    'cache_dir' => __DIR__.'/cache',
+    'title'     => 'API',
+    'build_dir' => __DIR__.'/../build',
+    'cache_dir' => __DIR__.'/../cache',
     'default_opened_level' => 2,
     'template_dirs' => [__DIR__.'/theme']
 ));
