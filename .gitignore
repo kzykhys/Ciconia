@@ -1,4 +1,5 @@
 /vendor/
 /build/
+/cache/
 _site
 namespace-frame.html
