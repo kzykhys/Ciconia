@@ -22,10 +22,10 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 
 <div class="tab-content" style="margin-top:10px;">
   <div class="tab-pane active" id="header12-md">
-     {% gist 7745918 header-setext.md.txt %}
+    {% gist 7745918 core-header-setext.md.txt %}
   </div>
   <div class="tab-pane" id="header12-html">
-     {% gist 7745918 header-setext.html.txt %}
+    {% gist 7745918 core-header-setext.html.txt %}
   </div>
 </div>
 
@@ -50,10 +50,10 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 
 <div class="tab-content" style="margin-top:10px;">
   <div class="tab-pane active" id="header16-md">
-    {% gist 7745918 header-atx.md.txt %}
+    {% gist 7745918 core-header-atx.md.txt %}
   </div>
   <div class="tab-pane" id="header16-html">
-     {% gist 7745918 header-atx.html.txt %}
+    {% gist 7745918 core-header-atx.html.txt %}
   </div>
 </div>
 
@@ -104,10 +104,10 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
   </ul>
   <div class="tab-content" style="margin-top:10px;">
     <div class="tab-pane active" id="blockquote1-md">
-      {% gist 7745918 core-blockquote1.md.txt %}
+      {% gist 7745918 core-blockquotes1.md.txt %}
     </div>
     <div class="tab-pane" id="blockquote1-html">
-       {% gist 7745918 core-blockquote1.html.txt %}
+       {% gist 7745918 core-blockquotes1.html.txt %}
     </div>
   </div>
 
@@ -119,10 +119,10 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
   </ul>
   <div class="tab-content" style="margin-top:10px;">
     <div class="tab-pane active" id="blockquote2-md">
-      {% gist 7745918 core-blockquote2.md.txt %}
+      {% gist 7745918 core-blockquotes2.md.txt %}
     </div>
     <div class="tab-pane" id="blockquote2-html">
-       {% gist 7745918 core-blockquote2.html.txt %}
+       {% gist 7745918 core-blockquotes2.html.txt %}
     </div>
   </div>
 
@@ -134,10 +134,10 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
   </ul>
   <div class="tab-content" style="margin-top:10px;">
     <div class="tab-pane active" id="blockquote3-md">
-      {% gist 7745918 core-blockquote3.md.txt %}
+      {% gist 7745918 core-blockquotes3.md.txt %}
     </div>
     <div class="tab-pane" id="blockquote3-html">
-       {% gist 7745918 core-blockquote3.html.txt %}
+       {% gist 7745918 core-blockquotes3.html.txt %}
     </div>
   </div>
 </div>
