@@ -29,7 +29,7 @@ class UrlAutoLinkExtension implements ExtensionInterface
      */
     public function processStandardUrl(Text $text)
     {
-        $text->replace('{(?<!]\(|"|<)((?:https?|ftp)://[^\'">\s]+)(?!>)}', '<\1>');
+        $text->replace('{(?<!]\(|"|<|\[)((?:https?|ftp)://[^\'">\s]+)(?!>|\"|\])}', '<\1>');
     }
 
     /**
