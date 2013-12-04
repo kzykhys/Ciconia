@@ -27,7 +27,7 @@ class Ciconia
     /**
      * Version number
      */
-    const VERSION = '1.0.0';
+    const VERSION = '1.1.x-dev';
 
     /**
      * @var RendererInterface
@@ -59,8 +59,8 @@ class Ciconia
     /**
      *
      *
-     * @param string $text
-     * @param array  $options
+     * @param string $text    The markdown content
+     * @param array  $options An array of options
      *
      * @return string
      */
