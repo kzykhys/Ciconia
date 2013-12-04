@@ -131,9 +131,11 @@ class Text implements \Serializable
     }
 
     /**
-     * @param $text
+     * Checks whether the text contains $text
      *
-     * @return bool
+     * @param string $text A string to test
+     *
+     * @return bool True if the text contains $text
      */
     public function contains($text)
     {
@@ -159,7 +161,7 @@ class Text implements \Serializable
      *
      * @param string          $pattern     The pattern to search for. It can be either a string or an array with strings.
      * @param string|callable $replacement The string or an array with strings to replace.
-     *                                      If $replacement is the callable, a callback that will be called and passed an array of matched elements in the subject string.
+     *                                     If $replacement is the callable, a callback that will be called and passed an array of matched elements in the subject string.
      *
      * @return Text
      */
@@ -198,8 +200,8 @@ class Text implements \Serializable
     /**
      * Perform a regular expression match
      *
-     * @param string      $pattern The pattern to search for, as a string.
-     * @param array|null  $matches If matches is provided, then it is filled with the results of search.
+     * @param string     $pattern The pattern to search for, as a string.
+     * @param array|null $matches If matches is provided, then it is filled with the results of search.
      *
      * @return boolean
      */
@@ -229,7 +231,7 @@ class Text implements \Serializable
      * Gets the length of a string
      *
      * @return int Returns the number of characters in string str having character encoding encoding.
-     *              A multi-byte character is counted as 1.
+     *             A multi-byte character is counted as 1.
      */
     public function getLength()
     {

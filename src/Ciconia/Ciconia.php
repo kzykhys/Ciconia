@@ -24,6 +24,9 @@ use Ciconia\Renderer\RendererInterface;
 class Ciconia
 {
 
+    /**
+     * Version number
+     */
     const VERSION = '1.0.0';
 
     /**
@@ -37,6 +40,8 @@ class Ciconia
     private $extensions;
 
     /**
+     * Constructor
+     *
      * @param RendererInterface $renderer
      */
     public function __construct(RendererInterface $renderer = null)
@@ -52,6 +57,8 @@ class Ciconia
     }
 
     /**
+     *
+     *
      * @param string $text
      * @param array  $options
      *

@@ -3,12 +3,21 @@
 namespace Ciconia\Common;
 
 /**
+ * HTML/XHTML/XML tag definition
+ *
  * @author Kazuyuki Hayashi <hayashi@valnur.net>
  */
 class Tag
 {
 
-    const TYPE_BLOCK  = 'block';
+    /**
+     * Block level tag
+     */
+    const TYPE_BLOCK = 'block';
+
+    /**
+     * Inline level tag
+     */
     const TYPE_INLINE = 'inline';
 
     /**
@@ -37,19 +46,23 @@ class Tag
     private $emptyTagSuffix = '>';
 
     /**
+     * Constructor
+     *
      * @param string $name The name of the tag
      */
     public function __construct($name)
     {
-        $this->name = $name;
+        $this->name       = $name;
         $this->attributes = new Collection();
-        $this->text = new Text();
+        $this->text       = new Text();
     }
 
     /**
-     * @param \Ciconia\Common\Text|string $text
+     * Sets the inner text
      *
-     * @return $this
+     * @param Text|string $text A string to set
+     *
+     * @return Tag
      */
     public function setText($text)
     {
@@ -63,7 +76,9 @@ class Tag
     }
 
     /**
-     * @return \Ciconia\Common\Text
+     * Gets the inner text
+     *
+     * @return Text
      */
     public function getText()
     {
@@ -71,7 +86,9 @@ class Tag
     }
 
     /**
-     * @param string $name
+     * Sets the name of the tag
+     *
+     * @param string $name The name of the tag
      *
      * @return $this
      */
@@ -83,6 +100,8 @@ class Tag
     }
 
     /**
+     * Returns the name of the tag
+     *
      * @return string
      */
     public function getName()
@@ -91,9 +110,11 @@ class Tag
     }
 
     /**
-     * @param string $emptyTagSuffix
+     * Sets the empty tag suffix
      *
-     * @return $this
+     * @param string $emptyTagSuffix The suffix
+     *
+     * @return Tag
      */
     public function setEmptyTagSuffix($emptyTagSuffix)
     {
@@ -103,7 +124,9 @@ class Tag
     }
 
     /**
-     * @return string
+     * Returns the empty tag suffix
+     *
+     * @return string The suffix
      */
     public function getEmptyTagSuffix()
     {
@@ -111,9 +134,11 @@ class Tag
     }
 
     /**
-     * @param string $type
+     * Sets the type of the tag (Tag::TYPE_BLOCK or Tag::TYPE_INLINE)
      *
-     * @return $this
+     * @param string $type The type of the tag
+     *
+     * @return Tag
      */
     public function setType($type)
     {
@@ -123,6 +148,8 @@ class Tag
     }
 
     /**
+     * Returns the type of the tag
+     *
      * @return string
      */
     public function getType()
@@ -131,10 +158,12 @@ class Tag
     }
 
     /**
-     * @param $attribute
-     * @param $value
+     * Sets an attribute
      *
-     * @return $this
+     * @param string $attribute The name of an attribute
+     * @param string $value     [optional] The value of an attribute
+     *
+     * @return Tag
      */
     public function setAttribute($attribute, $value = null)
     {
@@ -144,8 +173,11 @@ class Tag
     }
 
     /**
-     * @param array $attributes
-     * @return $this
+     * Sets attributes
+     *
+     * @param array $attributes An array of attributes
+     *
+     * @return Tag
      */
     public function setAttributes(array $attributes)
     {
@@ -157,6 +189,8 @@ class Tag
     }
 
     /**
+     * Returns a collection of attributes
+     *
      * @return Collection
      */
     public function getAttributes()
@@ -165,7 +199,9 @@ class Tag
     }
 
     /**
-     * @return string
+     * Renders the tag
+     *
+     * @return string The HTML string
      */
     public function render()
     {
@@ -185,13 +221,13 @@ class Tag
 
         if ($this->text->isEmpty()) {
             if ($this->type == self::TYPE_BLOCK) {
-                return (string) $html->append('>')->append('</')->append($this->getName())->append('>');
+                return (string)$html->append('>')->append('</')->append($this->getName())->append('>');
             } else {
-                return (string) $html->append($this->emptyTagSuffix);
+                return (string)$html->append($this->emptyTagSuffix);
             }
         }
 
-        return (string) $html
+        return (string)$html
             ->append('>')
             ->append($this->text)
             ->append('</')

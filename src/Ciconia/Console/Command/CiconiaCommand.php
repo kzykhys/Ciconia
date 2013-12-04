@@ -86,9 +86,9 @@ class CiconiaCommand extends Command
     }
 
     /**
-     * Get markdown content from input
+     * Get a markdown content from input
      *
-     * Warning: Reading from STDIN always fails on Windows
+     * __Warning: Reading from STDIN always fails on Windows__
      *
      * @param InputInterface $input
      *
@@ -127,7 +127,9 @@ class CiconiaCommand extends Command
     }
 
     /**
-     * @param InputInterface $input
+     * Creates an instance of Ciconia
+     *
+     * @param InputInterface $input The InputInterface instance
      *
      * @return Ciconia|\Ciconia\Diagnose\Ciconia
      */
@@ -160,8 +162,8 @@ class CiconiaCommand extends Command
     /**
      * Runs help command
      *
-     * @param InputInterface  $input
-     * @param OutputInterface $output
+     * @param InputInterface  $input  The InputInterface instance
+     * @param OutputInterface $output The OutputInterface instance
      *
      * @return int
      */
@@ -176,9 +178,9 @@ class CiconiaCommand extends Command
     /**
      * Lints the content
      *
-     * @param OutputInterface $output
-     * @param Ciconia         $ciconia
-     * @param                 $content
+     * @param OutputInterface $output  The OutputInterface instance
+     * @param Ciconia         $ciconia The Ciconia instance
+     * @param string          $content The markdown content
      *
      * @return int
      */

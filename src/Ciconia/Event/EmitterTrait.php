@@ -18,11 +18,11 @@ trait EmitterTrait
     /**
      * Adds a listener to the end of the listeners array for the specified event.
      *
-     * @param string   $event
-     * @param callable $callback
-     * @param int      $priority
+     * @param string   $event    The name of the event
+     * @param callable $callback The callback
+     * @param int      $priority The lower this value, the earlier an event listener will be emitted.
      *
-     * @return $this
+     * @return EmitterInterface
      */
     public function on($event, callable $callback, $priority = 10)
     {
@@ -39,10 +39,8 @@ trait EmitterTrait
     /**
      * Execute each of the subscribed listeners
      *
-     * @param $event
-     * @param $parameters
-     *
-     * @return mixed
+     * @param string $event      The name of the event to emit
+     * @param array  $parameters The arguments
      */
     public function emit($event, $parameters)
     {
@@ -72,7 +70,7 @@ trait EmitterTrait
      *
      * @codeCoverageIgnore
      *
-     * @param array $parameters
+     * @param array $parameters The arguments to pass to the callback
      *
      * @return array
      */
