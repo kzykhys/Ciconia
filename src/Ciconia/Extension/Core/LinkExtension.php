@@ -194,7 +194,7 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
         }
 
         $text->replace('{<((?:https?|ftp):[^\'">\s]+)>}', function (Text $w, Text $url) {
-            $this->markdown->emit('escape.special_chars', [$url->replace('/(?<!\\\\)_/', '\\_')]);
+            $this->markdown->emit('escape.special_chars', [$url->replace('/(?<!\\\\)_/', '\\\\_')]);
 
             return $this->getRenderer()->renderLink($url, [
                 'href' => $url->getString()
