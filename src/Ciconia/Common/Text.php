@@ -127,7 +127,7 @@ class Text implements \Serializable
      */
     public function isEmpty()
     {
-        return empty($this->text);
+        return $this->text === '';
     }
 
     /**
