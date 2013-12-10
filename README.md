@@ -292,7 +292,7 @@ The MIT License
 Contributing
 ------------
 
-Feel free to folk this repository and send a pull request. ([A list of contributors][contributors])
+Feel free to fork this repository and send a pull request. ([A list of contributors][contributors])
 
 Author
 ------
