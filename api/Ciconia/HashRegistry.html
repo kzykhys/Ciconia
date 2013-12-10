@@ -8,7 +8,7 @@ layout: api
 
             <div class="panel description">
           <div class="panel-body">
-            <p>Manages hash and raw text</p>
+            <p>Manages hashes and raw text</p>
             <p>
 </p>
           </div>
@@ -25,7 +25,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method___construct">__construct</a>(array $objects = array())
-                                    </td>
+                    <p>Constructor</p>                </td>
                 <td><small>from&nbsp;<a href="../Ciconia/Common/Collection.html#method___construct"><abbr title="Ciconia\Common\Collection">Collection</abbr></a></small></td>
             </tr>
                     <tr>
@@ -75,11 +75,11 @@ layout: api
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="Ciconia\Common\$this">$this</abbr>
+                    <a href="../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
                 </td>
                 <td class="last">
-                    <a href="#method_remove">remove</a>(<abbr title="Ciconia\Common\$name">$name</abbr> $name)
-                                    </td>
+                    <a href="#method_remove">remove</a>(string $name)
+                    <p>Remove</p>                </td>
                 <td><small>from&nbsp;<a href="../Ciconia/Common/Collection.html#method_remove"><abbr title="Ciconia\Common\Collection">Collection</abbr></a></small></td>
             </tr>
                     <tr>
@@ -151,7 +151,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_register">register</a>(<a href="../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)
-                                    </td>
+                    <p>Register a string to be hashed</p>                </td>
                 <td></td>
             </tr>
             </table>
@@ -161,14 +161,13 @@ layout: api
 
                       <div class="panel">
     <h4 class="panel-heading" id="method___construct">
-      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method___construct"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 19</small>
+      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method___construct"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 21</small>
                   public            
     <strong>__construct</strong>(array $objects = array())
     </h4>
     <div class="panel-body">
       <div class="details">
-        <p>
-</p>
+        <p>Constructor</p>
         <p>
 </p>
         <div class="tags">
@@ -194,7 +193,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_add">
-      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_add"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 31</small>
+      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_add"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 33</small>
                   public            <a href="../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
     <strong>add</strong>(mixed $object)
     </h4>
@@ -210,8 +209,7 @@ layout: api
                     <tr>
                 <td>mixed</td>
                 <td>$object</td>
-                <td>
-</td>
+                <td>The value to append</td>
             </tr>
             </table>
 
@@ -237,7 +235,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_set">
-      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_set"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 46</small>
+      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_set"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 48</small>
                   public            <a href="../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
     <strong>set</strong>(string $name, mixed $object)
     </h4>
@@ -253,14 +251,12 @@ layout: api
                     <tr>
                 <td>string</td>
                 <td>$name</td>
-                <td>
-</td>
+                <td>The index</td>
             </tr>
                     <tr>
                 <td>mixed</td>
                 <td>$object</td>
-                <td>
-</td>
+                <td>The value</td>
             </tr>
             </table>
 
@@ -286,7 +282,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_get">
-      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_get"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 62</small>
+      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_get"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 64</small>
                   public            mixed
     <strong>get</strong>(string $name)
     </h4>
@@ -302,8 +298,7 @@ layout: api
                     <tr>
                 <td>string</td>
                 <td>$name</td>
-                <td>
-</td>
+                <td>The index</td>
             </tr>
             </table>
 
@@ -324,8 +319,7 @@ layout: api
                 <table>
                     <tr>
                 <td><a href="http://php.net/OutOfBoundsException"><abbr title="OutOfBoundsException">OutOfBoundsException</abbr></a></td>
-                <td>
-</td>
+                <td>When the index is invalid</td>
             </tr>
             </table>
 
@@ -339,7 +333,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_exists">
-      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_exists"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 78</small>
+      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_exists"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 80</small>
                   public            bool
     <strong>exists</strong>(string $name)
     </h4>
@@ -355,8 +349,7 @@ layout: api
                     <tr>
                 <td>string</td>
                 <td>$name</td>
-                <td>
-</td>
+                <td>The index</td>
             </tr>
             </table>
 
@@ -366,8 +359,7 @@ layout: api
                 <table>
         <tr>
             <td>bool</td>
-            <td>
-</td>
+            <td>True if the index is valid</td>
         </tr>
     </table>
 
@@ -382,7 +374,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_contains">
-      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_contains"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 90</small>
+      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_contains"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 92</small>
                   public            bool
     <strong>contains</strong>(mixed $object)
     </h4>
@@ -398,8 +390,7 @@ layout: api
                     <tr>
                 <td>mixed</td>
                 <td>$object</td>
-                <td>
-</td>
+                <td>The value</td>
             </tr>
             </table>
 
@@ -409,8 +400,7 @@ layout: api
                 <table>
         <tr>
             <td>bool</td>
-            <td>
-</td>
+            <td>True if the value exists</td>
         </tr>
     </table>
 
@@ -425,14 +415,13 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_remove">
-      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_remove"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 100</small>
-                  public            <abbr title="Ciconia\Common\$this">$this</abbr>
-    <strong>remove</strong>(<abbr title="Ciconia\Common\$name">$name</abbr> $name)
+      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_remove"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 104</small>
+                  public            <a href="../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
+    <strong>remove</strong>(string $name)
     </h4>
     <div class="panel-body">
       <div class="details">
-        <p>
-</p>
+        <p>Remove</p>
         <p>
 </p>
         <div class="tags">
@@ -440,10 +429,9 @@ layout: api
 
                 <table>
                     <tr>
-                <td><abbr title="Ciconia\Common\$name">$name</abbr></td>
+                <td>string</td>
                 <td>$name</td>
-                <td>
-</td>
+                <td>The index</td>
             </tr>
             </table>
 
@@ -452,7 +440,7 @@ layout: api
 
                 <table>
         <tr>
-            <td><abbr title="Ciconia\Common\$this">$this</abbr></td>
+            <td><a href="../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a></td>
             <td>
 </td>
         </tr>
@@ -469,7 +457,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_join">
-      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_join"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 116</small>
+      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_join"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 120</small>
                   public            string
     <strong>join</strong>(string $glue = &#039;&#039;)
     </h4>
@@ -511,7 +499,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_slice">
-      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_slice"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 133</small>
+      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_slice"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 137</small>
                   public            <a href="../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
     <strong>slice</strong>(integer $offset, integer $length = null)
     </h4>
@@ -558,7 +546,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_each">
-      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_each"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 145</small>
+      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_each"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 149</small>
                   public            <a href="../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
     <strong>each</strong>(callable $callable)
     </h4>
@@ -600,7 +588,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_apply">
-      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_apply"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 163</small>
+      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_apply"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 167</small>
                   public            <a href="../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
     <strong>apply</strong>(callable $callable)
     </h4>
@@ -643,7 +631,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_filter">
-      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_filter"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 177</small>
+      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_filter"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 181</small>
                   public            <a href="../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
     <strong>filter</strong>(callable $callable = null)
     </h4>
@@ -686,7 +674,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_getIterator">
-      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_getIterator"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 187</small>
+      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_getIterator"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 191</small>
                   public            <a href="http://php.net/Traversable"><abbr title="Traversable">Traversable</abbr></a>
     <strong>getIterator</strong>()
     </h4>
@@ -717,7 +705,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_count">
-      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_count"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 197</small>
+      <small class="location pull-right">in <a href="../Ciconia/Common/Collection.html#method_count"><abbr title="Ciconia\Common\Collection">Collection</abbr></a> at line 201</small>
                   public            int
     <strong>count</strong>()
     </h4>
@@ -748,14 +736,13 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_register">
-      <small class="location pull-right">at line 21</small>
+      <small class="location pull-right">at line 23</small>
                   public            string
     <strong>register</strong>(<a href="../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)
     </h4>
     <div class="panel-body">
       <div class="details">
-        <p>
-</p>
+        <p>Register a string to be hashed</p>
         <p>
 </p>
         <div class="tags">
@@ -765,8 +752,7 @@ layout: api
                     <tr>
                 <td><a href="../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a></td>
                 <td>$text</td>
-                <td>
-</td>
+                <td>The string to be hashed</td>
             </tr>
             </table>
 
@@ -776,8 +762,7 @@ layout: api
                 <table>
         <tr>
             <td>string</td>
-            <td>
-</td>
+            <td>The hashed string</td>
         </tr>
     </table>
 

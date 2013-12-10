@@ -21,7 +21,7 @@ layout: api
             <table>
                     <tr>
                 <td class="type">
-                    <abbr title="Ciconia\Event\$this">$this</abbr>
+                    <abbr title="Ciconia\Event\EmitterInterface">EmitterInterface</abbr>
                 </td>
                 <td class="last">
                     <a href="#method_on">on</a>(string $event, callable $callback, int $priority = 10)
@@ -30,10 +30,10 @@ layout: api
             </tr>
                     <tr>
                 <td class="type">
-                    mixed
+                    
                 </td>
                 <td class="last">
-                    <a href="#method_emit">emit</a>(<abbr title="Ciconia\Event\$event">$event</abbr> $event, <abbr title="Ciconia\Event\$parameters">$parameters</abbr> $parameters)
+                    <a href="#method_emit">emit</a>(string $event, array $parameters)
                     <p>Execute each of the subscribed listeners</p>                </td>
                 <td></td>
             </tr>
@@ -45,7 +45,7 @@ layout: api
                       <div class="panel">
     <h4 class="panel-heading" id="method_on">
       <small class="location pull-right">at line 27</small>
-                  public            <abbr title="Ciconia\Event\$this">$this</abbr>
+                  public            <abbr title="Ciconia\Event\EmitterInterface">EmitterInterface</abbr>
     <strong>on</strong>(string $event, callable $callback, int $priority = 10)
     </h4>
     <div class="panel-body">
@@ -60,20 +60,17 @@ layout: api
                     <tr>
                 <td>string</td>
                 <td>$event</td>
-                <td>
-</td>
+                <td>The name of the event</td>
             </tr>
                     <tr>
                 <td>callable</td>
                 <td>$callback</td>
-                <td>
-</td>
+                <td>The callback</td>
             </tr>
                     <tr>
                 <td>int</td>
                 <td>$priority</td>
-                <td>
-</td>
+                <td>The lower this value, the earlier an event listener will be emitted.</td>
             </tr>
             </table>
 
@@ -82,7 +79,7 @@ layout: api
 
                 <table>
         <tr>
-            <td><abbr title="Ciconia\Event\$this">$this</abbr></td>
+            <td><abbr title="Ciconia\Event\EmitterInterface">EmitterInterface</abbr></td>
             <td>
 </td>
         </tr>
@@ -99,9 +96,9 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_emit">
-      <small class="location pull-right">at line 47</small>
-                  public            mixed
-    <strong>emit</strong>(<abbr title="Ciconia\Event\$event">$event</abbr> $event, <abbr title="Ciconia\Event\$parameters">$parameters</abbr> $parameters)
+      <small class="location pull-right">at line 45</small>
+                  public            
+    <strong>emit</strong>(string $event, array $parameters)
     </h4>
     <div class="panel-body">
       <div class="details">
@@ -113,30 +110,18 @@ layout: api
 
                 <table>
                     <tr>
-                <td><abbr title="Ciconia\Event\$event">$event</abbr></td>
+                <td>string</td>
                 <td>$event</td>
-                <td>
-</td>
+                <td>The name of the event to emit</td>
             </tr>
                     <tr>
-                <td><abbr title="Ciconia\Event\$parameters">$parameters</abbr></td>
+                <td>array</td>
                 <td>$parameters</td>
-                <td>
-</td>
+                <td>The arguments</td>
             </tr>
             </table>
 
           
-                      <h4>Return Value</h4>
-
-                <table>
-        <tr>
-            <td>mixed</td>
-            <td>
-</td>
-        </tr>
-    </table>
-
           
           
                   </div>

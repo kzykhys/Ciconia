@@ -12,7 +12,7 @@ $iterator = Finder::create()
 ;
 
 $versions = GitVersionCollection::create($dir)
-    ->add('0.1', '0.1 branch')
+    ->add('1.0', '0.1 branch')
     ->add('master', 'master branch')
 ;
 

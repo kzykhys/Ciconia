@@ -99,8 +99,8 @@ layout: api
                     bool
                 </td>
                 <td class="last">
-                    <a href="#method_contains">contains</a>(<abbr title="Ciconia\Common\$text">$text</abbr> $text)
-                                    </td>
+                    <a href="#method_contains">contains</a>(string $text)
+                    <p>Checks whether the text contains $text</p>                </td>
                 <td></td>
             </tr>
                     <tr>
@@ -561,14 +561,13 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_contains">
-      <small class="location pull-right">at line 138</small>
+      <small class="location pull-right">at line 140</small>
                   public            bool
-    <strong>contains</strong>(<abbr title="Ciconia\Common\$text">$text</abbr> $text)
+    <strong>contains</strong>(string $text)
     </h4>
     <div class="panel-body">
       <div class="details">
-        <p>
-</p>
+        <p>Checks whether the text contains $text</p>
         <p>
 </p>
         <div class="tags">
@@ -576,10 +575,9 @@ layout: api
 
                 <table>
                     <tr>
-                <td><abbr title="Ciconia\Common\$text">$text</abbr></td>
+                <td>string</td>
                 <td>$text</td>
-                <td>
-</td>
+                <td>A string to test</td>
             </tr>
             </table>
 
@@ -589,8 +587,7 @@ layout: api
                 <table>
         <tr>
             <td>bool</td>
-            <td>
-</td>
+            <td>True if the text contains $text</td>
         </tr>
     </table>
 
@@ -605,7 +602,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_escapeHtml">
-      <small class="location pull-right">at line 150</small>
+      <small class="location pull-right">at line 152</small>
                   public            <a href="../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a>
     <strong>escapeHtml</strong>(int $option = ENT_QUOTES)
     </h4>
@@ -648,7 +645,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_replace">
-      <small class="location pull-right">at line 166</small>
+      <small class="location pull-right">at line 168</small>
                   public            <a href="../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a>
     <strong>replace</strong>(string $pattern, string|callable $replacement)
     </h4>
@@ -695,7 +692,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_replaceString">
-      <small class="location pull-right">at line 191</small>
+      <small class="location pull-right">at line 193</small>
                   public            <a href="../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a>
     <strong>replaceString</strong>(string|array $search, string|array $replace)
     </h4>
@@ -742,7 +739,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_match">
-      <small class="location pull-right">at line 206</small>
+      <small class="location pull-right">at line 208</small>
                   public            boolean
     <strong>match</strong>(string $pattern, array|null $matches = null)
     </h4>
@@ -789,7 +786,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_split">
-      <small class="location pull-right">at line 219</small>
+      <small class="location pull-right">at line 221</small>
                   public            <a href="../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a>[]|<a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
     <strong>split</strong>(string $pattern, int $flags = PREG_SPLIT_DELIM_CAPTURE)
     </h4>
@@ -836,7 +833,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_getLength">
-      <small class="location pull-right">at line 234</small>
+      <small class="location pull-right">at line 236</small>
                   public            int
     <strong>getLength</strong>()
     </h4>
@@ -867,7 +864,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_setString">
-      <small class="location pull-right">at line 250</small>
+      <small class="location pull-right">at line 252</small>
                   public            
     <strong>setString</strong>(<a href="../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a> $text)
     </h4>
@@ -900,7 +897,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_getString">
-      <small class="location pull-right">at line 260</small>
+      <small class="location pull-right">at line 262</small>
                   public            string
     <strong>getString</strong>()
     </h4>
@@ -932,7 +929,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method___toString">
-      <small class="location pull-right">at line 268</small>
+      <small class="location pull-right">at line 270</small>
                   public            string
     <strong>__toString</strong>()
     </h4>
@@ -965,7 +962,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_serialize">
-      <small class="location pull-right">at line 278</small>
+      <small class="location pull-right">at line 280</small>
                   public            string
     <strong>serialize</strong>()
     </h4>
@@ -996,7 +993,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_unserialize">
-      <small class="location pull-right">at line 288</small>
+      <small class="location pull-right">at line 290</small>
                   public            
     <strong>unserialize</strong>(string $serialized)
     </h4>

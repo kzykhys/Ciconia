@@ -6,6 +6,13 @@ layout: api
         <h2 class="title">    <small>class</small>
     Tag</h2>
 
+            <div class="panel description">
+          <div class="panel-body">
+            <p>HTML/XHTML/XML tag definition</p>
+            <p>
+</p>
+          </div>
+        </div>
     
             <h3>Constants</h3>
 
@@ -13,8 +20,7 @@ layout: api
                     <tr>
                 <td>TYPE_BLOCK</td>
                 <td class="last">
-                    <p><em>
-</em></p>
+                    <p><em>Block level tag</em></p>
                     <p>
 </p>
                 </td>
@@ -22,8 +28,7 @@ layout: api
                     <tr>
                 <td>TYPE_INLINE</td>
                 <td class="last">
-                    <p><em>
-</em></p>
+                    <p><em>Inline level tag</em></p>
                     <p>
 </p>
                 </td>
@@ -41,16 +46,16 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method___construct">__construct</a>(string $name)
-                                    </td>
+                    <p>Constructor</p>                </td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="Ciconia\Common\$this">$this</abbr>
+                    <a href="../../Ciconia/Common/Tag.html"><abbr title="Ciconia\Common\Tag">Tag</abbr></a>
                 </td>
                 <td class="last">
                     <a href="#method_setText">setText</a>(<a href="../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a>|string $text)
-                                    </td>
+                    <p>Sets the inner text</p>                </td>
                 <td></td>
             </tr>
                     <tr>
@@ -59,7 +64,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_getText">getText</a>()
-                                    </td>
+                    <p>Gets the inner text</p>                </td>
                 <td></td>
             </tr>
                     <tr>
@@ -68,7 +73,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_setName">setName</a>(string $name)
-                                    </td>
+                    <p>Sets the name of the tag</p>                </td>
                 <td></td>
             </tr>
                     <tr>
@@ -77,16 +82,16 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_getName">getName</a>()
-                                    </td>
+                    <p>Returns the name of the tag</p>                </td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="Ciconia\Common\$this">$this</abbr>
+                    <a href="../../Ciconia/Common/Tag.html"><abbr title="Ciconia\Common\Tag">Tag</abbr></a>
                 </td>
                 <td class="last">
                     <a href="#method_setEmptyTagSuffix">setEmptyTagSuffix</a>(string $emptyTagSuffix)
-                                    </td>
+                    <p>Sets the empty tag suffix</p>                </td>
                 <td></td>
             </tr>
                     <tr>
@@ -95,16 +100,16 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_getEmptyTagSuffix">getEmptyTagSuffix</a>()
-                                    </td>
+                    <p>Returns the empty tag suffix</p>                </td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="Ciconia\Common\$this">$this</abbr>
+                    <a href="../../Ciconia/Common/Tag.html"><abbr title="Ciconia\Common\Tag">Tag</abbr></a>
                 </td>
                 <td class="last">
                     <a href="#method_setType">setType</a>(string $type)
-                                    </td>
+                    <p>Sets the type of the tag (Tag::TYPE<em>BLOCK or Tag::TYPE</em>INLINE)</p>                </td>
                 <td></td>
             </tr>
                     <tr>
@@ -113,25 +118,25 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_getType">getType</a>()
-                                    </td>
+                    <p>Returns the type of the tag</p>                </td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="Ciconia\Common\$this">$this</abbr>
+                    <a href="../../Ciconia/Common/Tag.html"><abbr title="Ciconia\Common\Tag">Tag</abbr></a>
                 </td>
                 <td class="last">
-                    <a href="#method_setAttribute">setAttribute</a>(<abbr title="Ciconia\Common\$attribute">$attribute</abbr> $attribute, <abbr title="Ciconia\Common\$value">$value</abbr> $value = null)
-                                    </td>
+                    <a href="#method_setAttribute">setAttribute</a>(string $attribute, string $value = null)
+                    <p>Sets an attribute</p>                </td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="Ciconia\Common\$this">$this</abbr>
+                    <a href="../../Ciconia/Common/Tag.html"><abbr title="Ciconia\Common\Tag">Tag</abbr></a>
                 </td>
                 <td class="last">
                     <a href="#method_setAttributes">setAttributes</a>(array $attributes)
-                                    </td>
+                    <p>Sets attributes</p>                </td>
                 <td></td>
             </tr>
                     <tr>
@@ -140,7 +145,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_getAttributes">getAttributes</a>()
-                                    </td>
+                    <p>Returns a collection of attributes</p>                </td>
                 <td></td>
             </tr>
                     <tr>
@@ -149,7 +154,7 @@ layout: api
                 </td>
                 <td class="last">
                     <a href="#method_render">render</a>()
-                                    </td>
+                    <p>Renders the tag</p>                </td>
                 <td></td>
             </tr>
                     <tr>
@@ -168,14 +173,13 @@ layout: api
 
                       <div class="panel">
     <h4 class="panel-heading" id="method___construct">
-      <small class="location pull-right">at line 42</small>
+      <small class="location pull-right">at line 53</small>
                   public            
     <strong>__construct</strong>(string $name)
     </h4>
     <div class="panel-body">
       <div class="details">
-        <p>
-</p>
+        <p>Constructor</p>
         <p>
 </p>
         <div class="tags">
@@ -201,14 +205,13 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_setText">
-      <small class="location pull-right">at line 54</small>
-                  public            <abbr title="Ciconia\Common\$this">$this</abbr>
+      <small class="location pull-right">at line 67</small>
+                  public            <a href="../../Ciconia/Common/Tag.html"><abbr title="Ciconia\Common\Tag">Tag</abbr></a>
     <strong>setText</strong>(<a href="../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a>|string $text)
     </h4>
     <div class="panel-body">
       <div class="details">
-        <p>
-</p>
+        <p>Sets the inner text</p>
         <p>
 </p>
         <div class="tags">
@@ -218,8 +221,7 @@ layout: api
                     <tr>
                 <td><a href="../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a>|string</td>
                 <td>$text</td>
-                <td>
-</td>
+                <td>A string to set</td>
             </tr>
             </table>
 
@@ -228,7 +230,7 @@ layout: api
 
                 <table>
         <tr>
-            <td><abbr title="Ciconia\Common\$this">$this</abbr></td>
+            <td><a href="../../Ciconia/Common/Tag.html"><abbr title="Ciconia\Common\Tag">Tag</abbr></a></td>
             <td>
 </td>
         </tr>
@@ -245,14 +247,13 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_getText">
-      <small class="location pull-right">at line 68</small>
+      <small class="location pull-right">at line 83</small>
                   public            <a href="../../Ciconia/Common/Text.html"><abbr title="Ciconia\Common\Text">Text</abbr></a>
     <strong>getText</strong>()
     </h4>
     <div class="panel-body">
       <div class="details">
-        <p>
-</p>
+        <p>Gets the inner text</p>
         <p>
 </p>
         <div class="tags">
@@ -278,14 +279,13 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_setName">
-      <small class="location pull-right">at line 78</small>
+      <small class="location pull-right">at line 95</small>
                   public            <abbr title="Ciconia\Common\$this">$this</abbr>
     <strong>setName</strong>(string $name)
     </h4>
     <div class="panel-body">
       <div class="details">
-        <p>
-</p>
+        <p>Sets the name of the tag</p>
         <p>
 </p>
         <div class="tags">
@@ -295,8 +295,7 @@ layout: api
                     <tr>
                 <td>string</td>
                 <td>$name</td>
-                <td>
-</td>
+                <td>The name of the tag</td>
             </tr>
             </table>
 
@@ -322,14 +321,13 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_getName">
-      <small class="location pull-right">at line 88</small>
+      <small class="location pull-right">at line 107</small>
                   public            string
     <strong>getName</strong>()
     </h4>
     <div class="panel-body">
       <div class="details">
-        <p>
-</p>
+        <p>Returns the name of the tag</p>
         <p>
 </p>
         <div class="tags">
@@ -355,14 +353,13 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_setEmptyTagSuffix">
-      <small class="location pull-right">at line 98</small>
-                  public            <abbr title="Ciconia\Common\$this">$this</abbr>
+      <small class="location pull-right">at line 119</small>
+                  public            <a href="../../Ciconia/Common/Tag.html"><abbr title="Ciconia\Common\Tag">Tag</abbr></a>
     <strong>setEmptyTagSuffix</strong>(string $emptyTagSuffix)
     </h4>
     <div class="panel-body">
       <div class="details">
-        <p>
-</p>
+        <p>Sets the empty tag suffix</p>
         <p>
 </p>
         <div class="tags">
@@ -372,8 +369,7 @@ layout: api
                     <tr>
                 <td>string</td>
                 <td>$emptyTagSuffix</td>
-                <td>
-</td>
+                <td>The suffix</td>
             </tr>
             </table>
 
@@ -382,7 +378,7 @@ layout: api
 
                 <table>
         <tr>
-            <td><abbr title="Ciconia\Common\$this">$this</abbr></td>
+            <td><a href="../../Ciconia/Common/Tag.html"><abbr title="Ciconia\Common\Tag">Tag</abbr></a></td>
             <td>
 </td>
         </tr>
@@ -399,14 +395,13 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_getEmptyTagSuffix">
-      <small class="location pull-right">at line 108</small>
+      <small class="location pull-right">at line 131</small>
                   public            string
     <strong>getEmptyTagSuffix</strong>()
     </h4>
     <div class="panel-body">
       <div class="details">
-        <p>
-</p>
+        <p>Returns the empty tag suffix</p>
         <p>
 </p>
         <div class="tags">
@@ -416,8 +411,7 @@ layout: api
                 <table>
         <tr>
             <td>string</td>
-            <td>
-</td>
+            <td>The suffix</td>
         </tr>
     </table>
 
@@ -432,14 +426,13 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_setType">
-      <small class="location pull-right">at line 118</small>
-                  public            <abbr title="Ciconia\Common\$this">$this</abbr>
+      <small class="location pull-right">at line 143</small>
+                  public            <a href="../../Ciconia/Common/Tag.html"><abbr title="Ciconia\Common\Tag">Tag</abbr></a>
     <strong>setType</strong>(string $type)
     </h4>
     <div class="panel-body">
       <div class="details">
-        <p>
-</p>
+        <p>Sets the type of the tag (Tag::TYPE<em>BLOCK or Tag::TYPE</em>INLINE)</p>
         <p>
 </p>
         <div class="tags">
@@ -449,8 +442,7 @@ layout: api
                     <tr>
                 <td>string</td>
                 <td>$type</td>
-                <td>
-</td>
+                <td>The type of the tag</td>
             </tr>
             </table>
 
@@ -459,7 +451,7 @@ layout: api
 
                 <table>
         <tr>
-            <td><abbr title="Ciconia\Common\$this">$this</abbr></td>
+            <td><a href="../../Ciconia/Common/Tag.html"><abbr title="Ciconia\Common\Tag">Tag</abbr></a></td>
             <td>
 </td>
         </tr>
@@ -476,14 +468,13 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_getType">
-      <small class="location pull-right">at line 128</small>
+      <small class="location pull-right">at line 155</small>
                   public            string
     <strong>getType</strong>()
     </h4>
     <div class="panel-body">
       <div class="details">
-        <p>
-</p>
+        <p>Returns the type of the tag</p>
         <p>
 </p>
         <div class="tags">
@@ -509,14 +500,13 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_setAttribute">
-      <small class="location pull-right">at line 139</small>
-                  public            <abbr title="Ciconia\Common\$this">$this</abbr>
-    <strong>setAttribute</strong>(<abbr title="Ciconia\Common\$attribute">$attribute</abbr> $attribute, <abbr title="Ciconia\Common\$value">$value</abbr> $value = null)
+      <small class="location pull-right">at line 168</small>
+                  public            <a href="../../Ciconia/Common/Tag.html"><abbr title="Ciconia\Common\Tag">Tag</abbr></a>
+    <strong>setAttribute</strong>(string $attribute, string $value = null)
     </h4>
     <div class="panel-body">
       <div class="details">
-        <p>
-</p>
+        <p>Sets an attribute</p>
         <p>
 </p>
         <div class="tags">
@@ -524,16 +514,14 @@ layout: api
 
                 <table>
                     <tr>
-                <td><abbr title="Ciconia\Common\$attribute">$attribute</abbr></td>
+                <td>string</td>
                 <td>$attribute</td>
-                <td>
-</td>
+                <td>The name of an attribute</td>
             </tr>
                     <tr>
-                <td><abbr title="Ciconia\Common\$value">$value</abbr></td>
+                <td>string</td>
                 <td>$value</td>
-                <td>
-</td>
+                <td>[optional] The value of an attribute</td>
             </tr>
             </table>
 
@@ -542,7 +530,7 @@ layout: api
 
                 <table>
         <tr>
-            <td><abbr title="Ciconia\Common\$this">$this</abbr></td>
+            <td><a href="../../Ciconia/Common/Tag.html"><abbr title="Ciconia\Common\Tag">Tag</abbr></a></td>
             <td>
 </td>
         </tr>
@@ -559,14 +547,13 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_setAttributes">
-      <small class="location pull-right">at line 150</small>
-                  public            <abbr title="Ciconia\Common\$this">$this</abbr>
+      <small class="location pull-right">at line 182</small>
+                  public            <a href="../../Ciconia/Common/Tag.html"><abbr title="Ciconia\Common\Tag">Tag</abbr></a>
     <strong>setAttributes</strong>(array $attributes)
     </h4>
     <div class="panel-body">
       <div class="details">
-        <p>
-</p>
+        <p>Sets attributes</p>
         <p>
 </p>
         <div class="tags">
@@ -576,8 +563,7 @@ layout: api
                     <tr>
                 <td>array</td>
                 <td>$attributes</td>
-                <td>
-</td>
+                <td>An array of attributes</td>
             </tr>
             </table>
 
@@ -586,7 +572,7 @@ layout: api
 
                 <table>
         <tr>
-            <td><abbr title="Ciconia\Common\$this">$this</abbr></td>
+            <td><a href="../../Ciconia/Common/Tag.html"><abbr title="Ciconia\Common\Tag">Tag</abbr></a></td>
             <td>
 </td>
         </tr>
@@ -603,14 +589,13 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_getAttributes">
-      <small class="location pull-right">at line 162</small>
+      <small class="location pull-right">at line 196</small>
                   public            <a href="../../Ciconia/Common/Collection.html"><abbr title="Ciconia\Common\Collection">Collection</abbr></a>
     <strong>getAttributes</strong>()
     </h4>
     <div class="panel-body">
       <div class="details">
-        <p>
-</p>
+        <p>Returns a collection of attributes</p>
         <p>
 </p>
         <div class="tags">
@@ -636,14 +621,13 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method_render">
-      <small class="location pull-right">at line 170</small>
+      <small class="location pull-right">at line 206</small>
                   public            string
     <strong>render</strong>()
     </h4>
     <div class="panel-body">
       <div class="details">
-        <p>
-</p>
+        <p>Renders the tag</p>
         <p>
 </p>
         <div class="tags">
@@ -653,8 +637,7 @@ layout: api
                 <table>
         <tr>
             <td>string</td>
-            <td>
-</td>
+            <td>The HTML string</td>
         </tr>
     </table>
 
@@ -669,7 +652,7 @@ layout: api
 
               <div class="panel">
     <h4 class="panel-heading" id="method___toString">
-      <small class="location pull-right">at line 205</small>
+      <small class="location pull-right">at line 241</small>
                   public            string
     <strong>__toString</strong>()
     </h4>
