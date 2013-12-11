@@ -148,6 +148,7 @@ class ImageExtension implements ExtensionInterface, RendererAwareInterface
                     'alt' => $alt->replace('/"/', '&quot;')
                 );
 
+                $this->markdown->emit('escape.special_chars', [$url->replace('/(?<!\\\\)_/', '\\\\_')]);
                 $url->escapeHtml();
 
                 if ($title) {
