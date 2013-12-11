@@ -14,6 +14,8 @@ class Collection implements \IteratorAggregate, \Countable
     private $objects;
 
     /**
+     * Constructor
+     *
      * @param array $objects [optional]
      */
     public function __construct(array $objects = array())
@@ -24,7 +26,7 @@ class Collection implements \IteratorAggregate, \Countable
     /**
      * Appends a new value as the last element.
      *
-     * @param mixed $object
+     * @param mixed $object The value to append
      *
      * @return Collection
      */
@@ -38,8 +40,8 @@ class Collection implements \IteratorAggregate, \Countable
     /**
      * Sets the value at the specified index
      *
-     * @param string $name
-     * @param mixed $object
+     * @param string $name   The index
+     * @param mixed  $object The value
      *
      * @return Collection
      */
@@ -53,9 +55,9 @@ class Collection implements \IteratorAggregate, \Countable
     /**
      * Returns the value at the specified index
      *
-     * @param string $name
+     * @param string $name The index
      *
-     * @throws \OutOfBoundsException
+     * @throws \OutOfBoundsException When the index is invalid
      *
      * @return mixed
      */
@@ -71,9 +73,9 @@ class Collection implements \IteratorAggregate, \Countable
     /**
      * Returns whether the requested index exists
      *
-     * @param string $name
+     * @param string $name The index
      *
-     * @return bool
+     * @return bool True if the index is valid
      */
     public function exists($name)
     {
@@ -83,9 +85,9 @@ class Collection implements \IteratorAggregate, \Countable
     /**
      * Returns whether the requested value exists
      *
-     * @param mixed $object
+     * @param mixed $object The value
      *
-     * @return bool
+     * @return bool True if the value exists
      */
     public function contains($object)
     {
@@ -93,9 +95,11 @@ class Collection implements \IteratorAggregate, \Countable
     }
 
     /**
-     * @param $name
+     * Remove
      *
-     * @return $this
+     * @param string $name The index
+     *
+     * @return Collection
      */
     public function remove($name)
     {
@@ -122,11 +126,11 @@ class Collection implements \IteratorAggregate, \Countable
      * Extract a slice of the array
      *
      * @param integer $offset If offset is non-negative, the sequence will start at that offset in the array.
-     *                         If offset is negative, the sequence will start that far from the end of the array.
+     *                        If offset is negative, the sequence will start that far from the end of the array.
      * @param integer $length If length is given and is positive, then the sequence will have up to that many elements in it.
-     *                         If the array is shorter than the length, then only the available array elements will be present.
-     *                         If length is given and is negative then the sequence will stop that many elements from the end of the array.
-     *                         If it is omitted, then the sequence will have everything from offset up until the end of the array.
+     *                        If the array is shorter than the length, then only the available array elements will be present.
+     *                        If length is given and is negative then the sequence will stop that many elements from the end of the array.
+     *                        If it is omitted, then the sequence will have everything from offset up until the end of the array.
      *
      * @return Collection
      */

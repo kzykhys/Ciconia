@@ -11,7 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
- * Manages parser options and events
+ * Manages options and events
  *
  * @author Kazuyuki Hayashi <hayashi@valnur.net>
  */
@@ -68,6 +68,8 @@ class Markdown implements EmitterInterface
     }
 
     /**
+     * Returns HashRegistry
+     *
      * @return HashRegistry
      */
     public function getHashRegistry()
@@ -76,6 +78,8 @@ class Markdown implements EmitterInterface
     }
 
     /**
+     * Returns the collection of titles
+     *
      * @return Collection
      */
     public function getTitleRegistry()
@@ -84,6 +88,8 @@ class Markdown implements EmitterInterface
     }
 
     /**
+     * Returns the collection of urls
+     *
      * @return Collection
      */
     public function getUrlRegistry()
@@ -92,6 +98,8 @@ class Markdown implements EmitterInterface
     }
 
     /**
+     * Returns the option
+     *
      * @return array
      */
     public function getOptions()
@@ -100,6 +108,8 @@ class Markdown implements EmitterInterface
     }
 
     /**
+     * Returns original text
+     *
      * @return Text
      */
     public function getRawContent()

@@ -6,7 +6,7 @@ use Ciconia\Common\Collection;
 use Ciconia\Common\Text;
 
 /**
- * Manages hash and raw text
+ * Manages hashes and raw text
  *
  * @author Kazuyuki Hayashi <hayashi@valnur.net>
  */
@@ -14,9 +14,11 @@ class HashRegistry extends Collection
 {
 
     /**
-     * @param Text $text
+     * Register a string to be hashed
      *
-     * @return string
+     * @param Text $text The string to be hashed
+     *
+     * @return string The hashed string
      */
     public function register(Text $text)
     {
@@ -27,9 +29,11 @@ class HashRegistry extends Collection
     }
 
     /**
-     * @param Text $text
+     * Generates a hash
      *
-     * @return string
+     * @param Text $text The string to be hashed
+     *
+     * @return string The hashed string
      */
     protected function generateHash(Text $text)
     {

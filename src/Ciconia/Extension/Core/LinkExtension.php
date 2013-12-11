@@ -67,8 +67,9 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
                 [ \t]*
             )?  # title is optional
             (?:\n+|\Z)
-        }xm', function (Text $whole, Text $id, $url, $title = null) {
+        }xm', function (Text $whole, Text $id, Text $url, Text $title = null) {
             $id->lower();
+            $this->markdown->emit('escape.special_chars', [$url->replace('/(?<!\\\\)_/', '\\\\_')]);
             $this->markdown->getUrlRegistry()->set($id, htmlspecialchars($url, ENT_QUOTES, 'UTF-8', false));
 
             if ($title) {
