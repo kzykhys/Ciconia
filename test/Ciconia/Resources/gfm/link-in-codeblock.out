@@ -1,0 +1,2 @@
+<pre class="prettyprint lang-php"><code>$validator-&gt;validate('http://www.example.com/');
+</code></pre>
