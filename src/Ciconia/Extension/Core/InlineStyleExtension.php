@@ -3,6 +3,8 @@
 namespace Ciconia\Extension\Core;
 
 use Ciconia\Common\Text;
+use Ciconia\Event\EmitterAwareInterface;
+use Ciconia\Event\EmitterAwareTrait;
 use Ciconia\Extension\ExtensionInterface;
 use Ciconia\Renderer\RendererAwareInterface;
 use Ciconia\Renderer\RendererAwareTrait;
@@ -16,10 +18,11 @@ use Ciconia\Markdown;
  *
  * @author Kazuyuki Hayashi <hayashi@valnur.net>
  */
-class InlineStyleExtension implements ExtensionInterface, RendererAwareInterface
+class InlineStyleExtension implements ExtensionInterface, RendererAwareInterface, EmitterAwareInterface
 {
 
     use RendererAwareTrait;
+    use EmitterAwareTrait;
 
     /**
      * {@inheritdoc}
@@ -40,8 +43,14 @@ class InlineStyleExtension implements ExtensionInterface, RendererAwareInterface
         }
 
         /** @noinspection PhpUnusedParameterInspection */
-        $text->replace('{ (\*\*|__) (?=\S) (.+?[*_]*) (?<=\S) \1 }sx', function (Text $w, Text $a, Text $target) {
-            return $this->getRenderer()->renderBoldText($target);
+        $text->replace('{ ([^\*_\s]?) (\*\*|__) (?=\S) (.+?[*_]*) (?<=\S) \2 ([^\*_\s]?) }sx', function (Text $w, Text $prevChar, Text $a, Text $target, Text $nextChar) {
+            if (!$prevChar->isEmpty() && !$nextChar->isEmpty() && $target->contains(' ')) {
+                $this->getEmitter()->emit('escape.special_chars', [$w->replaceString(['*', '_'], ['\\*', '\\_'])]);
+
+                return $w;
+            }
+
+            return $prevChar . $this->getRenderer()->renderBoldText($target) . $nextChar;
         });
     }
 
@@ -55,8 +64,14 @@ class InlineStyleExtension implements ExtensionInterface, RendererAwareInterface
         }
 
         /** @noinspection PhpUnusedParameterInspection */
-        $text->replace('{ (\*|_) (?=\S) (.+?) (?<=\S) \1 }sx', function (Text $w, Text $a, Text $target) {
-            return $this->getRenderer()->renderItalicText($target);
+        $text->replace('{ ([^\*_\s]?) (\*|_) (?=\S) (.+?) (?<=\S) \2 ([^\*_\s]?) }sx', function (Text $w, Text $prevChar, Text $a, Text $target, Text $nextChar) {
+            if (!$prevChar->isEmpty() && !$nextChar->isEmpty() && $target->contains(' ')) {
+                $this->getEmitter()->emit('escape.special_chars', [$w->replaceString(['*', '_'], ['\\*', '\\_'])]);
+
+                return $w;
+            }
+
+            return $prevChar . $this->getRenderer()->renderItalicText($target) . $nextChar;
         });
     }
 

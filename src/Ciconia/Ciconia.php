@@ -24,10 +24,7 @@ use Ciconia\Renderer\RendererInterface;
 class Ciconia
 {
 
-    /**
-     * Version number
-     */
-    const VERSION = '1.1.x-dev';
+    const VERSION = '1.0.1';
 
     /**
      * @var RendererInterface
@@ -40,8 +37,6 @@ class Ciconia
     private $extensions;
 
     /**
-     * Constructor
-     *
      * @param RendererInterface $renderer
      */
     public function __construct(RendererInterface $renderer = null)
@@ -57,10 +52,8 @@ class Ciconia
     }
 
     /**
-     *
-     *
-     * @param string $text    The markdown content
-     * @param array  $options An array of options
+     * @param string $text
+     * @param array  $options
      *
      * @return string
      */
