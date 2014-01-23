@@ -29,7 +29,22 @@ class UrlAutoLinkExtension implements ExtensionInterface
      */
     public function processStandardUrl(Text $text)
     {
-        $text->replace('{(?<!]\(|"|<|>|\[)((?:https?|ftp)://[^\'">\s]+)(?!>|<|\"|\])}', '<\1>');
+        $hashes = array();
+
+        // escape <code>
+        $text->replace('{<code>.*?</code>}m', function (Text $w) use (&$hashes) {
+            $md5 = md5($w);
+            $hashes[$md5] = $w;
+
+            return "{gfm-extraction-$md5}";
+        });
+
+        $text->replace('{(?<!]\(|"|<|\[)((?:https?|ftp)://[^\'">\s]+)(?!>|\"|\])}', '<\1>');
+
+        /** @noinspection PhpUnusedParameterInspection */
+        $text->replace('/\{gfm-extraction-([0-9a-f]{32})\}/m', function (Text $w, Text $md5) use (&$hashes) {
+            return $hashes[(string)$md5];
+        });
     }
 
     /**
