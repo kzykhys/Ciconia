@@ -7,6 +7,9 @@ use Symfony\Component\Finder\Finder;
 /**
  * Tests Ciconia\Extensions\Core\*
  *
+ * @group Markdown
+ * @group MarkdownCore
+ *
  * @author Kazuyuki Hayashi <hayashi@siance.co.jp>
  */
 class CoreExtensionsTest extends PHPUnit_Framework_TestCase

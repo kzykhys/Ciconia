@@ -12,6 +12,9 @@ use Symfony\Component\Finder\Finder;
 /**
  * Tests Ciconia\Extensions\Gfm\*
  *
+ * @group Markdown
+ * @group MarkdownGfm
+ *
  * @author Kazuyuki Hayashi <hayashi@siance.co.jp>
  */
 class GfmExtensionsTest extends PHPUnit_Framework_TestCase
