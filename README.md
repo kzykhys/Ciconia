@@ -104,6 +104,22 @@ $html = $ciconia->render('- HTML := HyperText Markup Language');
 // </dl>
 ```
 
+### HTML Attributes (Experimental: requires `kzykhys/ciconia:1.1.x-dev@dev`)
+
+New in 1.1: You can set HTML attributes for block elements
+
+``` php
+use Ciconia\Ciconia;
+use Ciconia\Extension\Html;
+
+$ciconia = new Ciconia();
+$ciconia->addExtension(new Html\AttributesExtension());
+
+$html = $ciconia->render('## Header {#main.red.bold[role="header" data-xxx="yyy"]}');
+
+// <h1 id="main" class="red bold" role="header" data-xxx="yyy">Header</h2>
+```
+
 ### Options
 
 Option             | Type    | Default | Description                   |

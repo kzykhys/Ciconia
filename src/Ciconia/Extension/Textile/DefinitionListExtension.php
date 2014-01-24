@@ -12,8 +12,9 @@ use Ciconia\Renderer\RendererAwareInterface;
 use Ciconia\Renderer\RendererAwareTrait;
 
 /**
- * Textile Definition Lists
+ * [Experimental] Textile Definition Lists
  *
+ * @since 1.1
  * @author Kazuyuki Hayashi <hayashi@valnur.net>
  */
 class DefinitionListExtension implements ExtensionInterface, RendererAwareInterface, EmitterAwareInterface

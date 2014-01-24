@@ -9,10 +9,11 @@ use Ciconia\Renderer\RendererAwareInterface;
 use Ciconia\Renderer\RendererAwareTrait;
 
 /**
- * Textile Headers
+ * [Experimental] Textile Headers
  *
  * This extension replaces Core\HeaderExtension
  *
+ * @since 1.1
  * @author Kazuyuki Hayashi <hayashi@valnur.net>
  */
 class HeaderExtension implements ExtensionInterface, RendererAwareInterface

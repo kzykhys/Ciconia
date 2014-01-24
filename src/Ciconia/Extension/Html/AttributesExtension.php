@@ -7,6 +7,12 @@ use Ciconia\Common\Text;
 use Ciconia\Extension\ExtensionInterface;
 use Ciconia\Markdown;
 
+/**
+ * [Experimental] Emmet-style HTML attributes
+ *
+ * @since 1.1
+ * @author Kazuyuki Hayashi <hayashi@valnur.net>
+ */
 class AttributesExtension implements ExtensionInterface
 {
 
