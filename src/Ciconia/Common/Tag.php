@@ -46,6 +46,18 @@ class Tag
     private $emptyTagSuffix = '>';
 
     /**
+     * Creates a new Tag object
+     *
+     * @param string $name The name of the tag
+     *
+     * @return Tag
+     */
+    public static function create($name)
+    {
+        return new static($name);
+    }
+
+    /**
      * Constructor
      *
      * @param string $name The name of the tag
