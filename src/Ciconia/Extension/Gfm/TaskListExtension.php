@@ -44,7 +44,7 @@ class TaskListExtension extends ListExtension
                 });
             }
 
-            if ((string)$leadingLine or $item->match('/\n{2,}/')) {
+            if ((string)$leadingLine || $item->match('/\n{2,}/')) {
                 $this->getEmitter()->emit('outdent', array($item));
                 $this->getEmitter()->emit('block', array($item));
             } else {
