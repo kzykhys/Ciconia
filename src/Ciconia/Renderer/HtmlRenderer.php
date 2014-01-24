@@ -29,6 +29,8 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
         $tag->setText($content);
         $tag->setAttributes($options['attr']);
 
+        $this->getEmitter()->emit('tag', [$tag]);
+
         return $tag->render();
     }
 
@@ -45,6 +47,8 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
         $tag = new Tag('h' . $options['level']);
         $tag->setAttributes($options['attr']);
         $tag->setText($content);
+
+        $this->getEmitter()->emit('tag', [$tag]);
 
         return $tag->render();
     }
@@ -68,6 +72,8 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
                     ->render()
             );
 
+        $this->getEmitter()->emit('tag', [$tag]);
+
         return $tag->render();
     }
 
@@ -79,6 +85,8 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
         $tag = new Tag('code');
         $tag->setType(Tag::TYPE_INLINE);
         $tag->setText($content);
+
+        $this->getEmitter()->emit('tag', [$tag]);
 
         return $tag->render();
     }
@@ -105,6 +113,8 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
             $tag->setAttribute('title', $options['title']);
         }
 
+        $this->getEmitter()->emit('tag', [$tag]);
+
         return $tag->render();
     }
 
@@ -115,6 +125,8 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
     {
         $tag = Tag::create('blockquote')
             ->setText($content->wrap("\n", "\n"));
+
+        $this->getEmitter()->emit('tag', [$tag]);
 
         return $tag->render();
     }
@@ -138,6 +150,8 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
         $tag->setText($content->prepend("\n"));
         $tag->setAttributes($options['attr']);
 
+        $this->getEmitter()->emit('tag', [$tag]);
+
         return $tag->render();
     }
 
@@ -146,7 +160,12 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
      */
     public function renderListItem($content, array $options = array())
     {
-        return Tag::create('li')->setText($content)->render();
+        $tag = Tag::create('li')
+            ->setText($content);
+
+        $this->getEmitter()->emit('tag', [$tag]);
+
+        return $tag->render();
     }
 
     /**
@@ -154,10 +173,13 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
      */
     public function renderHorizontalRule(array $options = array())
     {
-        return Tag::create('hr')
+        $tag = Tag::create('hr')
             ->setType(Tag::TYPE_INLINE)
-            ->setEmptyTagSuffix($this->getEmptyTagSuffix())
-            ->render();
+            ->setEmptyTagSuffix($this->getEmptyTagSuffix());
+
+        $this->getEmitter()->emit('tag', [$tag]);
+
+        return $tag->render();
     }
 
     /**
@@ -174,6 +196,8 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
             ->setAttribute('src', $src)
             ->setAttributes($options['attr']);
 
+        $this->getEmitter()->emit('tag', [$tag]);
+
         return $tag->render();
     }
 
@@ -182,7 +206,12 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
      */
     public function renderBoldText($text, array $options = array())
     {
-        return Tag::create('strong')->setText($text)->render();
+        $tag = Tag::create('strong')
+            ->setText($text);
+
+        $this->getEmitter()->emit('tag', [$tag]);
+
+        return $tag->render();
     }
 
     /**
@@ -190,7 +219,12 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
      */
     public function renderItalicText($text, array $options = array())
     {
-        return Tag::create('em')->setText($text)->render();
+        $tag = Tag::create('em')
+            ->setText($text);
+
+        $this->getEmitter()->emit('tag', [$tag]);
+
+        return $tag->render();
     }
 
     /**
@@ -198,10 +232,13 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
      */
     public function renderLineBreak(array $options = array())
     {
-        return Tag::create('br')
+        $tag = Tag::create('br')
             ->setType(Tag::TYPE_INLINE)
-            ->setEmptyTagSuffix($this->getEmptyTagSuffix())
-            ->render();
+            ->setEmptyTagSuffix($this->getEmptyTagSuffix());
+
+        $this->getEmitter()->emit('tag', [$tag]);
+
+        return $tag->render();
     }
 
     /**
@@ -215,6 +252,8 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
         $tag->setType($tagType);
         $tag->setText($content);
         $tag->setAttributes($options['attr']);
+
+        $this->getEmitter()->emit('tag', [$tag]);
 
         return $tag->render();
     }
