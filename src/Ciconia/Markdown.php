@@ -4,6 +4,7 @@ namespace Ciconia;
 
 use Ciconia\Common\Collection;
 use Ciconia\Common\Text;
+use Ciconia\Event\EmitterAwareInterface;
 use Ciconia\Event\EmitterInterface;
 use Ciconia\Event\EmitterTrait;
 use Ciconia\Renderer\RendererInterface;
@@ -59,6 +60,10 @@ class Markdown implements EmitterInterface
      */
     public function __construct(RendererInterface $renderer, Text $rawContent = null, array $options = array())
     {
+        if ($renderer instanceof EmitterAwareInterface) {
+            $renderer->setEmitter($this);
+        }
+
         $this->renderer      = $renderer;
         $this->options       = $this->parseOptions($options);
         $this->hashRegistry  = new HashRegistry();

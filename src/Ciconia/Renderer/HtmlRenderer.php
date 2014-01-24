@@ -4,6 +4,8 @@ namespace Ciconia\Renderer;
 
 use Ciconia\Common\Tag;
 use Ciconia\Common\Text;
+use Ciconia\Event\EmitterAwareInterface;
+use Ciconia\Event\EmitterAwareTrait;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -11,15 +13,23 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  *
  * @author Kazuyuki Hayashi <hayashi@valnur.net>
  */
-class HtmlRenderer implements RendererInterface
+class HtmlRenderer implements RendererInterface, EmitterAwareInterface
 {
+
+    use EmitterAwareTrait;
 
     /**
      * {@inheritdoc}
      */
     public function renderParagraph($content, array $options = array())
     {
-        return '<p>' . $content . "</p>";
+        $options = $this->createResolver()->resolve($options);
+
+        $tag = new Tag('p');
+        $tag->setText($content);
+        $tag->setAttributes($options['attr']);
+
+        return $tag->render();
     }
 
     /**
@@ -28,7 +38,6 @@ class HtmlRenderer implements RendererInterface
     public function renderHeader($content, array $options = array())
     {
         $options = $this->createResolver()
-            ->setDefaults(['attr' => []])
             ->setRequired(['level'])
             ->setAllowedValues(['level' => [1, 2, 3, 4, 5, 6]])
             ->resolve($options);
@@ -51,15 +60,15 @@ class HtmlRenderer implements RendererInterface
 
         $options = $this->createResolver()->resolve($options);
 
-        $pre = new Tag('pre');
-        $pre->setAttributes($options['attr']);
+        $tag = Tag::create('pre')
+            ->setAttributes($options['attr'])
+            ->setText(
+                Tag::create('code')
+                    ->setText($content->append("\n"))
+                    ->render()
+            );
 
-        $code = new Tag('code');
-        $code->setText($content->append("\n"));
-
-        $pre->setText($code->render());
-
-        return $pre->render();
+        return $tag->render();
     }
 
     /**
@@ -67,7 +76,11 @@ class HtmlRenderer implements RendererInterface
      */
     public function renderCodeSpan($content, array $options = array())
     {
-        return "<code>$content</code>";
+        $tag = new Tag('code');
+        $tag->setType(Tag::TYPE_INLINE);
+        $tag->setText($content);
+
+        return $tag->render();
     }
 
     /**
@@ -100,7 +113,10 @@ class HtmlRenderer implements RendererInterface
      */
     public function renderBlockQuote($content, array $options = array())
     {
-        return "<blockquote>\n$content\n</blockquote>";
+        $tag = Tag::create('blockquote')
+            ->setText($content->wrap("\n", "\n"));
+
+        return $tag->render();
     }
 
     /**
@@ -130,7 +146,7 @@ class HtmlRenderer implements RendererInterface
      */
     public function renderListItem($content, array $options = array())
     {
-        return "<li>" . $content . "</li>";
+        return Tag::create('li')->setText($content)->render();
     }
 
     /**
@@ -138,7 +154,10 @@ class HtmlRenderer implements RendererInterface
      */
     public function renderHorizontalRule(array $options = array())
     {
-        return '<hr' . $this->getEmptyTagSuffix();
+        return Tag::create('hr')
+            ->setType(Tag::TYPE_INLINE)
+            ->setEmptyTagSuffix($this->getEmptyTagSuffix())
+            ->render();
     }
 
     /**
@@ -163,7 +182,7 @@ class HtmlRenderer implements RendererInterface
      */
     public function renderBoldText($text, array $options = array())
     {
-        return '<strong>' . $text . '</strong>';
+        return Tag::create('strong')->setText($text)->render();
     }
 
     /**
@@ -171,7 +190,7 @@ class HtmlRenderer implements RendererInterface
      */
     public function renderItalicText($text, array $options = array())
     {
-        return '<em>' . $text . '</em>';
+        return Tag::create('em')->setText($text)->render();
     }
 
     /**
@@ -179,7 +198,10 @@ class HtmlRenderer implements RendererInterface
      */
     public function renderLineBreak(array $options = array())
     {
-        return '<br' . $this->getEmptyTagSuffix();
+        return Tag::create('br')
+            ->setType(Tag::TYPE_INLINE)
+            ->setEmptyTagSuffix($this->getEmptyTagSuffix())
+            ->render();
     }
 
     /**

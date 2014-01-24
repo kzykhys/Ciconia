@@ -170,6 +170,22 @@ class Tag
     }
 
     /**
+     * @return bool
+     */
+    public function isBlock()
+    {
+        return $this->type === self::TYPE_BLOCK;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isInline()
+    {
+        return $this->type === self::TYPE_INLINE;
+    }
+
+    /**
      * Sets an attribute
      *
      * @param string $attribute The name of an attribute
