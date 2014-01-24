@@ -28,11 +28,16 @@ class HtmlRenderer implements RendererInterface
     public function renderHeader($content, array $options = array())
     {
         $options = $this->createResolver()
-            ->setRequired(array('level'))
-            ->setAllowedValues(array('level' => array(1, 2, 3, 4, 5, 6)))
+            ->setDefaults(['attr' => []])
+            ->setRequired(['level'])
+            ->setAllowedValues(['level' => [1, 2, 3, 4, 5, 6]])
             ->resolve($options);
 
-        return sprintf('<h%2$s>%1$s</h%2$s>', $content, $options['level']);
+        $tag = new Tag('h' . $options['level']);
+        $tag->setAttributes($options['attr']);
+        $tag->setText($content);
+
+        return $tag->render();
     }
 
     /**
