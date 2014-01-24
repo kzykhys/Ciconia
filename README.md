@@ -84,6 +84,26 @@ $html = $ciconia->render('Markdown is **awesome**');
 // <p>Markdown is <em>awesome</em></p>
 ```
 
+### Textile (Experimental: requires `kzykhys/ciconia:1.1.x-dev@dev`)
+
+New in 1.1: You can mix Textile syntax in your document
+
+``` php
+use Ciconia\Ciconia;
+use Ciconia\Extension\Textile;
+
+$ciconia = new Ciconia();
+$ciconia->addExtension(new Textile\HeaderExtension());   // ! replaces Markdown-style headers
+$ciconia->addExtension(new Textile\DefinitionListExtension());
+
+$html = $ciconia->render('- HTML := HyperText Markup Language');
+
+// <dl>
+// <dt>HTML</dt>
+// <dd>HyperText Markup Language</dd>
+// </dl>
+```
+
 ### Options
 
 Option             | Type    | Default | Description                   |
