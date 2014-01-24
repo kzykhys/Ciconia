@@ -433,11 +433,6 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 
 <h3 id="gfm-links">Links</h3>
 
-<div class="alert alert-info">
-    <p>You have to activate Gfm\UrlAutoLinkExtension to use this syntax.</p>
-    <pre>$ciconia->addExtension(new \Ciconia\Extension\Gfm\UrlAutoLinkExtension());</pre>
-</div>
-
 <div class="panel">
 <h4 class="panel-heading">
     URL Autolinking
@@ -445,6 +440,11 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 </h4>
 
 <div class="panel-body">
+    <div class="alert alert-info">
+        <p>You have to activate Gfm\UrlAutoLinkExtension to use this syntax.</p>
+        <pre>$ciconia->addExtension(new \Ciconia\Extension\Gfm\UrlAutoLinkExtension());</pre>
+    </div>
+
   <p>GFM will autolink standard URLs, so if you want to link to a URL (instead of setting link text),
      you can simply enter the URL and it will be turned into a link to that URL.</p>
 
@@ -465,10 +465,7 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 
 <h3 id="gfm-emphasis">Emphasis</h3>
 
-<div class="alert alert-info">
-    <p>You have to activate Gfm\InlineStyleExtension to use this syntax.</p>
-    <pre>$ciconia->addExtension(new \Ciconia\Extension\Gfm\InlineStyleExtension());</pre>
-</div>
+
 
 <div class="panel">
 <h4 class="panel-heading">
@@ -476,7 +473,10 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
     <small class="label label-info pull-right">Gfm\InlineStyleExtension</small> <small class="label label-info pull-right">1.0</small>
 </h4>
 <div class="panel-body">
-  <p></p>
+  <div class="alert alert-info">
+      <p>You have to activate Gfm\InlineStyleExtension to use this syntax.</p>
+      <pre>$ciconia->addExtension(new \Ciconia\Extension\Gfm\InlineStyleExtension());</pre>
+  </div>
 
   <ul class="nav nav-tabs">
     <li class="active"><a href="#gfm-strike-md" data-toggle="tab">Markdown</a></li>
@@ -495,17 +495,17 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 
 <h3 id="gfm-code">Fenced code blocks</h3>
 
-<div class="alert alert-info">
-    <p>You have to activate Gfm\FencedCodeBlockExtension to use this syntax.</p>
-    <pre>$ciconia->addExtension(new \Ciconia\Extension\Gfm\FencedCodeBlockExtension());</pre>
-</div>
-
 <div class="panel">
 <h4 class="panel-heading">
     Code Blocks
     <small class="label label-info pull-right">Gfm\FencedCodeBlockExtension</small> <small class="label label-info pull-right">1.0</small>
 </h4>
 <div class="panel-body">
+    <div class="alert alert-info">
+        <p>You have to activate Gfm\FencedCodeBlockExtension to use this syntax.</p>
+        <pre>$ciconia->addExtension(new \Ciconia\Extension\Gfm\FencedCodeBlockExtension());</pre>
+    </div>
+
   <p>Just wrap your code blocks in <code>```</code> and you won't need to indent manually to trigger a code block. </p>
 
   <ul class="nav nav-tabs">
@@ -530,6 +530,8 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 </h4>
 <div class="panel-body">
   <div class="alert alert-info">
+    <p>You have to activate Gfm\FencedCodeBlockExtension to use this syntax.</p>
+    <pre>$ciconia->addExtension(new \Ciconia\Extension\Gfm\FencedCodeBlockExtension());</pre>
     <p>As of 1.0, FencedCodeBlockExtension only supports **google-code-prettify**.
        To get colored output, You have to include the script tag below in your document.</p>
     <pre>&lt;script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"&gt;&lt;/script&gt;</pre>
@@ -552,18 +554,16 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 
 <h3 id="gfm-task-list">Task Lists</h3>
 
-<div class="alert alert-info">
-    <p>You have to activate Gfm\TaskListExtension to use this syntax.</p>
-    <pre>$ciconia->addExtension(new \Ciconia\Extension\Gfm\TaskListExtension());</pre>
-</div>
-
 <div class="panel">
 <h4 class="panel-heading">
     Task Lists
     <small class="label label-info pull-right">Gfm\TaskListExtension</small> <small class="label label-info pull-right">1.0</small>
 </h4>
 <div class="panel-body">
-  <p></p>
+  <div class="alert alert-info">
+      <p>You have to activate Gfm\TaskListExtension to use this syntax.</p>
+      <pre>$ciconia->addExtension(new \Ciconia\Extension\Gfm\TaskListExtension());</pre>
+  </div>
 
   <ul class="nav nav-tabs">
     <li class="active"><a href="#gfm-tasklist-md" data-toggle="tab">Markdown</a></li>
@@ -582,18 +582,16 @@ title: "Markdown Syntax - Ciconia (A Markdown Parser)"
 
 <h3 id="gfm-tables">Tables</h3>
 
-<div class="alert alert-info">
-    <p>You have to activate Gfm\TableExtension to use this syntax.</p>
-    <pre>$ciconia->addExtension(new \Ciconia\Extension\Gfm\TableExtension());</pre>
-</div>
-
 <div class="panel">
 <h4 class="panel-heading">
     Tables
     <small class="label label-info pull-right">Gfm\TableExtension</small> <small class="label label-info pull-right">1.0</small>
 </h4>
 <div class="panel-body">
-  <p></p>
+  <div class="alert alert-info">
+      <p>You have to activate Gfm\TableExtension to use this syntax.</p>
+      <pre>$ciconia->addExtension(new \Ciconia\Extension\Gfm\TableExtension());</pre>
+  </div>
 
   <ul class="nav nav-tabs">
     <li class="active"><a href="#gfm-table1-md" data-toggle="tab">Markdown</a></li>
