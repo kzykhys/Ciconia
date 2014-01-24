@@ -1,5 +1,6 @@
 <?php
 use Ciconia\Ciconia;
+use Ciconia\Extension\Textile\CommentExtension;
 use Ciconia\Extension\Textile\DefinitionListExtension;
 use Ciconia\Extension\Textile\HeaderExtension;
 use Symfony\Component\Finder\Finder;
@@ -22,7 +23,8 @@ class TextileExtensionsTest extends PHPUnit_Framework_TestCase
         $ciconia = new Ciconia();
         $ciconia->addExtensions([
             new HeaderExtension(),
-            new DefinitionListExtension()
+            new DefinitionListExtension(),
+            new CommentExtension()
         ]);
 
         $expected = str_replace("\r\n", "\n", $expected);
