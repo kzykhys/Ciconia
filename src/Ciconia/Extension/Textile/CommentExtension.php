@@ -6,6 +6,12 @@ use Ciconia\Common\Text;
 use Ciconia\Extension\ExtensionInterface;
 use Ciconia\Markdown;
 
+/**
+ * [Experimental] Comments
+ *
+ * @since 1.1
+ * @author Kazuyuki Hayashi <hayashi@valnur.net>
+ */
 class CommentExtension implements ExtensionInterface
 {
 
