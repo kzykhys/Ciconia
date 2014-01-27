@@ -29,7 +29,7 @@ class DefinitionListExtension implements ExtensionInterface, RendererAwareInterf
     public function register(Markdown $markdown)
     {
         $markdown->on('block', array($this, 'processDefinitionList'), 30);
-        //$markdown->on('block', array($this, 'processWikiDefinitionList'), 30);
+        $markdown->on('block', array($this, 'processWikiDefinitionList'), 30);
     }
 
     /**
@@ -92,6 +92,44 @@ class DefinitionListExtension implements ExtensionInterface, RendererAwareInterf
                 }
 
                 return $dt->render() . "\n" . $dd->render() . "\n";
+            }
+        );
+    }
+
+    /**
+     * @param Text $text
+     */
+    public function processWikiDefinitionList(Text $text)
+    {
+        $text->replace(
+            '{
+                (^
+                    ;[ \t]*.+\n
+                    (:[ \t]*.+\n){1,}
+                ){1,}
+                \n+
+            }mx',
+            function (Text $w) {
+                $w->replace('/^;[ \t]*(.+)\n((:[ \t]*.+\n){1,})/m', function (Text $w, Text $item, Text $content) {
+                    $dt = Tag::create('dt')->setText($item);
+                    $lines = $content->trim()->ltrim(':')->split('/\n?^:[ \t]*/m', PREG_SPLIT_NO_EMPTY);
+
+                    if (count($lines) > 1) {
+                        $dd = Tag::create('dd')->setText(
+                            Tag::create('p')->setText(
+                                trim($lines->join($this->getRenderer()->renderLineBreak() . "\n"))
+                            )
+                        );
+                    } else {
+                        $dd = Tag::create('dd')->setText($content->trim());
+                    }
+
+                    return $dt->render() . "\n" . $dd->render() . "\n";
+                });
+
+                $tag = Tag::create('dl')->setText("\n" . $w->trim() . "\n");
+
+                return $tag->render();
             }
         );
     }
