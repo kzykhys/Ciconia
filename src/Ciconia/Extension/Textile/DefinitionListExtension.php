@@ -39,13 +39,13 @@ class DefinitionListExtension implements ExtensionInterface, RendererAwareInterf
     {
         $text->replace(
             '{
-                (                       #1 whole match
-                    - [ \t]*           # dL starts with a dash
-                    (.+?) [ \t]* :=     #1 DT [dt and dd are splitted by :=]
-                    (                   #2 DD
-                        \n? .+? =:       # Multiline contents will ends with =:
+                (                    #1 whole match
+                    - [ \t]*         #  dL starts with a dash
+                    (.+?) [ \t]* :=  #1 DT [dt and dd are splitted by :=]
+                    (                #2 DD
+                        \n? .+? =:   #  Multiline contents will ends with =:
                         |
-                        [^\n]+?   # A line
+                        [^\n]+?      #  A line
                     )
                     \n
                 ){1,}
@@ -68,13 +68,13 @@ class DefinitionListExtension implements ExtensionInterface, RendererAwareInterf
         /** @noinspection PhpUnusedParameterInspection */
         $text->replace(
             '{
-                (                       #1 whole match
-                    - [ \t]*           # dL starts with a dash
-                    ([^\n]+) [ \t]* :=     #2 DT [dt and dd are splitted by :=]
-                    (                   #3
-                        \n (.+) (=:)   #4 DD>P
+                (                        #1 whole match
+                    - [ \t]*             #  dL starts with a dash
+                    ([^\n]+) [ \t]* :=   #2 DT [dt and dd are splitted by :=]
+                    (                    #3
+                        \n (.+) (=:)     #4 DD>P
                         |
-                        [ \t]* ([^\n]+)        #6 DD
+                        [ \t]* ([^\n]+)  #6 DD
                     )
                 )
                 \n
