@@ -14,7 +14,7 @@ class CommentExtension implements ExtensionInterface
      */
     public function register(Markdown $markdown)
     {
-        $markdown->on('block', array($this, 'processComment'), 10);
+        $markdown->on('block', array($this, 'processComment'), 50);
     }
 
     /**
