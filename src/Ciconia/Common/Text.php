@@ -123,6 +123,24 @@ class Text implements \Serializable
     }
 
     /**
+     * @param string $charList You can also specify the characters you want to strip, by means of the charlist parameter.
+     *                          Simply list all characters that you want to be stripped. With .. you can specify a range of characters.
+     *
+     * @since  1.1
+     * @return Text
+     */
+    public function ltrim($charList = null)
+    {
+        if (is_null($charList)) {
+            $this->text = ltrim($this->text);
+        } else {
+            $this->text = ltrim($this->text, $charList);
+        }
+
+        return $this;
+    }
+
+    /**
      * @return bool
      */
     public function isEmpty()
