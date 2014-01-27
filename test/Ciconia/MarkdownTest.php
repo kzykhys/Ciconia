@@ -13,7 +13,8 @@ class MarkdownTest extends PHPUnit_Framework_TestCase
         $this->assertEquals([
             'tabWidth'       => 4,
             'nestedTagLevel' => 3,
-            'strict'         => false
+            'strict'         => false,
+            'pygments'       => false
         ], $markdown->getOptions());
     }
 

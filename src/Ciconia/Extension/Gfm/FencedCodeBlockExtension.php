@@ -7,6 +7,7 @@ use Ciconia\Extension\ExtensionInterface;
 use Ciconia\Renderer\RendererAwareInterface;
 use Ciconia\Renderer\RendererAwareTrait;
 use Ciconia\Markdown;
+use KzykHys\Pygments\Pygments;
 
 /**
  * Markdown converts text with four spaces at the front of each line to code blocks.
@@ -39,9 +40,10 @@ class FencedCodeBlockExtension implements ExtensionInterface, RendererAwareInter
     }
 
     /**
-     * @param Text $text
+     * @param Text  $text
+     * @param array $options
      */
-    public function processFencedCodeBlock(Text $text)
+    public function processFencedCodeBlock(Text $text, array $options = [])
     {
         /** @noinspection PhpUnusedParameterInspection */
         $text->replace('{
@@ -53,15 +55,22 @@ class FencedCodeBlockExtension implements ExtensionInterface, RendererAwareInter
                 (.*?)\n                #3 code block
                 \1                    # matched #1
             )
-        }smx', function (Text $w, Text $fence, Text $lang, Text $code) {
-            $options = array();
+        }smx', function (Text $w, Text $fence, Text $lang, Text $code) use ($options) {
+            $rendererOptions = [];
 
             if (!$lang->isEmpty()) {
-                $options = array(
-                    'attr' => array(
+                if ($options['pygments'] && class_exists('KzykHys\Pygments\Pygments')) {
+                    $pygments = new Pygments();
+                    $html = $pygments->highlight($code, $lang, 'html');
+
+                    return "\n\n" . $html . "\n\n";
+                }
+
+                $rendererOptions = [
+                    'attr' => [
                         'class' => 'prettyprint lang-' . $lang->lower()
-                    )
-                );
+                    ]
+                ];
             }
 
             $code->escapeHtml(ENT_NOQUOTES);
@@ -69,7 +78,7 @@ class FencedCodeBlockExtension implements ExtensionInterface, RendererAwareInter
             $code->replace('/\A\n+/', '');
             $code->replace('/\s+\z/', '');
 
-            return "\n\n" . $this->getRenderer()->renderCodeBlock($code, $options) . "\n\n";
+            return "\n\n" . $this->getRenderer()->renderCodeBlock($code, $rendererOptions) . "\n\n";
         });
     }
 

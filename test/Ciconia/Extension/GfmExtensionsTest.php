@@ -78,6 +78,25 @@ class GfmExtensionsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @param $name
+     * @param $markdown
+     * @param $expected
+     *
+     * @dataProvider pygmentsModeProvider
+     */
+    public function testPygmentsMode($name, $markdown, $expected)
+    {
+        $ciconia = new Ciconia();
+        $ciconia->addExtensions([
+            new FencedCodeBlockExtension()
+        ]);
+
+        $html = $ciconia->render($markdown, ['pygments' => true]);
+
+        $this->assertEquals($expected, $html, sprintf('%s failed', $name));
+    }
+
+    /**
      * @return array
      */
     public function gfmProvider()
@@ -97,6 +116,19 @@ class GfmExtensionsTest extends PHPUnit_Framework_TestCase
     {
         $finder = Finder::create()
             ->in(__DIR__.'/../Resources/options/strict/gfm')
+            ->files()
+            ->name('*.md');
+
+        return $this->processPatterns($finder);
+    }
+
+    /**
+     * @return array
+     */
+    public function pygmentsModeProvider()
+    {
+        $finder = Finder::create()
+            ->in(__DIR__.'/../Resources/options/pygments')
             ->files()
             ->name('*.md');
 

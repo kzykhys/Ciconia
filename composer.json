@@ -22,7 +22,11 @@
     },
     "require-dev": {
         "symfony/finder": ">=2.3,<2.5-dev",
-        "symfony/stopwatch": ">=2.3,<2.5-dev"
+        "symfony/stopwatch": ">=2.3,<2.5-dev",
+        "kzykhys/pygments": ">=1.0"
+    },
+    "suggest": {
+        "kzykhys/pygments": ">=1.0"
     },
     "bin": ["bin/ciconia"],
     "extra": {
