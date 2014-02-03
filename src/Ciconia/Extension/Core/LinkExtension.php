@@ -115,7 +115,8 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
 
             if ($this->markdown->getUrlRegistry()->exists($id)) {
                 $url = new Text($this->markdown->getUrlRegistry()->get($id));
-                $url->escapeHtml();
+                $url->escapeHtml()->replace('/(?<!\\\\)_/', '\\\\_');
+                $this->markdown->emit('escape.special_chars', [$url]);
 
                 $linkOptions = [
                     'href' => $url->getString(),
@@ -169,7 +170,8 @@ class LinkExtension implements ExtensionInterface, RendererAwareInterface
               \)
             #)
         }xs', function (Text $whole, Text $linkText, Text $url, Text $a = null, Text $q = null, Text $title = null) {
-            $url->escapeHtml();
+            $url->escapeHtml()->replace('/(?<!\\\\)_/', '\\\\_');
+            $this->markdown->emit('escape.special_chars', [$url]);
 
             $linkOptions = [
                 'href' => $url->getString(),
