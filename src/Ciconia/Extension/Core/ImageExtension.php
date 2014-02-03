@@ -75,6 +75,8 @@ class ImageExtension implements ExtensionInterface, RendererAwareInterface
                     $id->setString($alt);
                 }
 
+                $this->markdown->emit('escape.special_chars', [$alt->replace('/(?<!\\\\)_/', '\\\\_')]);
+
                 $attr = array(
                     'alt' => $alt->replace('/"/', '&quot;')
                 );
@@ -144,6 +146,8 @@ class ImageExtension implements ExtensionInterface, RendererAwareInterface
                 Text $q = null,
                 Text $title = null
             ) use ($options) {
+                $this->markdown->emit('escape.special_chars', [$alt->replace('/(?<!\\\\)_/', '\\\\_')]);
+
                 $attr = array(
                     'alt' => $alt->replace('/"/', '&quot;')
                 );
