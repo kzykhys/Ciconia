@@ -4,6 +4,8 @@ namespace Ciconia\Renderer;
 
 use Ciconia\Common\Tag;
 use Ciconia\Common\Text;
+use Ciconia\Event\EmitterAwareInterface;
+use Ciconia\Event\EmitterAwareTrait;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -11,15 +13,25 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  *
  * @author Kazuyuki Hayashi <hayashi@valnur.net>
  */
-class HtmlRenderer implements RendererInterface
+class HtmlRenderer implements RendererInterface, EmitterAwareInterface
 {
+
+    use EmitterAwareTrait;
 
     /**
      * {@inheritdoc}
      */
     public function renderParagraph($content, array $options = array())
     {
-        return '<p>' . $content . "</p>";
+        $options = $this->createResolver()->resolve($options);
+
+        $tag = new Tag('p');
+        $tag->setText($content);
+        $tag->setAttributes($options['attr']);
+
+        $this->getEmitter()->emit('tag', [$tag]);
+
+        return $tag->render();
     }
 
     /**
@@ -28,11 +40,17 @@ class HtmlRenderer implements RendererInterface
     public function renderHeader($content, array $options = array())
     {
         $options = $this->createResolver()
-            ->setRequired(array('level'))
-            ->setAllowedValues(array('level' => array(1, 2, 3, 4, 5, 6)))
+            ->setRequired(['level'])
+            ->setAllowedValues(['level' => [1, 2, 3, 4, 5, 6]])
             ->resolve($options);
 
-        return sprintf('<h%2$s>%1$s</h%2$s>', $content, $options['level']);
+        $tag = new Tag('h' . $options['level']);
+        $tag->setAttributes($options['attr']);
+        $tag->setText($content);
+
+        $this->getEmitter()->emit('tag', [$tag]);
+
+        return $tag->render();
     }
 
     /**
@@ -46,15 +64,17 @@ class HtmlRenderer implements RendererInterface
 
         $options = $this->createResolver()->resolve($options);
 
-        $pre = new Tag('pre');
-        $pre->setAttributes($options['attr']);
+        $tag = Tag::create('pre')
+            ->setAttributes($options['attr'])
+            ->setText(
+                Tag::create('code')
+                    ->setText($content->append("\n"))
+                    ->render()
+            );
 
-        $code = new Tag('code');
-        $code->setText($content->append("\n"));
+        $this->getEmitter()->emit('tag', [$tag]);
 
-        $pre->setText($code->render());
-
-        return $pre->render();
+        return $tag->render();
     }
 
     /**
@@ -62,7 +82,13 @@ class HtmlRenderer implements RendererInterface
      */
     public function renderCodeSpan($content, array $options = array())
     {
-        return "<code>$content</code>";
+        $tag = new Tag('code');
+        $tag->setType(Tag::TYPE_INLINE);
+        $tag->setText($content);
+
+        $this->getEmitter()->emit('tag', [$tag]);
+
+        return $tag->render();
     }
 
     /**
@@ -87,6 +113,8 @@ class HtmlRenderer implements RendererInterface
             $tag->setAttribute('title', $options['title']);
         }
 
+        $this->getEmitter()->emit('tag', [$tag]);
+
         return $tag->render();
     }
 
@@ -95,7 +123,12 @@ class HtmlRenderer implements RendererInterface
      */
     public function renderBlockQuote($content, array $options = array())
     {
-        return "<blockquote>\n$content\n</blockquote>";
+        $tag = Tag::create('blockquote')
+            ->setText($content->wrap("\n", "\n"));
+
+        $this->getEmitter()->emit('tag', [$tag]);
+
+        return $tag->render();
     }
 
     /**
@@ -117,6 +150,8 @@ class HtmlRenderer implements RendererInterface
         $tag->setText($content->prepend("\n"));
         $tag->setAttributes($options['attr']);
 
+        $this->getEmitter()->emit('tag', [$tag]);
+
         return $tag->render();
     }
 
@@ -125,7 +160,12 @@ class HtmlRenderer implements RendererInterface
      */
     public function renderListItem($content, array $options = array())
     {
-        return "<li>" . $content . "</li>";
+        $tag = Tag::create('li')
+            ->setText($content);
+
+        $this->getEmitter()->emit('tag', [$tag]);
+
+        return $tag->render();
     }
 
     /**
@@ -133,7 +173,13 @@ class HtmlRenderer implements RendererInterface
      */
     public function renderHorizontalRule(array $options = array())
     {
-        return '<hr' . $this->getEmptyTagSuffix();
+        $tag = Tag::create('hr')
+            ->setType(Tag::TYPE_INLINE)
+            ->setEmptyTagSuffix($this->getEmptyTagSuffix());
+
+        $this->getEmitter()->emit('tag', [$tag]);
+
+        return $tag->render();
     }
 
     /**
@@ -150,6 +196,8 @@ class HtmlRenderer implements RendererInterface
             ->setAttribute('src', $src)
             ->setAttributes($options['attr']);
 
+        $this->getEmitter()->emit('tag', [$tag]);
+
         return $tag->render();
     }
 
@@ -158,7 +206,12 @@ class HtmlRenderer implements RendererInterface
      */
     public function renderBoldText($text, array $options = array())
     {
-        return '<strong>' . $text . '</strong>';
+        $tag = Tag::create('strong')
+            ->setText($text);
+
+        $this->getEmitter()->emit('tag', [$tag]);
+
+        return $tag->render();
     }
 
     /**
@@ -166,7 +219,12 @@ class HtmlRenderer implements RendererInterface
      */
     public function renderItalicText($text, array $options = array())
     {
-        return '<em>' . $text . '</em>';
+        $tag = Tag::create('em')
+            ->setText($text);
+
+        $this->getEmitter()->emit('tag', [$tag]);
+
+        return $tag->render();
     }
 
     /**
@@ -174,7 +232,13 @@ class HtmlRenderer implements RendererInterface
      */
     public function renderLineBreak(array $options = array())
     {
-        return '<br' . $this->getEmptyTagSuffix();
+        $tag = Tag::create('br')
+            ->setType(Tag::TYPE_INLINE)
+            ->setEmptyTagSuffix($this->getEmptyTagSuffix());
+
+        $this->getEmitter()->emit('tag', [$tag]);
+
+        return $tag->render();
     }
 
     /**
@@ -188,6 +252,8 @@ class HtmlRenderer implements RendererInterface
         $tag->setType($tagType);
         $tag->setText($content);
         $tag->setAttributes($options['attr']);
+
+        $this->getEmitter()->emit('tag', [$tag]);
 
         return $tag->render();
     }

@@ -119,7 +119,7 @@ class ListExtension implements ExtensionInterface, RendererAwareInterface, Emitt
             (\n{1,2}))
             (?= \n* (\z | \2 (' . $this->getPattern() . ') [ \t]+))
         }mx', function (Text $w, Text $leadingLine, Text $ls, Text $m, Text $item) use ($options, $level) {
-            if ((string)$leadingLine or $item->match('/\n{2,}/')) {
+            if ((string)$leadingLine || $item->match('/\n{2,}/')) {
                 $this->markdown->emit('outdent', array($item));
                 $this->markdown->emit('block', array($item));
             } else {

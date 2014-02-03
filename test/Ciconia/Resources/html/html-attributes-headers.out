@@ -1,0 +1,9 @@
+<h1 id="id" class="class1 class2" role="main" align="right">Header</h1>
+
+<h3 id="id">Header</h3>
+
+<h3 class="class">Header</h3>
+
+<h2 aria-hidden="true">Header</h2>
+
+<h6 aria-hidden="true">Header</h6>

@@ -115,7 +115,7 @@ class ImageExtension implements ExtensionInterface, RendererAwareInterface
             return;
         }
 
-        /** @xnoinspection PhpUnusedParameterInspection */
+        /** @noinspection PhpUnusedParameterInspection */
         $text->replace(
             '{
                 (               # wrap whole match in $1
