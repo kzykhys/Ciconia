@@ -21,3 +21,9 @@ script:
 
 after_script:
   - php vendor/bin/coveralls
+
+after_success:
+  - composer require kzykhys/markbench:*
+  - vendor/bin/markbench benchmark --parser=kzykhys/ciconia --profile=blank
+  - vendor/bin/markbench benchmark --parser=kzykhys/ciconia --profile=default
+  - vendor/bin/markbench benchmark --parser=kzykhys/ciconia --profile=github-sample
