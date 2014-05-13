@@ -41,7 +41,7 @@ class BlockQuoteExtension implements ExtensionInterface, RendererAwareInterface
     /**
      * @param Text $text
      */
-    public function processBlockQuote(Text $text)
+    public function processBlockQuote(Text $text, array $options = array(), $level = 1)
     {
         $text->replace('{
           (?:
@@ -52,17 +52,17 @@ class BlockQuoteExtension implements ExtensionInterface, RendererAwareInterface
               \n*            # blanks
             )+
           )
-        }mx', function (Text $bq) {
+        }mx', function (Text $bq) use ($options, $level) {
             $bq->replace('/^[ \t]*>[ \t]?/m', '');
             $bq->replace('/^[ \t]+$/m', '');
 
-            $this->markdown->emit('block', array($bq));
+            $this->markdown->emit('block', array($bq, $options, ($level + 1)));
 
             $bq->replace('|\s*<pre>.+?</pre>|s', function (Text $pre) {
                 return $pre->replace('/^  /m', '');
             });
 
-            return $this->getRenderer()->renderBlockQuote($bq) . "\n\n";
+            return $this->getRenderer()->renderBlockQuote($bq, array('level' => $level)) . "\n\n";
         });
     }
 
