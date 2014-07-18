@@ -86,6 +86,10 @@ class GfmExtensionsTest extends PHPUnit_Framework_TestCase
      */
     public function testPygmentsMode($name, $markdown, $expected)
     {
+        if (substr(PHP_OS, 0, 3) === 'WIN') {
+            $this->markTestSkipped('Does not work on Windows.');
+        }
+
         $ciconia = new Ciconia();
         $ciconia->addExtensions([
             new FencedCodeBlockExtension()
@@ -155,4 +159,4 @@ class GfmExtensionsTest extends PHPUnit_Framework_TestCase
         return $patterns;
     }
 
-} 
+}
