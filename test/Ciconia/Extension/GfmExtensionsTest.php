@@ -101,6 +101,25 @@ class GfmExtensionsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @param $name
+     * @param $markdown
+     * @param $expected
+     *
+     * @dataProvider geshiModeProvider
+     */
+    public function testGeshiMode($name, $markdown, $expected)
+    {
+        $ciconia = new Ciconia();
+        $ciconia->addExtensions([
+            new FencedCodeBlockExtension()
+        ]);
+
+        $html = $ciconia->render($markdown, ['geshi' => true]);
+
+        $this->assertEquals($expected, $html, sprintf('%s failed', $name));
+    }
+
+    /**
      * @return array
      */
     public function gfmProvider()
@@ -133,6 +152,19 @@ class GfmExtensionsTest extends PHPUnit_Framework_TestCase
     {
         $finder = Finder::create()
             ->in(__DIR__.'/../Resources/options/pygments')
+            ->files()
+            ->name('*.md');
+
+        return $this->processPatterns($finder);
+    }
+
+    /**
+     * @return array
+     */
+    public function geshiModeProvider()
+    {
+        $finder = Finder::create()
+            ->in(__DIR__.'/../Resources/options/geshi')
             ->files()
             ->name('*.md');
 

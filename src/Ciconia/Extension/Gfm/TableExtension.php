@@ -65,7 +65,7 @@ class TableExtension implements ExtensionInterface, RendererAwareInterface
         $lessThanTab = $options['tabWidth'] - 1;
 
         $text->replace('/
-            (?:\n\n|\A)
+            (?:\n|\A)
             (?:[ ]{0,' . $lessThanTab . '}      #  table header
                 (?:\|?)                         #  optional outer pipe
                 ([^\n]*?\|[^\n]*?)              #1 table header
