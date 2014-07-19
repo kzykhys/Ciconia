@@ -11,3 +11,11 @@ class Test
 </code></pre>
 
 <h2>header</h2>
+
+<ol>
+<li><p>foo</p>
+
+<pre><code>Code
+</code></pre></li>
+<li><p>bar</p></li>
+</ol>
