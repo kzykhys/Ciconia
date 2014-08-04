@@ -7,6 +7,8 @@ use Ciconia\Extension\ExtensionInterface;
 use Ciconia\Renderer\RendererAwareInterface;
 use Ciconia\Renderer\RendererAwareTrait;
 use Ciconia\Markdown;
+use KzykHys\Pygments\Pygments;
+use GeSHi;
 
 /**
  * Markdown converts text with four spaces at the front of each line to code blocks.
@@ -59,7 +61,7 @@ class FencedCodeBlockExtension implements ExtensionInterface, RendererAwareInter
 
             if (!$lang->isEmpty()) {
                 if ($options['pygments'] && class_exists('KzykHys\Pygments\Pygments')) {
-                    $pygments = new \KzykHys\Pygments\Pygments();
+                    $pygments = new Pygments();
                     $html = $pygments->highlight($code, $lang, 'html');
 
                     return "\n\n" . $html . "\n\n";
