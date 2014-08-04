@@ -14,8 +14,9 @@ class MarkdownTest extends PHPUnit_Framework_TestCase
             'tabWidth'       => 4,
             'nestedTagLevel' => 3,
             'strict'         => false,
-            'pygments'       => false
+            'pygments'       => false,
+            'geshi'          => false
         ], $markdown->getOptions());
     }
 
-} 
+}

@@ -86,12 +86,35 @@ class GfmExtensionsTest extends PHPUnit_Framework_TestCase
      */
     public function testPygmentsMode($name, $markdown, $expected)
     {
+        if (substr(PHP_OS, 0, 3) === 'WIN') {
+            $this->markTestSkipped('Does not work on Windows.');
+        }
+
         $ciconia = new Ciconia();
         $ciconia->addExtensions([
             new FencedCodeBlockExtension()
         ]);
 
         $html = $ciconia->render($markdown, ['pygments' => true]);
+
+        $this->assertEquals($expected, $html, sprintf('%s failed', $name));
+    }
+
+    /**
+     * @param $name
+     * @param $markdown
+     * @param $expected
+     *
+     * @dataProvider geshiModeProvider
+     */
+    public function testGeshiMode($name, $markdown, $expected)
+    {
+        $ciconia = new Ciconia();
+        $ciconia->addExtensions([
+            new FencedCodeBlockExtension()
+        ]);
+
+        $html = $ciconia->render($markdown, ['geshi' => true]);
 
         $this->assertEquals($expected, $html, sprintf('%s failed', $name));
     }
@@ -136,6 +159,19 @@ class GfmExtensionsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @return array
+     */
+    public function geshiModeProvider()
+    {
+        $finder = Finder::create()
+            ->in(__DIR__.'/../Resources/options/geshi')
+            ->files()
+            ->name('*.md');
+
+        return $this->processPatterns($finder);
+    }
+
+    /**
      * @param Finder|\Symfony\Component\Finder\SplFileInfo[] $finder
      *
      * @return array
@@ -155,4 +191,4 @@ class GfmExtensionsTest extends PHPUnit_Framework_TestCase
         return $patterns;
     }
 
-} 
+}

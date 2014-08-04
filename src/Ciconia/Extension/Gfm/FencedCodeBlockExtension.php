@@ -8,6 +8,7 @@ use Ciconia\Renderer\RendererAwareInterface;
 use Ciconia\Renderer\RendererAwareTrait;
 use Ciconia\Markdown;
 use KzykHys\Pygments\Pygments;
+use GeSHi;
 
 /**
  * Markdown converts text with four spaces at the front of each line to code blocks.
@@ -47,7 +48,7 @@ class FencedCodeBlockExtension implements ExtensionInterface, RendererAwareInter
     {
         /** @noinspection PhpUnusedParameterInspection */
         $text->replace('{
-            (?:\n\n|\A)
+            (?:\n|\A)
             (?:
                 ([`~]{3})[ ]*         #1 fence ` or ~
                     ([a-zA-Z0-9]*?)?  #2 language [optional]
@@ -64,6 +65,11 @@ class FencedCodeBlockExtension implements ExtensionInterface, RendererAwareInter
                     $html = $pygments->highlight($code, $lang, 'html');
 
                     return "\n\n" . $html . "\n\n";
+                } elseif ($options['geshi'] && class_exists('GeSHi')) {
+                    $geshi = new \GeSHi($code, $lang);
+                    $html = $geshi->parse_code();
+
+                    return "\n\n" . '<div class="highlight">' . $html . '</div>' . "\n\n";
                 }
 
                 $rendererOptions = [

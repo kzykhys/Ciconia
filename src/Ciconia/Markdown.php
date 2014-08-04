@@ -131,14 +131,16 @@ class Markdown implements EmitterInterface
             'tabWidth'       => 4,
             'nestedTagLevel' => 3,
             'strict'         => false,
-            'pygments'       => false
+            'pygments'       => false,
+            'geshi'          => false
         ));
 
         $resolver->setAllowedTypes(array(
             'tabWidth'       => 'integer',
             'nestedTagLevel' => 'integer',
             'strict'         => 'bool',
-            'pygments'       => 'bool'
+            'pygments'       => 'bool',
+            'geshi'          => 'bool'
         ));
     }
 
