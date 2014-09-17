@@ -34,7 +34,7 @@ class Ciconia
     /**
      * @var Collection|ExtensionInterface[]
      */
-    private $extensions;
+    protected $extensions;
 
     /**
      * @param RendererInterface $renderer
