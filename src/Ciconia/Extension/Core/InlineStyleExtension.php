@@ -43,7 +43,7 @@ class InlineStyleExtension implements ExtensionInterface, RendererAwareInterface
         }
 
         /** @noinspection PhpUnusedParameterInspection */
-        $text->replace('{ ([^\*_\s]?) (\*\*|__) (?=\S) (.+?[*_]*) (?<=\S) \2 ([^\*_\s]?) }sx', function (Text $w, Text $prevChar, Text $a, Text $target, Text $nextChar) {
+        $text->replace('{ (\w?) (\*\*|__) (?=\S) (.+?[*_]*) (?<=\S) \2 (\w?) }sx', function (Text $w, Text $prevChar, Text $a, Text $target, Text $nextChar) {
             if (!$prevChar->isEmpty() && !$nextChar->isEmpty() && $target->contains(' ')) {
                 $this->getEmitter()->emit('escape.special_chars', [$w->replaceString(['*', '_'], ['\\*', '\\_'])]);
 
@@ -64,7 +64,7 @@ class InlineStyleExtension implements ExtensionInterface, RendererAwareInterface
         }
 
         /** @noinspection PhpUnusedParameterInspection */
-        $text->replace('{ ([^\*_\s]?) (\*|_) (?=\S) (.+?) (?<=\S) \2 ([^\*_\s]?) }sx', function (Text $w, Text $prevChar, Text $a, Text $target, Text $nextChar) {
+        $text->replace('{ (\w?) (\*|_) (?=\S) (.+?) (?<=\S) \2 (\w?) }sx', function (Text $w, Text $prevChar, Text $a, Text $target, Text $nextChar) {
             if (!$prevChar->isEmpty() && !$nextChar->isEmpty() && $target->contains(' ')) {
                 $this->getEmitter()->emit('escape.special_chars', [$w->replaceString(['*', '_'], ['\\*', '\\_'])]);
 
