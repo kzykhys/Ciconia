@@ -63,24 +63,23 @@ class ListExtension implements ExtensionInterface, RendererAwareInterface, Emitt
         $lessThanTab = $options['tabWidth'] - 1;
 
         $wholeList = '
-            #(                                 # $1 = whole list
-              (                               # $2
-                [ ]{0,' . $lessThanTab . '}
-                (' . $this->getPattern() . ') # $3 = first list item marker
-                [ \t]+
-              )
-              (?s:.+?)
-              (?:                             # $4
-                  \z
-                |
-                  \n{2,}
-                  (?=\S)
-                  (?!                         # Negative lookahead for another list item marker
-                    [ \t]*
-                    ' . $this->getPattern() . '[ \t]+
-                  )
-              )
-            #)
+            (                               # $1
+              [ ]{0,' . $lessThanTab . '}
+              # $2 = first list item marker; $3 captures for the conditional subpattern below
+              ((' . $this->ul . ')|' . $this->ol . ')
+              [ \t]+
+            )
+            (?s:.+?)
+            (?:
+                \z
+              |
+                \n{2,}
+                (?=\S)
+                (?!                         # Negative lookahead for another list item marker
+                  [ \t]*
+                  (?(3)\3|' . $this->ol . ')[ \t]+ # Only match the same kind of marker
+                )
+            )
         ';
 
         /** @noinspection PhpUnusedParameterInspection */
