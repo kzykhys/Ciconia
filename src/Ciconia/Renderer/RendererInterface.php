@@ -37,11 +37,12 @@ interface RendererInterface
      * @api
      *
      * @param string|Text $content
-     * @param array       $options
+     * @param array       $preOptions
+     * @param array       $codeOptions
      *
      * @return string
      */
-    public function renderCodeBlock($content, array $options = array());
+    public function renderCodeBlock($content, array $preOptions = array(), array $codeOptions = array());
 
     /**
      * @api

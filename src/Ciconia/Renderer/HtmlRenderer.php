@@ -56,18 +56,21 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
     /**
      * {@inheritdoc}
      */
-    public function renderCodeBlock($content, array $options = array())
+    public function renderCodeBlock($content, array $preOptions = array(), array $codeOptions = array())
     {
         if (!$content instanceof Text) {
             $content = new Text($content);
         }
 
-        $options = $this->createResolver()->resolve($options);
+        $resolver = $this->createResolver();
+        $preOptions = $resolver->resolve($preOptions);
+        $codeOptions = $resolver->resolve($preOptions);
 
         $tag = Tag::create('pre')
-            ->setAttributes($options['attr'])
+            ->setAttributes($preOptions['attr'])
             ->setText(
                 Tag::create('code')
+                    ->setAttributes($codeOptions['attr'])
                     ->setText($content->append("\n"))
                     ->render()
             );

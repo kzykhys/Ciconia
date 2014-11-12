@@ -56,7 +56,7 @@ class FencedCodeBlockExtension implements ExtensionInterface, RendererAwareInter
                 \1                    # matched #1
             )
         }smx', function (Text $w, Text $fence, Text $lang, Text $code) use ($options) {
-            $rendererOptions = [];
+            $preRendererOptions = $codeRendererOptions = [];
 
             if (!$lang->isEmpty()) {
                 if ($options['pygments'] && class_exists('KzykHys\Pygments\Pygments')) {
@@ -66,9 +66,14 @@ class FencedCodeBlockExtension implements ExtensionInterface, RendererAwareInter
                     return "\n\n" . $html . "\n\n";
                 }
 
-                $rendererOptions = [
+                $preRendererOptions = [
                     'attr' => [
                         'class' => 'prettyprint lang-' . $lang->lower()
+                    ]
+                ];
+                $codeRendererOptions = [
+                    'attr' => [
+                        'class' => 'language-' . $lang->lower()
                     ]
                 ];
             }
@@ -78,7 +83,7 @@ class FencedCodeBlockExtension implements ExtensionInterface, RendererAwareInter
             $code->replace('/\A\n+/', '');
             $code->replace('/\s+\z/', '');
 
-            return "\n\n" . $this->getRenderer()->renderCodeBlock($code, $rendererOptions) . "\n\n";
+            return "\n\n" . $this->getRenderer()->renderCodeBlock($code, $preRendererOptions, $codeRendererOptions) . "\n\n";
         });
     }
 
