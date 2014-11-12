@@ -64,7 +64,7 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
 
         $resolver = $this->createResolver();
         $preOptions = $resolver->resolve($preOptions);
-        $codeOptions = $resolver->resolve($preOptions);
+        $codeOptions = $resolver->resolve($codeOptions);
 
         $tag = Tag::create('pre')
             ->setAttributes($preOptions['attr'])
