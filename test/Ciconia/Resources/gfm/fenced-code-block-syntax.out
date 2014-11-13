@@ -2,7 +2,7 @@
 code block
 </code></pre>
 
-<pre class="prettyprint lang-php"><code>&lt;?php
+<pre class="prettyprint lang-php"><code class="language-php">&lt;?php
 
 class Test
 {
