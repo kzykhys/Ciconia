@@ -102,7 +102,8 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
         $options = $this->createResolver()
             ->setRequired(array('href'))
             ->setDefaults(array('href' => '#', 'title' => ''))
-            ->setAllowedTypes(array('href' => 'string', 'title' => 'string'))
+            ->setAllowedTypes('href', 'string')
+            ->setAllowedTypes('title', 'string')
             ->resolve($options);
 
         $tag = new Tag('a');
@@ -265,7 +266,7 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
     {
         $resolver = new OptionsResolver();
         $resolver->setDefaults(array('attr' => array()));
-        $resolver->setAllowedTypes(array('attr' => 'array'));
+        $resolver->setAllowedTypes('attr', 'array');
 
         return $resolver;
     }
