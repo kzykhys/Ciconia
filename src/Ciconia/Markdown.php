@@ -134,12 +134,10 @@ class Markdown implements EmitterInterface
             'pygments'       => false
         ));
 
-        $resolver->setAllowedTypes(array(
-            'tabWidth'       => 'integer',
-            'nestedTagLevel' => 'integer',
-            'strict'         => 'bool',
-            'pygments'       => 'bool'
-        ));
+        $resolver->setAllowedTypes('tabWidth', 'integer');
+        $resolver->setAllowedTypes('nestedTagLevel', 'integer');
+        $resolver->setAllowedTypes('strict', 'bool');
+        $resolver->setAllowedTypes('pygments', 'bool');
     }
 
     /**
