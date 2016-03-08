@@ -41,7 +41,7 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
     {
         $options = $this->createResolver()
             ->setRequired(['level'])
-            ->setAllowedValues(['level' => [1, 2, 3, 4, 5, 6]])
+            ->setAllowedValues('level', [1, 2, 3, 4, 5, 6])
             ->resolve($options);
 
         $tag = new Tag('h' . $options['level']);
@@ -102,7 +102,8 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
         $options = $this->createResolver()
             ->setRequired(array('href'))
             ->setDefaults(array('href' => '#', 'title' => ''))
-            ->setAllowedTypes(array('href' => 'string', 'title' => 'string'))
+            ->setAllowedTypes('href', 'string')
+            ->setAllowedTypes('title', 'string')
             ->resolve($options);
 
         $tag = new Tag('a');
@@ -142,7 +143,7 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
 
         $options = $this->createResolver()
             ->setRequired(array('type'))
-            ->setAllowedValues(array('type' => array('ul', 'ol')))
+            ->setAllowedValues('type', array('ul', 'ol'))
             ->setDefaults(array('type' => 'ul'))
             ->resolve($options);
 
@@ -265,7 +266,7 @@ class HtmlRenderer implements RendererInterface, EmitterAwareInterface
     {
         $resolver = new OptionsResolver();
         $resolver->setDefaults(array('attr' => array()));
-        $resolver->setAllowedTypes(array('attr' => 'array'));
+        $resolver->setAllowedTypes('attr', 'array');
 
         return $resolver;
     }
