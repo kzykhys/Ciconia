@@ -13,7 +13,7 @@ use Ciconia\Extension\Gfm\WhiteSpaceExtension;
 use Ciconia\Renderer\XhtmlRenderer;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Command\HelpCommand;
-use Symfony\Component\Console\Helper\TableHelper;
+use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -209,8 +209,7 @@ class CiconiaCommand extends Command
      */
     protected function diagnose(OutputInterface $output, \Ciconia\Diagnose\Ciconia $ciconia, $content)
     {
-        /* @var TableHelper $table */
-        $table = $this->getHelper('table');
+        $table = new Table($output);
         $table->setHeaders([
             'Event', 'Callback', 'Duration', 'MEM Usage'
         ]);

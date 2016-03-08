@@ -86,6 +86,16 @@ class GfmExtensionsTest extends PHPUnit_Framework_TestCase
      */
     public function testPygmentsMode($name, $markdown, $expected)
     {
+        $this->markTestSkipped(<<<INFO
+            kzykhys/Pygments doesn't support symfony/process >= 3.0
+            
+            BC https://github.com/symfony/symfony/blob/master/UPGRADE-3.0.md#process
+            - Process::setStdin() and Process::getStdin() have been removed. Use Process::setInput()
+            
+            https://github.com/kzykhys/Pygments.php/blob/master/src/KzykHys/Pygments/Pygments.php#L65
+            \$builder->getProcess()->setInput((string) \$code)
+INFO
+        );
         $ciconia = new Ciconia();
         $ciconia->addExtensions([
             new FencedCodeBlockExtension()
